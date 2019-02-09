@@ -1,0 +1,15 @@
+image: ddidier/sphinx-doc:latest
+#image: ubuntu:latest
+
+#before_script:
+#  - apt-get -qq update && apt-get -qq install python3-sphinx python3-sphinx-rtd-theme make
+
+pages:
+  script:
+    - make html
+    - mv _build/html/ public/
+  artifacts:
+    paths: 
+      - public
+  only:
+    - master
