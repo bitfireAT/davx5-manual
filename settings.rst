@@ -52,3 +52,7 @@ Sync over WiFi only
    If this option is enabled, DAVx⁵ skips synchronization unless the device is connected to a WiFi network. Android Settings / Accounts will still show a successful sync even when the synchronization has been skipped. Manually forced synchronization will ignore this setting! It is not intended as a security function, but to avoid network connection error notifications.
 
    Use **WiFi SSID restriction** to restrict synchronization to one or more specific WiFi networks (requires location permission). List all allowed SSIDs as a comma-separated list, for instance SSID1,ssid2. Hidden networks and SSIDs with commas are not supported.
+
+.. todo::
+
+   Other settings (CalDAV/CardDAV, UI, etc.)

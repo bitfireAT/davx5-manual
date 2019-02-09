@@ -1,0 +1,9 @@
+@import url("theme.css");
+
+.wy-side-nav-search {
+  background: #7cb342;
+}
+
+.rst-content a, .rst-content a:visited {
+  color: #0288d1;
+}

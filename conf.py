@@ -99,6 +99,8 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+html_style = 'css/davx5.css'
+
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

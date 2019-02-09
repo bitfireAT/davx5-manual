@@ -82,6 +82,9 @@ Some important terms to better understand how DAVx⁵ works:
    CalDAV
       Extension for WebDAV to process events (VEVENT) and tasks (VTODO) in iCalendar format. CalDAV servers semantically understand and process entries and can – for instance – filter events so that only events from within a certain time range are delivered.
 
+   CalDAV Scheduling
+      An extension for CalDAV for performing scheduling operations like inviting other people to events, managing attendees and their participation status etc.
+
    CardDAV
       Extension for WebDAV to process contacts in vCard format. CardDAV servers semantically understand and process entries.
 
