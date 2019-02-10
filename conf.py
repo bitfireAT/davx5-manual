@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = u'DAVx⁵'
-copyright = u'TODO choose open documentation license'
-author = u'Ricki Hirner, Bernhard Stockmann'
+copyright = u'all contributors. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
+author = ''
 
 # The short X.Y version
 version = ''

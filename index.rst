@@ -16,12 +16,13 @@
 
       This is a working draft. See the `live manual <https://www.davx5.com/manual>`_.
    
-      `Source code of this manual. <https://gitlab.com/bitfireAT/davx5-manual>`_ Please send merge requests to make it better!
-
       `Draft compiled from master branch <https://bitfireat.gitlab.io/davx5-manual/>`_
 
 
 This is the manual for `DAVx⁵ <https://www.davx5.com>`_, an CalDAV/CardDAV client and sync app for Android.
+
+The `source code of this manual is available <https://gitlab.com/bitfireAT/davx5-manual>`_.
+Please send merge requests to make it better!
 
 
 .. seealso::
@@ -42,4 +43,8 @@ This is the manual for `DAVx⁵ <https://www.davx5.com>`_, an CalDAV/CardDAV cli
    technical_information
    managed_davx5
 
-.. todo:: Choose free documentation license
+
+.. raw:: html
+
+   <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+
