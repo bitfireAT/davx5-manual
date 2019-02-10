@@ -4,6 +4,13 @@ image: ddidier/sphinx-doc:latest
 #before_script:
 #  - apt-get -qq update && apt-get -qq install python3-sphinx python3-sphinx-rtd-theme make
 
+test:
+  script:
+    - make linkcheck
+  artifacts:
+    paths:
+      - build/linkcheck
+
 pages:
   script:
     - make html
