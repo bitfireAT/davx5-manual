@@ -87,6 +87,7 @@ html_theme = 'sphinx_rtd_theme'
 # html_theme_options = {}
 
 html_theme_options = {
+  'canonical_url': 'https://www.davx5.com/manual/',
   'display_version': True
 }
 
