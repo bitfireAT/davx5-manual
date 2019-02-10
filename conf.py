@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'DAVx⁵'
-copyright = 'TODO choose open documentation license'
-author = 'Ricki Hirner, Bernhard Stockmann'
+project = u'DAVx⁵'
+copyright = u'TODO choose open documentation license'
+author = u'Ricki Hirner, Bernhard Stockmann'
 
 # The short X.Y version
 version = ''
@@ -39,6 +39,7 @@ release = ''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.extlinks',
     'sphinx.ext.ifconfig',
     'sphinx.ext.todo',
 ]
@@ -85,6 +86,10 @@ html_theme = 'sphinx_rtd_theme'
 #
 # html_theme_options = {}
 
+html_theme_options = {
+  'display_version': True
+}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
@@ -99,6 +104,13 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
+
+html_context = {
+  'display_gitlab': True,
+  'gitlab_user': 'bitfireAT',
+  'gitlab_repo': 'davx5-manual',
+  'gitlab_version': 'master/'
+}
 
 html_style = 'css/davx5.css'
 
@@ -181,7 +193,11 @@ epub_exclude_files = ['search.html']
 
 # -- Extension configuration -------------------------------------------------
 
-# -- Options for todo extension ----------------------------------------------
+extlinks = {
+  'faq': ('https://www.davx5.com/faq/%s', 'FAQ ')
+}
 
-# If true, `todo` and `todoList` produce output, else they produce nothing.
+def setup(app):
+  app.add_config_value('releaselevel', 'draft', 'env')
+
 todo_include_todos = True

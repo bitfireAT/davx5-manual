@@ -1,12 +1,28 @@
-.. DAVx⁵ documentation master file, created by
-   sphinx-quickstart on Sat Feb  9 19:21:43 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-DAVx⁵ Manual
-============
+.. ifconfig:: releaselevel == 'live'
 
-This is the manual for `DAVx⁵ <https://www.davx5.com>`_.
+   DAVx⁵ Manual
+   ============
+
+   .. image:: images/davx5-logo.svg
+      :width: 25%
+
+.. ifconfig:: releaselevel == 'draft'
+
+   DAVx⁵ Manual – *DRAFT*
+   ======================
+
+   .. warning::
+
+      This is a working draft. See the `live manual <https://www.davx5.com/manual>`_.
+   
+      `Source code of this manual. <https://gitlab.com/bitfireAT/davx5-manual>`_ Please send merge requests to make it better!
+
+      `Draft compiled from master branch <https://bitfireat.gitlab.io/davx5-manual/>`_
+
+
+This is the manual for `DAVx⁵ <https://www.davx5.com>`_, an CalDAV/CardDAV client and sync app for Android.
+
 
 .. seealso::
 

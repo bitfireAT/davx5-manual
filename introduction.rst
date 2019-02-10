@@ -43,8 +43,8 @@ How to start using DAVx⁵ on your Android device:
 #. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑).
 #. You can now access your address books, events and tasks using the respective apps (Contacts, Calendar, S Planner, OpenTasks etc.) on your device.
 
-If you're using DAVx⁵ the first time, you may want to `transfer your local contacts
-to the CardDAV server </faq/existing-contacts-are-not-synced>`_.
+If you're using DAVx⁵ the first time, you may want to :faq:`transfer your local contacts
+to the CardDAV server <existing-contacts-are-not-synced>`.
 
 On some devices (like Xiaomi), `additional steps are required to allow DAVx⁵ to run
 automatically </faq/synchronization-is-not-run-as-expected>`_.

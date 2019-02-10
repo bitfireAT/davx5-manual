@@ -13,6 +13,9 @@ test:
 
 pages:
   script:
+    - 'find . -type f -name ''*.rst'' -exec sed -i ''1s;^;.. meta::\n   :robots: noindex\n\n;'' ''{}'' \;'
+    - echo version=\"DRAFT\" >>conf.py
+    - echo release=\"DRAFT\" >>conf.py
     - make html
     - mv _build/html/ public/
   artifacts:
