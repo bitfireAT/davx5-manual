@@ -22,7 +22,7 @@
 This is the manual for `DAVx⁵ <https://www.davx5.com>`_, an CalDAV/CardDAV client and sync app for Android.
 
 The `source code of this manual is available <https://gitlab.com/bitfireAT/davx5-manual>`_.
-Please send merge requests to make it better!
+Please `send merge requests <https://gitlab.com/bitfireAT/davx5-manual/blob/master/CONTRIBUTING.md>`_ to make it better!
 
 
 .. seealso::
