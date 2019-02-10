@@ -16,7 +16,7 @@ How does service discovery work?
 ================================
 
 DAVx⁵ supports both `service location discovery by SRV/TXT records <https://tools.ietf.org/html/rfc6764>`_ and
-`well-known URLs <http://tools.ietf.org/html/rfc5785>`_. To use CalDAV and CardDAV in one DAVx⁵ account, make sure these redirects are present on your server:
+`well-known URLs <https://tools.ietf.org/html/rfc5785>`_. To use CalDAV and CardDAV in one DAVx⁵ account, make sure these redirects are present on your server:
 
 :code:`/.well-known/caldav` → CalDAV service path (302 Found), e.g. :code:`/remote.php/caldav/`
 :code:`/.well-known/carddav` → CardDAV service path (302 Found), e.g. :code:`/remote.php/carddav/`

@@ -116,7 +116,7 @@ Supported contact fields
 Name
 ^^^^
 
-These vCard properties are mapped to `ContactsContract.CommonDataKinds.StructuredName <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName.html>`_ records:
+These vCard properties are mapped to `ContactsContract.CommonDataKinds.StructuredName <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredName>`_ records:
 
    * :code:`FN` ↔ display name
    * :code:`N` ↔ prefix, given name, middle name, family name, suffix
@@ -124,38 +124,38 @@ These vCard properties are mapped to `ContactsContract.CommonDataKinds.Structure
    * :code:`X-PHONETIC-MIDDLE-NAME` ↔ phonetic middle name
    * :code:`X-PHONETIC-LAST-NAME` ↔ phonetic first name
 
-These vCard properties are mapped to `ContactsContract.CommonDataKinds.Nickname <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Nickname.html>`_ records:
+These vCard properties are mapped to `ContactsContract.CommonDataKinds.Nickname <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Nickname>`_ records:
 
    * :code:`NICKNAME` ↔ nick name (types are mapped as :code:`TYPE` x-values)
 
 Phone number
 ^^^^^^^^^^^^
 
-vCard :code:`TEL` properties are mapped to `ContactsContract.CommonDataKinds.Phone <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone.html>`_ records (phone number).
+vCard :code:`TEL` properties are mapped to `ContactsContract.CommonDataKinds.Phone <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Phone>`_ records (phone number).
 
 |vCard_types_mapped|
 
 Email address
 ^^^^^^^^^^^^^
 
-vCard :code:`EMAIL` properties are mapped to `ContactsContract.CommonDataKinds.Email <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email.html>`_ records (email address).
+vCard :code:`EMAIL` properties are mapped to `ContactsContract.CommonDataKinds.Email <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Email>`_ records (email address).
 
 |vCard_types_mapped|
 
 Photo
 ^^^^^
 
-vCard :code:`PHOTO` properties are mapped to `ContactsContract.CommonDataKinds.Photo <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo.html>`_ records.
+vCard :code:`PHOTO` properties are mapped to `ContactsContract.CommonDataKinds.Photo <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Photo>`_ records.
 
 Because of `Android limitations <https://code.google.com/p/android/issues/detail?id=226875>`_, contact photos with more than 1 MB can't be
 stored in the Android contacts provider, so DAVx⁵ has to resize large vCard photos to the values given by
-`CONTENT_MAX_DIMENSIONS_URI <https://developer.android.com/reference/android/provider/ContactsContract.DisplayPhoto.html#CONTENT_MAX_DIMENSIONS_URI>`_.
+`CONTENT_MAX_DIMENSIONS_URI <https://developer.android.com/reference/android/provider/ContactsContract.DisplayPhoto#CONTENT_MAX_DIMENSIONS_URI>`_.
 This limit does not apply in the other direction (Android → vCard).
 
 Organization
 ^^^^^^^^^^^^
 
-These vCard properties are mapped to `ContactsContract.CommonDataKinds.Organization <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Organization.html>`_ records:
+These vCard properties are mapped to `ContactsContract.CommonDataKinds.Organization <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Organization>`_ records:
 
 * :code:`ORG` ↔ company, department
 * :code:`TITLE` ↔ (job) title
@@ -164,8 +164,8 @@ These vCard properties are mapped to `ContactsContract.CommonDataKinds.Organizat
 Messenger / SIP address
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-vCard :code:`IMPP` properties are mapped to `ContactsContract.CommonDataKinds.Im <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Im.html>`_
-(messenger account) and – if the URI scheme is :code:`sip:` – `ContactsContract.CommonDataKinds.SipAddress <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.SipAddress.html>`_ (SIP address) records.
+vCard :code:`IMPP` properties are mapped to `ContactsContract.CommonDataKinds.Im <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Im>`_
+(messenger account) and – if the URI scheme is :code:`sip:` – `ContactsContract.CommonDataKinds.SipAddress <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.SipAddress>`_ (SIP address) records.
 
 |vCard_types_mapped|
 
@@ -174,12 +174,12 @@ When importing a vCard, :code:`X-SIP` values are treated like :code:`IMPP:sip:..
 Note
 ^^^^
 
-vCard `NOTE` properties are mapped to `ContactsContract.CommonDataKinds.Note <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Note.html>`_ records (note).
+vCard :code:`NOTE` properties are mapped to `ContactsContract.CommonDataKinds.Note <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Note>`_ records (note).
 
 Postal address
 ^^^^^^^^^^^^^^
 
-These vCard properties are mapped to `ContactsContract.CommonDataKinds.StructuredPostal <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal.html>`_ records:
+These vCard properties are mapped to `ContactsContract.CommonDataKinds.StructuredPostal <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal>`_ records:
 
 * :code:`ADR` ↔ street address, p/o box, extended address, locality, region, postal code, country, vCard 4: formatted address
 * :code:`LABEL` ↔ vCard3: formatted address
@@ -198,14 +198,14 @@ If a vCard doesn't contain a formatted address, it will be generated by DAVx⁵ 
 Web site
 ^^^^^^^^
 
-vCard :code:`URL` properties are mapped to `ContactsContract.CommonDataKinds.Website <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Website.html>`_ records (Web site).
+vCard :code:`URL` properties are mapped to `ContactsContract.CommonDataKinds.Website <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Website>`_ records (Web site).
 
 |vCard_types_mapped|
 
 Event/date
 ^^^^^^^^^^
 
-These vCard properties are mapped to `ContactsContract.CommonDataKinds.Event <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Event.html>`_ records:
+These vCard properties are mapped to `ContactsContract.CommonDataKinds.Event <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Event>`_ records:
 
 * :code:`BDAY` ↔ birthday
 * :code:`ANNIVERSARY` ↔ anniversary
@@ -215,7 +215,7 @@ Partial dates without year are supported.
 Relation
 ^^^^^^^^
 
-vCard :code:`RELATED` properties are mapped to `ContactsContract.CommonDataKinds.Relation <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Relation.html>`_ records (relation).
+vCard :code:`RELATED` properties are mapped to `ContactsContract.CommonDataKinds.Relation <https://developer.android.com/reference/android/provider/ContactsContract.CommonDataKinds.Relation>`_ records (relation).
 
 Not all vCard values have a corresponding Android value and vice versa. Custom relation names are supported.
 
@@ -273,7 +273,7 @@ These vCard properties are processed/generated by DAVx⁵ and cannot be changed 
 Supported event fields
 ----------------------
 
-Events are stored as `CalendarContract.Events <https://developer.android.com/reference/android/provider/CalendarContract.Events.html>`_
+Events are stored as `CalendarContract.Events <https://developer.android.com/reference/android/provider/CalendarContract.Events>`_
 in the Android calendar provider. These iCalendar properties are mapped to Android fields:
 
 * :code:`SUMMARY` ↔ title
@@ -298,9 +298,9 @@ are stored with a duration of one day for Android compatibility.
 Reminders
 ^^^^^^^^^
 
-:code:`VALARM` components are mapped to `CalendarContract.Reminders <https://developer.android.com/reference/android/provider/CalendarContract.Reminders.html>`_ records and vice versa.
+:code:`VALARM` components are mapped to `CalendarContract.Reminders <https://developer.android.com/reference/android/provider/CalendarContract.Reminders>`_ records and vice versa.
 
-Reminder methods (:code:`ACTION`) are mapped to `Android values <https://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns.html#METHOD>`_ as good as possible.
+Reminder methods (:code:`ACTION`) are mapped to `Android values <https://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns#METHOD>`_ as good as possible.
 
 Recurring events
 ^^^^^^^^^^^^^^^^
@@ -318,7 +318,7 @@ Exceptions of recurring events are identified by :code:`RECURRENCE-ID`. DAVx⁵ 
 Group-scheduled events
 ^^^^^^^^^^^^^^^^^^^^^^
 
-:code:`ATTENDEE` properties are mapped to `CalendarContract.AttendeesColumns <https://developer.android.com/reference/android/provider/CalendarContract.AttendeesColumns.html>`_ records and vice versa.
+:code:`ATTENDEE` properties are mapped to `CalendarContract.AttendeesColumns <https://developer.android.com/reference/android/provider/CalendarContract.AttendeesColumns>`_ records and vice versa.
 
 Events with at least one attendee are considered to be group-scheduled events. Only for group-scheduled events, the :code:`ORGANIZER` property
 
@@ -338,7 +338,7 @@ Time zones
 
 Thanks to `ical4j <https://github.com/ical4j/ical4j>`_, DAVx⁵ is able to really process time zone definitions of events
 (:code:`VTIMEZONE`). If a certain time zone is referenced by identifier but :code:`VTIMEZONE` component is provided,
-DAVx⁵ uses the `default time zone definitions from ical4j (Olson DB) <https://github.com/ical4j/ical4j/wiki/Timezones#ZoneInfo>`_.
+DAVx⁵ uses the `default time zone definitions from ical4j (Olson DB) <https://github.com/ical4j/ical4j/wiki/Timezones>`_.
 
 When an iCalendar references a time zone which is not available in Android, DAVx⁵ tries to find an available time zone
 with (partially) matching name. If no such time zone is found, the system default time zone is used. The original value will
@@ -356,7 +356,7 @@ Event classification
 ^^^^^^^^^^^^^^^^^^^^
 
 CalDAV `event classification <https://tools.ietf.org/html/rfc5545#section-3.8.1.3>`_ is mapped to
-`Android's ACCESS_LEVEL <https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns.html#ACCESS_LEVEL>`_ like that:
+`Android's ACCESS_LEVEL <https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#ACCESS_LEVEL>`_ like that:
 
 * no :code:`CLASS` → :code:`ACCESS_LEVEL` = :code:`ACCESS_DEFAULT` ("server default")
 * :code:`CLASS:PUBLIC` → :code:`ACCESS_LEVEL` = :code:`ACCESS_PUBLIC` ("public")
@@ -379,7 +379,7 @@ Unknown properties
 
 iCalendar properties which are not processed by DAVx⁵ (like :code:`X-` properties) are retained (unless they're larger than ≈ 25 kB).
 When importing an iCalendar, DAVx⁵ saves all unknown properties as
-`CalendarContract.ExtendedPropertiesColumns <https://developer.android.com/reference/android/provider/CalendarContract.ExtendedPropertiesColumns.html>`_ records. 
+`CalendarContract.ExtendedPropertiesColumns <https://developer.android.com/reference/android/provider/CalendarContract.ExtendedPropertiesColumns>`_ records. 
 When the respective event is modified and DAVx⁵ generates the iCalendar again, it will include all unknown properties.
 
 Protected properties
@@ -429,7 +429,7 @@ Both your client (DAVx⁵ / Android device) and the CalDAV/CardDAV server must s
 
 .. seealso::
 
-   See the `Android documentation for a list of supported protocols and ciphers <https://developer.android.com/reference/javax/net/ssl/SSLEngine.html>`_
+   See the `Android documentation for a list of supported protocols and ciphers <https://developer.android.com/reference/javax/net/ssl/SSLEngine>`_
    for various Android versions (scroll down to "Default configuration for different Android versions").
 
 **Android versions below 6.0 only:** Not all protocols and ciphers supported by a device are automatically enabled for apps by default. DAVx⁵

@@ -27,10 +27,9 @@ This is the manual for `DAVx⁵ <https://www.davx5.com>`_, an CalDAV/CardDAV cli
 .. seealso::
 
    For more information about DAVx⁵, see the `DAVx⁵ Web site <https://www.davx5.com>`_. Especially have a look at the
-
-   * `tested services <https://www.davx5.com/tested-with>`_ and the respective subpages, the
-   * `Frequently Asked Questions (FAQ) <https://www.davx5.com/faq>`_, and
-   * `our forums <https://www.davx5.com/forums>`_.
+   `tested services <https://www.davx5.com/tested-with>`_ and the respective subpages, the
+   `Frequently Asked Questions (FAQ) <https://www.davx5.com/faq>`_, and
+   `our forums <https://www.davx5.com/forums>`_.
 
 
 .. toctree::

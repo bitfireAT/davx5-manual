@@ -46,8 +46,8 @@ How to start using DAVx⁵ on your Android device:
 If you're using DAVx⁵ the first time, you may want to :faq:`transfer your local contacts
 to the CardDAV server <existing-contacts-are-not-synced>`.
 
-On some devices (like Xiaomi), `additional steps are required to allow DAVx⁵ to run
-automatically </faq/synchronization-is-not-run-as-expected>`_.
+On some devices (like Xiaomi), :faq:`additional steps are required to allow DAVx⁵ to run
+automatically <synchronization-is-not-run-as-expected>`.
 
 
 Permissions and battery optimization
@@ -66,7 +66,7 @@ connected to a power supply.
    If you want DAVx⁵ synchronization to be run in regular intervals in the background, DAVx⁵ must be exempt from "battery saving"! This does not mean that DAVx⁵ requires more battery than it should, but only that you allow DAVx⁵ to run in the background for synchronization.
 
 Some devices (e.g. Huawei) also have an autostart permission, which must be granted for DAVx⁵ to work.
-See the `FAQ entry about automatic synchronization for more information </faq/synchronization-is-not-run-as-expected>`_.
+See the :faq:`FAQ entry about automatic synchronization for more information <synchronization-is-not-run-as-expected>`.
 
 
 Glossary
