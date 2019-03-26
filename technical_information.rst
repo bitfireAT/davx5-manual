@@ -219,6 +219,8 @@ vCard :code:`RELATED` properties are mapped to `ContactsContract.CommonDataKinds
 
 Not all vCard values have a corresponding Android value and vice versa. Custom relation names are supported.
 
+.. _contact-groups:
+
 Contact groups
 ^^^^^^^^^^^^^^
 

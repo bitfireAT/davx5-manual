@@ -83,6 +83,8 @@ During initial resource detection, DAVx⁵ queries the :code:`calendar-user-addr
 The account name must be unique, i.e. you can't have two DAVx⁵ accounts with the same account name. This could be relevant if you need separate accounts for CalDAV and CardDAV. In this case, use your email address as account name for the account to be used for CalDAV and another account name (like "My CardDAV Server") for the account to be used for CardDAV.
 
 
+.. _refresh-collections:
+
 Refreshing the collection list
 ==============================
 

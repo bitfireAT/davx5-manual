@@ -53,6 +53,26 @@ Sync over WiFi only
 
    Use **WiFi SSID restriction** to restrict synchronization to one or more specific WiFi networks (requires location permission). List all allowed SSIDs as a comma-separated list, for instance SSID1,ssid2. Hidden networks and SSIDs with commas are not supported.
 
-.. todo::
+Authentication
+--------------
 
-   Other settings (CalDAV/CardDAV, UI, etc.)
+User name / password / client certificate
+  You can change the credentials used for synchronization at any time here (for instance, when your password has been changed on the server).
+
+CalDAV
+------
+
+Past event time limit
+  Number of days which events will be synchronized in the past. For instance, *90* (default setting) will synchronize events which are 90 days in the past and all newer events. Older events won't be synchronized and won't show up in the calendar anymore. **An empty value means that all events will be synchronized.**
+
+Manage calendar colors
+  When turned on, DAVx⁵ will set the local calendar colors to the colors transmitted by the server (or default green, if not sent by the server). To fetch updated colors from the server, see :ref:`refresh-collections`.
+
+Event color support
+  Whether colors of single events are synchronized to the Android device. If you enable this option, only new events are affected, so you mave have to unselect the calendar, sync, select it again and sync again. This option is disabled by default because there are some big calendar apps which crash when processing colorized events.
+
+CardDAV
+-------
+
+Contact group method
+  Controls which contact group method is used for this account. For more information, see :ref:`contact-groups`.
