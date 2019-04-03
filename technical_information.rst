@@ -436,9 +436,8 @@ Both your client (DAVx⁵ / Android device) and the CalDAV/CardDAV server must s
 
 **Android versions below 6.0 only:** Not all protocols and ciphers supported by a device are automatically enabled for apps by default. DAVx⁵
 
-* enables SNI,
-* disables SSL 3 and enables all supported TLS versions (like TLS 1.2), and
-* enables some ciphers considered to be secure (see source code of class :code:`SSLSocketFactoryCompat` for details).
+* disables SSL 3 and enables all supported TLS versions (like TLSv1.2), and
+* enables some ciphers considered to be secure enough (see `source code of class CertTlsSocketFactory <https://gitlab.com/bitfireAT/cert4android/blob/master/src/main/java/at/bitfire/cert4android/CertTlsSocketFactory.kt>`_ for details).
 
 .. note:: 
 
