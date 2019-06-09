@@ -424,24 +424,7 @@ At the moment, other properties of tasks are not retained.
 TLS stack (protocol versions, ciphers)
 ======================================
 
-To establish secure connections with TLS, DAVx⁵ makes use of the Android system TLS stack.
-Supported protocol versions (TLS 1.1, 1.2 etc.) and ciphers (for key exchange and encryption, e.g. :code:`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`) depend on the used Android version.
+.. versionadded:: 2.5
 
-Both your client (DAVx⁵ / Android device) and the CalDAV/CardDAV server must share at least one cipher, otherwise a :code:`SSLProtocolException` will occur. For example, if your server requires the most recent ciphers, connecting with older Android versions may not work.
-
-.. seealso::
-
-   See the `Android documentation for a list of supported protocols and ciphers <https://developer.android.com/reference/javax/net/ssl/SSLEngine>`_
-   for various Android versions (scroll down to "Default configuration for different Android versions").
-
-**Android versions below 6.0 only:** Not all protocols and ciphers supported by a device are automatically enabled for apps by default. DAVx⁵
-
-* disables SSL 3 and enables all supported TLS versions (like TLSv1.2), and
-* enables some ciphers considered to be secure enough (see `source code of class CertTlsSocketFactory <https://gitlab.com/bitfireAT/cert4android/blob/master/src/main/java/at/bitfire/cert4android/CertTlsSocketFactory.kt>`_ for details).
-
-.. note:: 
-
-   Some major browsers bring their own TLS stack and don't rely on the system TLS stack.
-   So when testing TLS ciphers, it may work to access an URL with your Android browser, while
-   other apps like DAVx⁵ still can't connect to the server.
-
+DAVx⁵ uses `Conscrypt <https://github.com/google/conscrypt/blob/master/CAPABILITIES.md>`_ to support modern TLS protocol versions and ciphers
+even on older devices. Both your client (DAVx⁵) and the CalDAV/CardDAV server must share at least one cipher, otherwise a :code:`SSLProtocolException` will occur.

@@ -88,6 +88,8 @@ The simplest method to configure Managed DAVx⁵ over the network is to use a fi
    * **scan the QR code of the configuration file URL, then open it with Managed DAVx⁵** (not your browser); or
    * link to the configuration file on some page in your Intranet, and use your browser to open it with Managed DAVx⁵.
 
+.. note:: Because of Android intent filter limitations, the config file must not be nested deeper than 4 directory levels (:code:`/1/2/3/4/davdroid-config.json`).
+
 To use the QR code method, a QR code scanner app has to be installed first.
 
 You can see and reset the current configuration file URL in Managed DAVx⁵ / About/License / Managed configuration.

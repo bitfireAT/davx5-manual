@@ -88,14 +88,14 @@ The account name must be unique, i.e. you can't have two DAVx⁵ accounts with t
 Refreshing the collection list
 ==============================
 
-**To detect new and changed address books/calendars, use the respective menu entry in the DAVx⁵ account activity.**
-When you refresh the collection list, DAVx⁵ will search the home sets for new collections and check the already known collections (whether they are still there and whether properties like name and color have been changed). These functions will only be available if a principal and/or homeset URL can be found for the respective protocol.
+**To detect new and changed address books/calendars, you have to refresh the collection list.** To do so, open an account in DAVx⁵, select a tab (for instance, CardDAV when you want to refresh address books) and then either swipe down or use the respective action menu entry. When you refresh the collection list, DAVx⁵ will search the home sets for new collections and check the already known collections (whether they are still there and whether properties like name and color have been changed). These functions will only be available if a principal and/or homeset URL can be found for the respective protocol.
 
 The collections and their properties (name, color, read-only) are not synchronized to the Android system immediately, but as soon as synchronization is triggered.
 
 For example, if a calendar's name and color have been changed on the server:
 
-* Choose "Refresh calendar list" in the DAVx⁵ account. Now the new name and color will appear in the DAVx⁵ account, but not yet in the calendar app (because there was no synchronization yet).
+* Open the respective account in DAVx⁵ and select the CalDAV tab.
+* Swipe down or choose "Refresh calendar list" in the actio menu. Now the new name and color will appear in the DAVx⁵ account, but not yet in the calendar app (because there was no synchronization yet).
 * As soon as synchronization is started, the changed properties (name, color) are commited to the Android calendar provider. Calendar apps will now show the new name and color.
 
 

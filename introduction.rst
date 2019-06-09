@@ -39,8 +39,7 @@ How to start using DAVx⁵ on your Android device:
    You can get the base URL from your service provider and/or our `list of tested services </tested-with>`_.
 #. Finish the steps to create the account.
 #. Select the account in DAVx⁵.
-#. Grant contact, event and task access permissions.
-#. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑).
+#. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑). Grant contact, event and task access permissions when asked.
 #. You can now access your address books, events and tasks using the respective apps (Contacts, Calendar, S Planner, OpenTasks etc.) on your device.
 
 If you're using DAVx⁵ the first time, you may want to :faq:`transfer your local contacts
