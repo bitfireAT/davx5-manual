@@ -3,7 +3,7 @@
 Introduction
 ============
 
-What is DAVx5?
+What is DAVx⁵?
 ==============
 
 DAVx⁵ is a :term:`CalDAV`/:term:`CardDAV` client (management and sync app) for Android. It allows you to
@@ -42,8 +42,9 @@ How to start using DAVx⁵ on your Android device:
 #. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑). Grant contact, event and task access permissions when asked.
 #. You can now access your address books, events and tasks using the respective apps (Contacts, Calendar, S Planner, OpenTasks etc.) on your device.
 
-If you're using DAVx⁵ the first time, you may want to :faq:`transfer your local contacts
-to the CardDAV server <existing-contacts-are-not-synced>`.
+When you create a contact/event, select the desired DAVx⁵ account as storage location.
+Local contacts/events will stay on your phone and not be synchronized. If you're using DAVx⁵ the first time, you may
+want to :faq:`transfer your local contacts to the CardDAV server <existing-contacts-are-not-synced>`.
 
 On some devices (like Xiaomi), :faq:`additional steps are required to allow DAVx⁵ to run
 automatically <synchronization-is-not-run-as-expected>`.
@@ -76,10 +77,10 @@ Some important terms to better understand how DAVx⁵ works:
 .. glossary::
 
    WebDAV 
-      HTTP-based protocol to manage remote resources (files/directories) and collections (directories). WebDAV collections may contain member resources. Provides methods to list (PROPFIND), upload, modify, delete resources and for locking, access permissions (ACL) etc.
+      HTTP-based protocol to manage remote resources (≙ files/directories) and collections (≙ directories). WebDAV collections may contain member resources. Provides methods to list, upload, modify, delete resources and their metadata; locking, access permissions (ACL) etc.
 
    CalDAV
-      Extension for WebDAV to process events (VEVENT) and tasks (VTODO) in iCalendar format. CalDAV servers semantically understand and process entries and can – for instance – filter events so that only events from within a certain time range are delivered.
+      Extension for WebDAV to process events (VEVENT) and tasks (VTODO) in iCalendar format. CalDAV servers semantically understand and process entries and can – for instance – filter events so that only events within a certain time range are delivered.
 
    CalDAV Scheduling
       An extension for CalDAV for performing scheduling operations like inviting other people to events, managing attendees and their participation status etc.

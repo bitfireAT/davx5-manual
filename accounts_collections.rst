@@ -9,6 +9,8 @@ What is a DAVx⁵ account?
 
 A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected using the same starting point). In this case, you need only one DAVx⁵ account. However, you can also create multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
 
+Contacts, events and tasks has to be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize entries from other accounts (including device-local accounts).
+
 When you add a DAVx⁵ account, you need either an email address or a base URL which is used as a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our tested services for a list of servers/services and how they're used with DAVx⁵.
 
 
