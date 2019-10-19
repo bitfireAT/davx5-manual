@@ -428,3 +428,40 @@ TLS stack (protocol versions, ciphers)
 
 DAVx⁵ uses `Conscrypt <https://github.com/google/conscrypt/blob/master/CAPABILITIES.md>`_ to support modern TLS protocol versions and ciphers
 even on older devices. Both your client (DAVx⁵) and the CalDAV/CardDAV server must share at least one cipher, otherwise a :code:`SSLProtocolException` will occur.
+
+
+API / integration
+=================
+
+Launching the DAVx⁵ login screen
+--------------------------------
+
+You can use an explicit Intent to launch the DAVx⁵ login screen with pre-filled credentials::
+
+    val intent = Intent()
+    intent.setClassName("at.bitfire.davdroid", "at.bitfire.davdroid.ui.setup.LoginActivity")
+
+.. warning:: Always use an explicit intent with hardcoded component name for security reasons.
+
+You can set URL, username and password as extras. All of those are optional.
+
++------------+--------+-------------------------+
+| extra name | type   | description             |
++============+========+=========================+
+| url        | String | CalDAV/CardDAV base URL |
++------------+--------+-------------------------+
+| username   | String | pre-filled username     |
++------------+--------+-------------------------+
+| password   | String | pre-filled password     |
++------------+--------+-------------------------+
+
+Alternatively, you can use the `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ method:
+
++------------+--------+---------------------------------------------------------------------------+
+| extra name | type   | description                                                               |
++============+========+===========================================================================+
+| loginFlow  | int    | set to 1 to indicate Login Flow                                           |
++------------+--------+---------------------------------------------------------------------------+
+| davPath    | String | CalDAV/CardDAV base URL, relative to server URL as returned by Login Flow |
++------------+--------+---------------------------------------------------------------------------+
+
