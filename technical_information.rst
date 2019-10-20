@@ -425,9 +425,8 @@ TLS stack (protocol versions, ciphers)
 ======================================
 
 .. versionadded:: 2.5
-
-DAVx⁵ uses `Conscrypt <https://github.com/google/conscrypt/blob/master/CAPABILITIES.md>`_ to support modern TLS protocol versions and ciphers
-even on older devices. Both your client (DAVx⁵) and the CalDAV/CardDAV server must share at least one cipher, otherwise a :code:`SSLProtocolException` will occur.
+  DAVx⁵ uses `Conscrypt <https://github.com/google/conscrypt/blob/master/CAPABILITIES.md>`_ to support modern TLS protocol versions and ciphers
+  even on older devices. Both your client (DAVx⁵) and the CalDAV/CardDAV server must share at least one cipher, otherwise a :code:`SSLProtocolException` will occur.
 
 
 API / integration
@@ -441,7 +440,7 @@ You can use an explicit Intent to launch the DAVx⁵ login screen with pre-fille
     val intent = Intent()
     intent.setClassName("at.bitfire.davdroid", "at.bitfire.davdroid.ui.setup.LoginActivity")
 
-.. warning:: Always use an explicit intent with hardcoded component name for security reasons.
+.. warning:: Always use an explicit intent with hardcoded package name for security reasons.
 
 You can set URL, username and password as extras. All of those are optional.
 
@@ -455,13 +454,20 @@ You can set URL, username and password as extras. All of those are optional.
 | password   | String | pre-filled password     |
 +------------+--------+-------------------------+
 
-Alternatively, you can use the `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ method:
+.. versionadded:: 2.6
+   Alternatively, you can use the `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ method:
+
+Intent data (URI): login flow entry point (:code:`<server>/index.php/login/flow`). Intent extras:
 
 +------------+--------+---------------------------------------------------------------------------+
 | extra name | type   | description                                                               |
 +============+========+===========================================================================+
-| loginFlow  | int    | set to 1 to indicate Login Flow                                           |
+| loginFlow  | Int    | set to 1 to indicate Login Flow                                           |
 +------------+--------+---------------------------------------------------------------------------+
 | davPath    | String | CalDAV/CardDAV base URL, relative to server URL as returned by Login Flow |
+|            |        | (e.g. :code:`/remote.php/dav`)                                            |
 +------------+--------+---------------------------------------------------------------------------+
 
+For compatibility with old DAVx⁵ versions, you can use both methods at the same time. Old DAVx⁵ versions will
+use the :code:`url`, :code:`username`, :code:`password` extras, while new versions will see the :code:`loginFlow`
+extra and switch to the Login Flow method.
