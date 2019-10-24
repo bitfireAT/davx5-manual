@@ -464,8 +464,8 @@ Intent data (URI): login flow entry point (:code:`<server>/index.php/login/flow`
 +============+========+===========================================================================+
 | loginFlow  | Int    | set to 1 to indicate Login Flow                                           |
 +------------+--------+---------------------------------------------------------------------------+
-| davPath    | String | CalDAV/CardDAV base URL, relative to server URL as returned by Login Flow |
-|            |        | (e.g. :code:`/remote.php/dav`)                                            |
+| davPath    | String | CalDAV/CardDAV base URL; will be appended to server URL returned by Login |
+|            |        | Flow without further processing (e.g. :code:`/remote.php/dav`)            |
 +------------+--------+---------------------------------------------------------------------------+
 
 For compatibility with old DAVx⁵ versions, you can use both methods at the same time. Old DAVx⁵ versions will
