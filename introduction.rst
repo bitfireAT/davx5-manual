@@ -9,7 +9,7 @@ What is DAVx⁵?
 DAVx⁵ is a :term:`CalDAV`/:term:`CardDAV` client (management and sync app) for Android. It allows you to
 
 * manage CalDAV/CardDAV collections (address books, calendars, task lists) on your server and
-* synchronize them with your Android device (to be specifically, with the storage backends of the device, see illustration).
+* synchronize them with your Android device (to be specifically, with the storage backends of the device, see illustration below).
 
 DAVx⁵ is not:
 
@@ -85,11 +85,21 @@ Some important terms to better understand how DAVx⁵ works:
    CalDAV Scheduling
       An extension for CalDAV for performing scheduling operations like inviting other people to events, managing attendees and their participation status etc.
 
+   Calendar provider
+      On Android devices, there is a database where calendars/events are stored. This database belongs to a system app called
+      `Calendar provider <https://developer.android.com/guide/topics/providers/calendar-provider>`_. To access the calendars
+      and events, apps communicate with the Calendar provider.
+
    CardDAV
       Extension for WebDAV to process contacts in vCard format. CardDAV servers semantically understand and process entries.
 
    Collection
       A folder where iCalendar/vCard resources are stored. In CalDAV, collections are calendars/task lists; in CardDAV, they're address books.
+
+   Contacts provider
+      On Android devices, there is a database where contacts are stored. This database belongs to a system app called
+      `Contacts provider <https://developer.android.com/guide/topics/providers/contacts-provider>`_. To access the contacts,
+      apps communicate with the Contacts provider.
 
    iCalendar
       File format to exchange events, tasks, journal entries and busy-time information. Cares about time zones, date/time formats, recurring events and exceptions etc. DAVx⁵ maps Android events and tasks to iCalendar resources and vice versa. Every event/task is stored as a separate iCalendar resource (".ics file") on the server.
