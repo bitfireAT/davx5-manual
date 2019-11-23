@@ -90,14 +90,14 @@ The account name must be unique, i.e. you can't have two DAVx⁵ accounts with t
 Refreshing the collection list
 ==============================
 
-**To detect new and changed address books/calendars, you have to refresh the collection list.** To do so, open an account in DAVx⁵, select a tab (for instance, CardDAV when you want to refresh address books) and then either swipe down or use the respective action menu entry. When you refresh the collection list, DAVx⁵ will search the home sets for new collections and check the already known collections (whether they are still there and whether properties like name and color have been changed). These functions will only be available if a principal and/or homeset URL can be found for the respective protocol.
+**To detect new and changed address books/calendars, you have to refresh the collection list.** To do so, open an account in DAVx⁵, select a tab (for instance, CardDAV when you want to refresh address books) and then either swipe down or use the respective action menu (⋮) entry. When you refresh the collection list, DAVx⁵ will search the home sets for new collections and check the already known collections (whether they are still there and whether properties like name and color have been changed). These functions will only be available if a principal and/or homeset URL can be found for the respective protocol.
 
 The collections and their properties (name, color, read-only) are not synchronized to the Android system immediately, but as soon as synchronization is triggered.
 
 For example, if a calendar's name and color have been changed on the server:
 
 * Open the respective account in DAVx⁵ and select the CalDAV tab.
-* Swipe down or choose "Refresh calendar list" in the actio menu. Now the new name and color will appear in the DAVx⁵ account, but not yet in the calendar app (because there was no synchronization yet).
+* Swipe down or choose "Refresh calendar list" in the action menu (⋮). Now the new name and color will appear in the DAVx⁵ account, but not yet in the calendar app (because there was no synchronization yet).
 * As soon as synchronization is started, the changed properties (name, color) are commited to the Android calendar provider. Calendar apps will now show the new name and color.
 
 
@@ -107,7 +107,7 @@ Read-only collections
 There are two ways to restrict synchronization to one direction (only server to Android):
 
 #. DAVx⁵ follows the WebDAV permissions from the server. If you don't have write permissions for a specific collection, it will be treated as read-only.
-#. If you have write permissions for a specific collection, you can force read-only mode ("one-way sync") for this collection using the action overflow. You have to synchronize a collection before forced read-only takes effect. **This is a convenience feature (for instance, for home usage) and doesn't provide security. Any other CalDAV/CardDAV client could still modify the resources. If you need real security, restrict access on the server side with WebDAV ACL.**
+#. If you have write permissions for a specific collection, you can force read-only mode ("one-way sync") for this collection using the action overflow (⋮). You have to synchronize a collection before forced read-only takes effect. **This is a convenience feature (for instance, for home usage) and doesn't provide security. Any other CalDAV/CardDAV client could still modify the resources. If you need real security, restrict access on the server side with WebDAV ACL.**
 
 Regardless of why a collection is read-only, it will be shown as read-only (⛔) in the DAVx⁵ collection list.
 
@@ -121,9 +121,9 @@ Creating/deleting collections on/from the server
 
 You can also manage collections with DAVx⁵.
 
-To create a collection, use the respective menu entry in the DAVx⁵ account next to "CalDAV" or "CardDAV". For instance, choose "Create new address book" next to "CardDAV" to create a new address book on the server. (This will only work if it's supported by the server, which is not mandatory.) The same applies to calendars and task lists.
+To create a collection, select the CalDAV or CardDAV tab in the DAVx⁵ account and then use the respective action menu (⋮) entry. For instance, choose "Create new address book" next to "CardDAV" to create a new address book on the server. (This will only work if it's supported by the server, which is not mandatory.) The same applies to calendars and task lists.
 
-To delete a collection, choose "Delete collection" next to the respective collection in the DAVx⁵ account. After your confirmation, this will delete the collection and all its entries on the server, so be careful.
+To delete a collection, choose "Delete collection" from the action overflow (⋮) of the respective collection in the DAVx⁵ account. After your confirmation, this will delete the collection and all its entries on the server, so be careful.
 
 
 Webcal integration
