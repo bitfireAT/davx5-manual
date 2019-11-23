@@ -11,7 +11,7 @@ A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can
 
 Contacts, events and tasks have to be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize entries from other accounts (like Google or device-local accounts).
 
-When you add a DAVx⁵ account, you need either an email address or a base URL a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our `tested services <https://www.davx5.com/tested-services/>`_ for a list of servers/services and how they're used with DAVx⁵.
+When you add a DAVx⁵ account, you need either an email address or a base URL a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
 
 How does service discovery work?
