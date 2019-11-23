@@ -9,9 +9,9 @@ What is a DAVx⁵ account?
 
 A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected using the same starting point). In this case, you need only one DAVx⁵ account. However, you can also create multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
 
-Contacts, events and tasks has to be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize entries from other accounts (including device-local accounts).
+Contacts, events and tasks have to be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize entries from other accounts (like Google or device-local accounts).
 
-When you add a DAVx⁵ account, you need either an email address or a base URL which is used as a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our tested services for a list of servers/services and how they're used with DAVx⁵.
+When you add a DAVx⁵ account, you need either an email address or a base URL a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our `tested services <https://www.davx5.com/tested-services/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
 
 How does service discovery work?
@@ -36,15 +36,15 @@ When logging in by URL, DAVx⁵ asks for the *Base URL*. This can be:
 * the root URL (/) of your server if well-known URLs are configured (recommended), or
 * a valid CalDAV URL, i.e.
 
-  - an URL that provides a CalDAV current-user-principal, or
-  - an URL that provides calendar-home-set, or
-  - a calendar URL (resourcetype: calendar), and/or
+  - an URL that provides a CalDAV :code:`current-user-principal`, or
+  - an URL that provides :code:`calendar-home-set`, or
+  - a calendar URL (:code:`resourcetype: calendar`), and/or
 
 * a valid CardDAV URL, i.e.
 
-  - an URL that provides a CardDAV current-user-principal, or
-  - an URL that provides addressbook-home-set, or
-  - an addressbook URL (resourcetype: addressbook).
+  - an URL that provides a CardDAV :code:`current-user-principal`, or
+  - an URL that provides :code:`addressbook-home-set`, or
+  - an addressbook URL (:code:`resourcetype: addressbook`).
 
 So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever it finds. If CalDAV and CardDAV are separated on your server and well-known URLs are not configured, you'll have to create two DAVx⁵ accounts: one for CalDAV (use the CalDAV URL as base URL) and one for CardDAV (use the CardDAV URL as base URL).
 
@@ -107,7 +107,7 @@ Read-only collections
 There are two ways to restrict synchronization to one direction (only server to Android):
 
 #. DAVx⁵ follows the WebDAV permissions from the server. If you don't have write permissions for a specific collection, it will be treated as read-only.
-#. If you have write permissions for a specific collection, you can force read-only mode ("one-way sync") for this collection using the action overflow. (Note that you have to synchronize a collection before forced read-only takes effect.)
+#. If you have write permissions for a specific collection, you can force read-only mode ("one-way sync") for this collection using the action overflow. You have to synchronize a collection before forced read-only takes effect. **This is a convenience feature (for instance, for home usage) and doesn't provide security. Any other CalDAV/CardDAV client could still modify the resources. If you need real security, restrict access on the server side with WebDAV ACL.**
 
 Regardless of why a collection is read-only, it will be shown as read-only (⛔) in the DAVx⁵ collection list.
 

@@ -449,19 +449,21 @@ You can use an explicit Intent to launch the DAVx⁵ login screen with pre-fille
     val intent = Intent()
     intent.setClassName("at.bitfire.davdroid", "at.bitfire.davdroid.ui.setup.LoginActivity")
 
-.. warning:: Always use an explicit intent with hardcoded package name for security reasons.
+.. warning:: Always use an explicit intent with hardcoded package name for security reasons. Keep
+   in mind that an attacker could trick users into installing a malicious app with the same package
+   name (when third-party app sources are allowed).
 
 You can set URL, username and password as extras. All of those are optional.
 
-+------------+--------+-------------------------+
-| extra name | type   | description             |
-+============+========+=========================+
-| url        | String | CalDAV/CardDAV base URL |
-+------------+--------+-------------------------+
-| username   | String | pre-filled username     |
-+------------+--------+-------------------------+
-| password   | String | pre-filled password     |
-+------------+--------+-------------------------+
++------------+--------+---------------------------------------------+
+| extra name | type   | description                                 |
++============+========+=============================================+
+| url        | String | CalDAV/CardDAV base URL                     |
++------------+--------+---------------------------------------------+
+| username   | String | pre-filled username                         |
++------------+--------+---------------------------------------------+
+| password   | String | pre-filled password (usage not recommended) |
++------------+--------+---------------------------------------------+
 
 .. versionadded:: 2.6
    Alternatively, you can use the `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ method:
