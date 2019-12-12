@@ -357,7 +357,7 @@ let's say 12:00 *Europe/Vienna*, and then save the event as 12:00 *Europe/Vienna
 Event classification
 ^^^^^^^^^^^^^^^^^^^^
 
-CalDAV `event classification <https://tools.ietf.org/html/rfc5545#section-3.8.1.3>`_ is mapped to
+iCalendar `event classification <https://tools.ietf.org/html/rfc5545#section-3.8.1.3>`_ is mapped to
 `Android's ACCESS_LEVEL <https://developer.android.com/reference/android/provider/CalendarContract.EventsColumns#ACCESS_LEVEL>`_ like that:
 
 * no :code:`CLASS` → :code:`ACCESS_LEVEL` = :code:`ACCESS_DEFAULT` ("server default")
@@ -375,6 +375,21 @@ In the other direction, the locally stored access level is mapped to :code:`CLAS
 
   - if there is an *original value*: use that value
   - no :code:`CLASS` otherwise (same as :code:`PUBLIC`)
+
+Categories
+^^^^^^^^^^
+
+.. versionadded:: 2.6.2
+   In earlier versions, event categories were treated as unknown properties (see below).
+
+iCalendar ``CATEGORIES`` are mapped from/to `exended properties <https://developer.android.com/reference/kotlin/android/provider/CalendarContract.ExtendedProperties>`_
+with these fields:
+
+* :code:`name` = :code:`categories`
+* :code:`value` = list of category names, separated by backslash (``\``), for example: ``Cat A\Cat B\Cat C``. If a
+  category name contains a backslash, the backslash will be dropped silenty.
+
+This is the same format as it `is used by the AOSP ActiveSync Exchange sync adapter <https://android.googlesource.com/platform/packages/apps/Exchange/+/refs/tags/android-6.0.1_r31/src/com/android/exchange/eas/EasSyncCalendar.java#107>`_.
 
 Unknown properties
 ^^^^^^^^^^^^^^^^^^
