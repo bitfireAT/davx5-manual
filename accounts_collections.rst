@@ -20,11 +20,11 @@ How does service discovery work?
 DAVx⁵ supports both `service location discovery by SRV/TXT records <https://tools.ietf.org/html/rfc6764>`_ and
 `well-known URLs <https://tools.ietf.org/html/rfc5785>`_. To use CalDAV and CardDAV in one DAVx⁵ account, make sure these redirects are present on your server:
 
-:code:`/.well-known/caldav` → CalDAV service path (302 Found), e.g. :code:`/remote.php/caldav/`
-:code:`/.well-known/carddav` → CardDAV service path (302 Found), e.g. :code:`/remote.php/carddav/`
+``/.well-known/caldav`` → CalDAV service path (302 Found), e.g. ``/remote.php/caldav/``
+``/.well-known/carddav`` → CardDAV service path (302 Found), e.g. ``/remote.php/carddav/``
 
 .. note::
-   If these redirects are configured correctly, you can use the root URL :code:`http(s)://your.server.example/`
+   If these redirects are configured correctly, you can use the root URL ``http(s)://your.server.example/``
    without any additional paths as the base URL in DAVx⁵.
 
 
@@ -36,15 +36,15 @@ When logging in by URL, DAVx⁵ asks for the *Base URL*. This can be:
 * the root URL (/) of your server if well-known URLs are configured (recommended), or
 * a valid CalDAV URL, i.e.
 
-  - an URL that provides a CalDAV :code:`current-user-principal`, or
-  - an URL that provides :code:`calendar-home-set`, or
-  - a calendar URL (:code:`resourcetype: calendar`), and/or
+  - an URL that provides a CalDAV ``current-user-principal``, or
+  - an URL that provides ``calendar-home-set``, or
+  - a calendar URL (``resourcetype: calendar``), and/or
 
 * a valid CardDAV URL, i.e.
 
-  - an URL that provides a CardDAV :code:`current-user-principal`, or
-  - an URL that provides :code:`addressbook-home-set`, or
-  - an addressbook URL (:code:`resourcetype: addressbook`).
+  - an URL that provides a CardDAV ``current-user-principal``, or
+  - an URL that provides ``addressbook-home-set``, or
+  - an addressbook URL (``resourcetype: addressbook``).
 
 So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever it finds. If CalDAV and CardDAV are separated on your server and well-known URLs are not configured, you'll have to create two DAVx⁵ accounts: one for CalDAV (use the CalDAV URL as base URL) and one for CardDAV (use the CardDAV URL as base URL).
 
@@ -76,11 +76,11 @@ Account names
 =============
 
 When creating a DAVx⁵ account, you have to enter the account name. This account name (which will be shown in the DAVx⁵ accounts list and in Android Settings / Accounts / DAVx⁵) is used as the
-:code:`ORGANIZER` email address for group-scheduled events. So:
+``ORGANIZER`` email address for group-scheduled events. So:
 
 .. note:: If possible, always use your email address as DAVx⁵ account name.
 
-During initial resource detection, DAVx⁵ queries the :code:`calendar-user-address-set` of the CalDAV principal URL and suggests the first email address as account name. If the property is not available, the user name/email address used for login is suggested as account name.
+During initial resource detection, DAVx⁵ queries the ``calendar-user-address-set`` of the CalDAV principal URL and suggests the first email address as account name. If the property is not available, the user name/email address used for login is suggested as account name.
 
 The account name must be unique, i.e. you can't have two DAVx⁵ accounts with the same account name. This could be relevant if you need separate accounts for CalDAV and CardDAV. In this case, use your email address as account name for the account to be used for CalDAV and another account name (like "My CardDAV Server") for the account to be used for CardDAV.
 
@@ -130,7 +130,7 @@ Webcal integration
 ==================
 
 DAVx⁵ recognizes Webcal calendars in the calendar home set which are published with
-:code:`resourcetype: subscribed` and shows them in the DAVx⁵ account activity. If you select such a Webcal collection for synchronization, DAVx⁵ passes
+``resourcetype: subscribed`` and shows them in the DAVx⁵ account activity. If you select such a Webcal collection for synchronization, DAVx⁵ passes
 the URL to an installed Webcal-capable app like `ICSx⁵ <https://icsx5.bitfire.at>`_ so that this app can subscribe to the calendar.
 
 If you're using ICSx⁵, DAVx⁵ can determine whether a Webcal collection is currently subscribed and can also remove the subscription again.

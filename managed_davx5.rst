@@ -73,7 +73,7 @@ Configuration cache:
    Managed DAVx⁵ caches the configuration file which is fetched from the network so that Managed DAVx⁵ configuration is available when there is no network access (and for the time when Managed DAVx⁵ has been started, but the new network configuration is not ready yet). The cache will be overwritten when a new configuration file is downloaded. To reset the cache without a new configuration file, use: Managed DAVx⁵ / About/License / Managed configuration / Reload configuration.
 
 HTTP cache:
-   The configuration file is cached when it has been downloaded from the network according to the rules of the HTTP protocol. For instance, if the Web server which hosts the configuration file returns a freshness period of one hour, Managed DAVx⁵ will always use the cached version for one hour. However, the configuration file will be downloaded at least once a day (:code:`max-age: 1 day`) to avoid problems caused by obsolete configuration files. If there is no :code:`Expires`, the cache will use :code:`If-Match` and :code:`If-Unmodified-Since`.
+   The configuration file is cached when it has been downloaded from the network according to the rules of the HTTP protocol. For instance, if the Web server which hosts the configuration file returns a freshness period of one hour, Managed DAVx⁵ will always use the cached version for one hour. However, the configuration file will be downloaded at least once a day (``max-age: 1 day``) to avoid problems caused by obsolete configuration files. If there is no ``Expires``, the cache will use ``If-Match`` and ``If-Unmodified-Since``.
 
 It's advisable to set an expiration time for the configuration file on the Web server (for instance, one hour) explicitly to avoid unnecessary network traffic every time Managed DAVx⁵ is started on a device.
 
@@ -82,13 +82,13 @@ Configuration by fixed URL
 
 The simplest method to configure Managed DAVx⁵ over the network is to use a fixed configuration file URL, which can for example be provided as a QR code. This method can be used if you don't want to use automatic discovery of the Managed DAVx⁵ configuration file:
 
-#. **Upload the Managed DAVx⁵ configuration file to a HTTPS server** in the network (file name: :code:`davdroid-config.json`)
-#. Trigger an :code:`ACTION_VIEW` Intent with the configuration file URL (ending in :code:`/davdroid-config.json`) to the Android device. To do so, you can
+#. **Upload the Managed DAVx⁵ configuration file to a HTTPS server** in the network (file name: ``davdroid-config.json``)
+#. Trigger an ``ACTION_VIEW`` Intent with the configuration file URL (ending in ``/davdroid-config.json``) to the Android device. To do so, you can
 
    * **scan the QR code of the configuration file URL, then open it with Managed DAVx⁵** (not your browser); or
    * link to the configuration file on some page in your Intranet, and use your browser to open it with Managed DAVx⁵.
 
-.. note:: Because of Android intent filter limitations, the config file must not be nested deeper than 4 directory levels (:code:`/1/2/3/4/davdroid-config.json`).
+.. note:: Because of Android intent filter limitations, the config file must not be nested deeper than 4 directory levels (``/1/2/3/4/davdroid-config.json``).
 
 To use the QR code method, a QR code scanner app has to be installed first.
 
@@ -97,7 +97,7 @@ You can see and reset the current configuration file URL in Managed DAVx⁵ / Ab
 Configuration by unicast DNS
 ----------------------------
 
-Managed DAVx⁵ tries to resolve the :code:`SRV` and :code:`TXT` path records of :code:`davdroid-configs.local` in the local network. In case of success, the resulting URL (:code:`https` scheme, domain and host taken from :code:`SRV`, path taken from :code:`TXT path`, or :code:`/` else) is used to fetch Managed DAVx⁵ configuration.
+Managed DAVx⁵ tries to resolve the ``SRV`` and ``TXT`` path records of ``davdroid-configs.local`` in the local network. In case of success, the resulting URL (``https`` scheme, domain and host taken from ``SRV``, path taken from ``TXT path``, or ``/`` else) is used to fetch Managed DAVx⁵ configuration.
 
 An example DNS configuration could look like this:
 
@@ -106,14 +106,14 @@ An example DNS configuration could look like this:
    davdroid-configs.local   IN SRV 1 0 443 internal.example.com
    davdroid-configs.local   IN TXT "path=/davdroid/davdroid-config.json"
 
-In this case, Managed DAVx⁵ would try to access the configuration file at :code:`https://internal.example.com:443/davdroid/davdroid-config.json`.
+In this case, Managed DAVx⁵ would try to access the configuration file at ``https://internal.example.com:443/davdroid/davdroid-config.json``.
 
 Configuration by Zeroconf (DNS-SD)
 ----------------------------------
 
-Managed DAVx⁵ can discover a service called :code:`davdroid-configs._tcp` using `DNS-SD <http://www.dns-sd.org/>`_. The network configuration file URL (:code:`https` scheme) will be built from the host and path parts of :code:`TXT` records (the :code:`SRV` record is not used because the discovery service is not the same as the referenced configuration). If no host is specified, the host name of the host running the avahi service is used. If no path is specified, :code:`/` will be used.
+Managed DAVx⁵ can discover a service called ``davdroid-configs._tcp`` using `DNS-SD <http://www.dns-sd.org/>`_. The network configuration file URL (``https`` scheme) will be built from the host and path parts of ``TXT`` records (the ``SRV`` record is not used because the discovery service is not the same as the referenced configuration). If no host is specified, the host name of the host running the avahi service is used. If no path is specified, ``/`` will be used.
 
-You can use any DNS-SD server. If you use `avahi <https://avahi.org/>`_, the configuration file could be put into :code:`/etc/avahi/services` and look like this:
+You can use any DNS-SD server. If you use `avahi <https://avahi.org/>`_, the configuration file could be put into ``/etc/avahi/services`` and look like this:
 
 .. code-block:: none
 
@@ -129,16 +129,16 @@ You can use any DNS-SD server. If you use `avahi <https://avahi.org/>`_, the con
      </service>
    </service-group>
 
-In this case, Managed DAVx⁵ would try to download the configuration file from :code:`https://internal.example.com/public/davdroid-config.json`.
+In this case, Managed DAVx⁵ would try to download the configuration file from ``https://internal.example.com/public/davdroid-config.json``.
 
 
 Local configuration file
 ========================
 
-Managed DAVx⁵ watches the device for a file named :code:`davdroid-config.json` in the app-private directory (package identifier: :code:`com.davdroid.managed`) on the external storage,
-for instance :code:`/storage/emulated/0/Android/data/com.davdroid.managed/files/davdroid-config.json`.
+Managed DAVx⁵ watches the device for a file named ``davdroid-config.json`` in the app-private directory (package identifier: ``com.davdroid.managed``) on the external storage,
+for instance ``/storage/emulated/0/Android/data/com.davdroid.managed/files/davdroid-config.json``.
 
-If no other configuration method is active, you can put a configuration file to this location (using a regular file manager app or :code:`adb`). Changes in this file will be applied immediately.
+If no other configuration method is active, you can put a configuration file to this location (using a regular file manager app or ``adb``). Changes in this file will be applied immediately.
 
 This method is only recommended for debugging/testing purposes, for instance if you want to test the configuration file without the influence of potential networking problems.
 
@@ -186,7 +186,7 @@ These variables can be used for Managed DAVx⁵ configuration:
    * - login_base_url
      - text (URL)*
      - base URL for CalDAV/CardDAV service discovery when an account is added;
-       example: :code:`https://server.example.com/dav/`
+       example: ``https://server.example.com/dav/``
    * - login_user_name
      - text
      - default user name when an account is added – only useful when MDM can pre-fill restrictions from user details
@@ -214,11 +214,11 @@ These variables can be used for Managed DAVx⁵ configuration:
      - text (comma-separated list)
      - when set, DAVx⁵ will only sync when device is connected to one of these WiFis;
        only used when wifi_only is true;
-       example: :code:`wifi1,wifi2,wifi3`
+       example: ``wifi1,wifi2,wifi3``
    * - contact_group_method
-     - text: :code:`CATEGORIES` or :code:`GROUP_VCARDS`
-     - :code:`CATEGORIES` = contact groups are stored as per-contact category tags;
-       :code:`GROUP_VCARDS` = contact groups are separate VCards
+     - text: ``CATEGORIES`` or ``GROUP_VCARDS``
+     - ``CATEGORIES`` = contact groups are stored as per-contact category tags;
+       ``GROUP_VCARDS`` = contact groups are separate VCards
    * - manage_calendar_colors
      - boolean
      - *true* = DAVx⁵ will overwrite local calendar colors with the server colors at every sync;
