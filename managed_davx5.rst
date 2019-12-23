@@ -143,7 +143,6 @@ If no other configuration method is active, you can put a configuration file to 
 This method is only recommended for debugging/testing purposes, for instance if you want to test the configuration file without the influence of potential networking problems.
 
 .. warning::
-
    Other apps with the external storage permission may read/write the Managed DAVx⁵ configuration file. To avoid this
    security risk, don't use the local configuration file method.
 
@@ -189,7 +188,13 @@ These variables can be used for Managed DAVx⁵ configuration:
        example: ``https://server.example.com/dav/``
    * - login_user_name
      - text
-     - default user name when an account is added – only useful when MDM can pre-fill restrictions from user details
+     - pre-filled user name when an account is added
+   * - login_password
+     - text
+     - pre-filled password when an account is added; see security note below
+   * - login_lock_credentials
+     - boolean
+     - whether user name and password are locked (= can't be edited by the user) in case they are provided by managed configuration
    * - login_certificate_alias
      - text
      - if provided, client certificates will be used for authentication (instead of user name/password); value of this field will be pre-selected (if available)
@@ -198,7 +203,7 @@ These variables can be used for Managed DAVx⁵ configuration:
      - maximum number of accounts – no new accounts can be created when this number of accounts is reached
    * - override_proxy
      - boolean*
-     - *true* = system proxy settings are ignored and *override_proxy_host* and *override_proxy_port* are used instead;
+     - *true* = system proxy settings are ignored and ``override_proxy_host`` and ``override_proxy_port`` are used instead;
        *false* = system proxy settings are used
    * - override_proxy_host
      - text (host name)
@@ -230,6 +235,10 @@ These variables can be used for Managed DAVx⁵ configuration:
        setting to *true* causes some default calendar apps to crash → make sure that your preferred calendar app is working with this setting
 
 \*... required
+
+.. warning::
+   Using ``login_password`` is only recommended with app-specific per-user passwords. Keep in mind that the user
+   may be able to retrieve the password even if ``login_lock_credentials`` is set.
 
 
 Configuration file syntax
