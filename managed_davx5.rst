@@ -203,8 +203,8 @@ These variables can be used for Managed DAVx⁵ configuration:
      - maximum number of accounts – no new accounts can be created when this number of accounts is reached
    * - override_proxy
      - boolean*
-     - *true* = system proxy settings are ignored and ``override_proxy_host`` and ``override_proxy_port`` are used instead;
-       *false* = system proxy settings are used
+     - | *true* = system proxy settings are ignored and ``override_proxy_host`` and ``override_proxy_port`` are used instead
+       | *false* = system proxy settings are used
    * - override_proxy_host
      - text (host name)
      - HTTP proxy host name
@@ -213,8 +213,8 @@ These variables can be used for Managed DAVx⁵ configuration:
      - HTTP proxy port number
    * - wifi_only
      - boolean
-     - *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization);
-       *false* = DAVx⁵ will sync regardless of the connection type
+     - | *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization)
+       | *false* = DAVx⁵ will sync regardless of the connection type
    * - wifi_only_ssids
      - text (comma-separated list)
      - when set, DAVx⁵ will only sync when device is connected to one of these WiFis;
@@ -222,17 +222,21 @@ These variables can be used for Managed DAVx⁵ configuration:
        example: ``wifi1,wifi2,wifi3``
    * - contact_group_method
      - text: ``CATEGORIES`` or ``GROUP_VCARDS``
-     - ``CATEGORIES`` = contact groups are stored as per-contact category tags;
-       ``GROUP_VCARDS`` = contact groups are separate VCards
+     - | ``CATEGORIES`` = contact groups are stored as per-contact category tags
+       | ``GROUP_VCARDS`` = contact groups are separate VCards
    * - manage_calendar_colors
      - boolean
-     - *true* = DAVx⁵ will overwrite local calendar colors with the server colors at every sync;
-       *false* = DAVx⁵ won't change local calendar colors at every sync
+     - | *true* = DAVx⁵ will overwrite local calendar colors with the server colors at every sync
+       | *false* = DAVx⁵ won't change local calendar colors at every sync
    * - event_colors
      - boolean
-     - *true* = DAVx⁵ will synchronize event colors;
-       *false* = DAVx⁵ won't synchronize event colors;
-       setting to *true* causes some default calendar apps to crash → make sure that your preferred calendar app is working with this setting
+     - | *true* = DAVx⁵ will synchronize event colors
+       | *false* = DAVx⁵ won't synchronize event colors
+       | Setting to *true* causes some default calendar apps to crash → make sure that your preferred calendar app is working with this setting
+   * - default_alarm
+     - integer (number of minutes)
+     - | number of minutes a default reminder will be created before the start of every non-full-day event without reminder; no value (null) or value -1: no default reminders
+       | Can always be overwritten by users. Changing this value will only affect newly downloaded events.
 
 \*... required
 

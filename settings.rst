@@ -65,6 +65,14 @@ CalDAV
 Past event time limit
   Number of days which events will be synchronized in the past. For instance, *90* (default setting) will synchronize events which are 90 days in the past and all newer events. Older events won't be synchronized and won't show up in the calendar anymore. **An empty value means that all events will be synchronized.**
 
+Default reminder
+  Number of minutes a default reminder will be created before the start of every event that:
+
+    * is a date/time event (= not a full-day event)
+    * doesn't have a reminder.
+
+  An empty value means that no default reminders will be created. Default reminders are only set locally, but if an event is edited and uploaded, they will be uploaded like normal reminders. 
+
 Manage calendar colors
   When turned on, DAVx⁵ will set the local calendar colors to the colors transmitted by the server (or default green, if not sent by the server). To fetch updated colors from the server, see :ref:`refresh-collections`.
 
