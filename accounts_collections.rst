@@ -85,6 +85,36 @@ During initial resource detection, DAVx⁵ queries the ``calendar-user-address-s
 The account name must be unique, i.e. you can't have two DAVx⁵ accounts with the same account name. This could be relevant if you need separate accounts for CalDAV and CardDAV. In this case, use your email address as account name for the account to be used for CalDAV and another account name (like "My CardDAV Server") for the account to be used for CardDAV.
 
 
+
+Service tabs
+============
+
+If you open a DAVx⁵ account, you can see up to three tabs:
+
+1. CardDAV – lists your address books
+2. CalDAV – your calendars and task lists are there
+3. Webcal – subscribed calendars (Webcal) which have been provided over CalDAV
+
+Only available services (= those which have been detected during account setup)
+will be shown. For instance, if you have added a CardDAV-only service (like some address
+book of a Webmail service that doesn't manage calendars), the CalDAV and Webcal tabs won't show up.
+
+When synchronization is active, this is indicated by a progress bar on top of the tab. For instance,
+if contacts are currently being synchronized, there will be an animated progress bar at the top of
+the CardDAV tab. Pending synchronizations are indicated by a semi-transparent, non-animated progress
+bar.
+
+To enable synchronization for a collection (address book/calendar/task list), select the checkmark of
+the entry. Collection-specific actions (like viewing the collection properties or deleting the collection
+from the server) are accessible over the action overflow (⋮) next to the entry.
+
+Immediate synchronization of the whole account can be forced using the "Synchronization" floating
+action button (🗘).
+
+Actions which affect the whole account or more than one collection (like locally deleting the account
+from the device or refreshing the collection list) are accessible over the action menu of the whole account view.
+
+
 .. _refresh-collections:
 
 Refreshing the collection list
