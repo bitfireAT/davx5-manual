@@ -52,7 +52,7 @@ Sync algorithm: PROPFIND/REPORT
 #. Unset *present remotely* flag for all resources
 #. List and process remote resources (only names and ``ETag``) using ``PROPFIND`` or ``REPORT`` (see above)
 
-   * Download resources which have been added/modififed remotely in bunches using ``GET`` or ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
+   * Download resources which have been added/modififed remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
    * Set *present remotely* flag for all received resources.
 
 #. Locally delete all resources which are not flagged as *present remotely*
@@ -67,7 +67,7 @@ Sync algorithm: Collection Synchronization
 #. Do we have a previous ``sync-token``? → If no, set *initial sync*.
 #. List and process changes since last ``sync-token`` (or all records if no previous ``sync-token`` is known) using ``REPORT sync-collection``.
 
-   * Download resources which have been added/modififed remotely in bunches using ``GET`` or ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
+   * Download resources which have been added/modififed remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
    * Set *present remotely* flag for all received resources.
 
 #. If the requested ``sync-token`` was invalid:
@@ -276,7 +276,7 @@ Supported event fields
 ----------------------
 
 Events are stored as `CalendarContract.Events <https://developer.android.com/reference/android/provider/CalendarContract.Events>`_
-in the Android calendar provider. These iCalendar properties are mapped to Android fields:
+in the Android calendar provider. These iCalendar properties are directly mapped to Android fields:
 
 * ``SUMMARY`` ↔ title
 * ``LOCATION`` ↔ event location
@@ -284,8 +284,9 @@ in the Android calendar provider. These iCalendar properties are mapped to Andro
 * ``COLOR`` ↔ event color (only if enabled in DAVx⁵ account settings)
 * ``DTSTART`` ↔ start date/time, event timezone / all-day event
 * ``DTEND``, ``DURATION`` ↔ end date/time, event end timezone / all-day event
-* ``CLASS`` ↔ access level
-* ``TRANSP`` ↔ availability
+* ``CLASS`` ↔ :ref:`access level <access-level>`
+* ``TRANSP`` ↔ availability (opaque ↔ busy, transparent ↔ free)
+* ``STATUS`` ↔ status (confirmed/tentative/cancelled)
 
 All-day events
 ^^^^^^^^^^^^^^
@@ -303,6 +304,8 @@ Reminders
 ``VALARM`` components are mapped to `CalendarContract.Reminders <https://developer.android.com/reference/android/provider/CalendarContract.Reminders>`_ records and vice versa.
 
 Reminder methods (``ACTION``) are mapped to `Android values <https://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns#METHOD>`_ as good as possible.
+
+.. _recurring-events:
 
 Recurring events
 ^^^^^^^^^^^^^^^^
@@ -353,6 +356,8 @@ let's say 12:00 *Europe/Vienna*, and then save the event as 12:00 *Europe/Vienna
 .. warning::
 
    Because the Android calendar provider can only process events with time zones which are available in Android, recurring events in time zones which are not available in Android and their exceptions may not be expanded correctly.
+
+.. _access-level:
 
 Event classification
 ^^^^^^^^^^^^^^^^^^^^
