@@ -33,20 +33,21 @@ How to start using DAVx⁵ on your Android device:
 
 #. Download and install DAVx⁵ and, if you want to synchronize tasks, OpenTasks.
 #. Open DAVx⁵.
-#. Allow it to be whitelisted from battery saving.
+#. Follow the instructions of the start screen (permissions, battery saving etc.).
 #. Tap on ⊕ to create a new account.
 #. Enter your base URL / email address and login credentials.
    You can get the base URL from your service provider and/or our `list of tested services </tested-with>`_.
 #. Finish the steps to create the account.
 #. Select the account in DAVx⁵.
-#. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑). Grant contact, event and task access permissions when asked.
-#. You can now access your address books, events and tasks using the respective apps (Contacts, Calendar, S Planner, OpenTasks etc.) on your device.
+#. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑).
+#. Force sync (🗘)floating action button ↺) if you want the data to be available immediately.
+#. Access your address books, events and tasks using your favorite apps (Contacts, Calendar, S Planner, OpenTasks, …).
 
 When you create a contact/event, select the desired DAVx⁵ account as storage location.
 Local contacts/events will stay on your phone and not be synchronized. If you're using DAVx⁵ the first time, you may
 want to :faq:`transfer your local contacts to the CardDAV server <existing-contacts-are-not-synced>`.
 
-On some devices (like Xiaomi), :faq:`additional steps are required to allow DAVx⁵ to run
+On some devices (like Huawei and Xiaomi), :faq:`additional steps are required to allow DAVx⁵ to run
 automatically <synchronization-is-not-run-as-expected>`.
 
 
@@ -65,7 +66,7 @@ connected to a power supply.
 .. note:: 
    If you want DAVx⁵ synchronization to be run in regular intervals in the background, DAVx⁵ must be exempt from "battery saving"! This does not mean that DAVx⁵ requires more battery than it should, but only that you allow DAVx⁵ to run in the background for synchronization.
 
-Some devices (e.g. Huawei) also have an autostart permission, which must be granted for DAVx⁵ to work.
+Some devices (e.g. Huawei) also have a vendor-specific autostart permission, which must be granted for DAVx⁵ to work.
 See the :faq:`FAQ entry about automatic synchronization for more information <synchronization-is-not-run-as-expected>`.
 
 

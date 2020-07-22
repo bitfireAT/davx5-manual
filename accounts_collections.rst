@@ -7,9 +7,9 @@ Accounts and Collections
 What is a DAVx⁵ account?
 ========================
 
-A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected using the same starting point). In this case, you need only one DAVx⁵ account. However, you can also create multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
+A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected from the same starting point). In this case, you need only one DAVx⁵ account. However, you can also create multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
 
-Contacts, events and tasks have to be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize entries from other accounts (like Google or device-local accounts).
+Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize or otherwise touch entries that belong to other accounts (like Google or device-local accounts).
 
 When you add a DAVx⁵ account, you need either an email address or a base URL a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
@@ -75,14 +75,19 @@ DAVx⁵ address books accounts are named after the CardDAV address book which th
 Account names
 =============
 
-When creating a DAVx⁵ account, you have to enter the account name. This account name (which will be shown in the DAVx⁵ accounts list and in Android Settings / Accounts / DAVx⁵) is used as the
-``ORGANIZER`` email address for group-scheduled events. So:
+When setting up a DAVx⁵ account, you will be asked for the account name. This account name (which
+will be shown in the DAVx⁵ accounts list and in Android Settings / Accounts / DAVx⁵) is used as
+email address for scheduling (when events have attendees), so:
 
-.. note:: If possible, always use your email address as DAVx⁵ account name.
+.. note:: If you're using CalDAV with an account, always use your email address as account name.
 
-During initial resource detection, DAVx⁵ queries the ``calendar-user-address-set`` of the CalDAV principal URL and suggests the first email address as account name. If the property is not available, the user name/email address used for login is suggested as account name.
+During initial resource detection, DAVx⁵ queries the ``calendar-user-address-set`` of the CalDAV
+principal URL and suggests found email addresses as account name.
 
-The account name must be unique, i.e. you can't have two DAVx⁵ accounts with the same account name. This could be relevant if you need separate accounts for CalDAV and CardDAV. In this case, use your email address as account name for the account to be used for CalDAV and another account name (like "My CardDAV Server") for the account to be used for CardDAV.
+The account name must be unique, i.e. you can't have two DAVx⁵ accounts with the same account name.
+This is important if you need separate accounts for CalDAV and CardDAV. In this case, use
+your email address as account name for the CalDAV account and another account name
+(like "My CardDAV Server") for the CardDAV account.
 
 
 
@@ -96,16 +101,16 @@ If you open a DAVx⁵ account, you can see up to three tabs:
 3. Webcal – subscribed calendars (Webcal) which have been provided over CalDAV
 
 Only available services (= those which have been detected during account setup)
-will be shown. For instance, if you have added a CardDAV-only service (like some address
-book of a Webmail service that doesn't manage calendars), the CalDAV and Webcal tabs won't show up.
+will be shown. For instance, if you have added a CardDAV-only service (like
+a Webmail service that doesn't have calendars), only the CardDAV tab will show up.
 
-When synchronization is active, this is indicated by a progress bar on top of the tab. For instance,
+When synchronization is active, it's indicated by a progress bar on top of the tab. For instance,
 if contacts are currently being synchronized, there will be an animated progress bar at the top of
 the CardDAV tab. Pending synchronizations are indicated by a semi-transparent, non-animated progress
 bar.
 
-To enable synchronization for a collection (address book/calendar/task list), select the checkmark of
-the entry. Collection-specific actions (like viewing the collection properties or deleting the collection
+To enable synchronization of a collection (address book/calendar/task list), select the checkmark of
+the respective entry. Collection-specific actions (like viewing the collection properties or deleting the collection
 from the server) are accessible over the action overflow (⋮) next to the entry.
 
 Immediate synchronization of the whole account can be forced using the "Synchronization" floating

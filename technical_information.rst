@@ -21,15 +21,16 @@ These steps are performed when synchronizing a collection:
 
 #. Process locally deleted resources: if a local resource is flagged as deleted,
 
-   * delete it on the server (HTTP ``DELETE`` with ``If-Match`` set to last known ``ETag`` to avoid deleting resources which have been changed on the server in the meanwhile) and
+   * delete it on the server (HTTP ``DELETE`` with ``If-Match``/``If-Schedule-Tag-Match`` set to last
+     known ``ETag``/``Schedule-Tag`` to avoid deleting resources which have been changed on the server in the meanwhile) and
    * then remove it locally
 
 #. Upload locally modified ("dirty") resources:
 
-   * Assign a random UID and resource name to new resources; prepare contact group and recurring events, if necessary
-   * If no previous ``ETag`` of the resource is known (i.e. the resource has not been uploaded yet), use HTTP ``PUT`` with ``If-None-Match: *`` to avoid overwriting a possibly existing resource with the same name
-   * If a previous ``ETag`` of the resource is known, use HTTP ``PUT`` with ``If-Match`` set to last known ``ETag`` to avoid overwriting changes which happend on the server in the meanwhile
-   * remember returned ``ETag`` as last known ``ETag``; otherwise reset last known ``ETag``
+   * Assign a random UID (if necessary) and resource name to new resources; prepare contact group and recurring events, if necessary
+   * If no previous ``ETag``/``Schedule-Tag`` of the resource is known (i.e. the resource has not been uploaded yet), use HTTP ``PUT`` with ``If-None-Match: *`` to avoid overwriting a possibly existing resource with the same name
+   * If a previous ``ETag``/``Schedule-Tag`` of the resource is known, use HTTP ``PUT`` with ``If-Match``/``If-Schedule-Tag-Match`` set to last known ``ETag``/``Schedule-Tag`` to avoid overwriting changes which happend on the server in the meanwhile
+   * remember returned ``ETag``/``Schedule-Tag`` as last known ``ETag``/``Schedule-Tag``; otherwise reset last known ``ETag``/``Schedule-Tag``
 
 #. Choose sync algorithm (``PROPFIND``/``REPORT`` vs. Collection Synchronization):
 
@@ -49,15 +50,15 @@ These steps are performed when synchronizing a collection:
 Sync algorithm: PROPFIND/REPORT
 -------------------------------
 
-#. Unset *present remotely* flag for all resources
-#. List and process remote resources (only names and ``ETag``) using ``PROPFIND`` or ``REPORT`` (see above)
+#. Unset *present remotely* flag for all resources.
+#. List and process remote resources (only names and ``ETag``) using ``PROPFIND`` or ``REPORT`` (see above).
 
    * Download resources which have been added/modififed remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
    * Set *present remotely* flag for all received resources.
 
-#. Locally delete all resources which are not flagged as *present remotely*
+#. Locally delete all resources which are not flagged as *present remotely*.
 #. Post-processing: clean up empty contact groups etc.
-#. Save sync state (``CTag``/``sync-token``)
+#. Save sync state (``CTag``/``sync-token``).
 
 
 Sync algorithm: Collection Synchronization
@@ -330,13 +331,8 @@ Events with at least one attendee are considered to be group-scheduled events. O
 * is imported from iCalendars to the Android event so that only the organizer can edit a group-scheduled event,
 * is exported from the Android event to the iCalendar.
 
-When you add attendees to an event, DAVx⁵ sets the ``RSVP=TRUE`` property for the attendees, which means that a
-response is expected. If supported by the server, the server sends invitations to the attendees (for instance, by email).
+When you add attendees to an event, the server may send invitations to the attendees (for instance, by email).
 DAVx⁵ doesn't send invitation emails on its own.
-
-.. note:: DAVx⁵ doesn't implement :term:`CalDAV Scheduling` because the Android calendar provider doesn't have fields for it.
-   Very basic operations like managing attendees (when being organizer of an event) or setting your own availability should
-   work.
 
 Time zones
 ^^^^^^^^^^
@@ -488,16 +484,16 @@ You can set URL, username and password as extras. All of those are optional.
 .. versionadded:: 2.6
    Alternatively, you can use the `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ method:
 
-Intent data (URI): login flow entry point (``<server>/index.php/login/flow``). Intent extras:
+Intent data (URI): login flow entry point (``<server>/index.php/login/flow``). Intent extras (\*… optional):
 
++------------+---------+---------------------------------------------------------------------------+
+| extra name | type    | description                                                               |
++============+=========+===========================================================================+
+| loginFlow  | Int     | set to 1 to indicate Login Flow                                           |
 +------------+--------+---------------------------------------------------------------------------+
-| extra name | type   | description                                                               |
-+============+========+===========================================================================+
-| loginFlow  | Int    | set to 1 to indicate Login Flow                                           |
-+------------+--------+---------------------------------------------------------------------------+
-| davPath    | String | CalDAV/CardDAV base URL; will be appended to server URL returned by Login |
-|            |        | Flow without further processing (e.g. ``/remote.php/dav``)                |
-+------------+--------+---------------------------------------------------------------------------+
+| davPath    | String* | CalDAV/CardDAV base URL; will be appended to server URL returned by Login |
+|            |         | Flow without further processing (e.g. ``/remote.php/dav``)                |
++------------+---------+---------------------------------------------------------------------------+
 
 For compatibility with old DAVx⁵ versions, you can use both methods at the same time. Old DAVx⁵ versions will
 use the ``url``, ``username``, ``password`` extras, while new versions will see the ``loginFlow``
