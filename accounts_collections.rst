@@ -11,17 +11,17 @@ A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can
 
 Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize or otherwise touch entries that belong to other accounts (like Google or device-local accounts).
 
-When you add a DAVx⁵ account, you need either an email address or a base URL a starting point for service discovery. You can find the required configuration / base URL in your server manual or admin information. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
+When you add a DAVx⁵ account, you need either an email address or a base URL as the starting point for service discovery. You can find the required base URL in your server manual or ask your IT department. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
 
 How does service discovery work?
 ================================
 
 DAVx⁵ supports both `service location discovery by SRV/TXT records <https://tools.ietf.org/html/rfc6764>`_ and
-`well-known URLs <https://tools.ietf.org/html/rfc5785>`_. To use CalDAV and CardDAV in one DAVx⁵ account, make sure these redirects are present on your server:
+`well-known URLs <https://tools.ietf.org/html/rfc5785>`_. To use CalDAV and CardDAV in one DAVx⁵ account, provide these redirects on your server:
 
-``/.well-known/caldav`` → CalDAV service path (302 Found), e.g. ``/remote.php/caldav/``
-``/.well-known/carddav`` → CardDAV service path (302 Found), e.g. ``/remote.php/carddav/``
+``/.well-known/caldav`` → CalDAV service path (302 Found), like ``/remote.php/caldav/``
+``/.well-known/carddav`` → CardDAV service path (302 Found), like ``/remote.php/carddav/``
 
 .. note::
    If these redirects are configured correctly, you can use the root URL ``http(s)://your.server.example/``
@@ -47,6 +47,8 @@ When logging in by URL, DAVx⁵ asks for the *Base URL*. This can be:
   - an addressbook URL (``resourcetype: addressbook``).
 
 So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever it finds. If CalDAV and CardDAV are separated on your server and well-known URLs are not configured, you'll have to create two DAVx⁵ accounts: one for CalDAV (use the CalDAV URL as base URL) and one for CardDAV (use the CardDAV URL as base URL).
+
+If the URL is entered without scheme, ``https://`` will be prepended. Use of CalDAV/CardDAV over plain HTTP is not recommended for security reasons.
 
 
 Address book accounts

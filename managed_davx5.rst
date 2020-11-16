@@ -47,14 +47,6 @@ If Android Enterprise is not an option for you, you can choose between three net
 * Zeroconf (DNS-SD)
 
 Network configuration requires your Android devices to be connected to the network where the configuration file can be found.
-Usually, this is a WiFi and/or VPN connection. The following paragraphs apply to all network configuration methods:
-
-.. warning::
-
-   Do not join unsafe WiFi networks when you use network configuration. Other networks might offer other
-   Managed DAVx⁵ configuration files, which could lead to confusion. To avoid this problem, only
-   join well-defined WiFi networks (or use Android Enterprise instead of network configuration).
-
 
 Certificates
 ------------
@@ -83,16 +75,7 @@ Configuration by fixed URL
 The simplest method to configure Managed DAVx⁵ over the network is to use a fixed configuration file URL, which can for example be provided as a QR code. This method can be used if you don't want to use automatic discovery of the Managed DAVx⁵ configuration file:
 
 #. **Upload the Managed DAVx⁵ configuration file to a HTTPS server** in the network (file name: ``davdroid-config.json``)
-#. Trigger an ``ACTION_VIEW`` Intent with the configuration file URL (ending in ``/davdroid-config.json``) to the Android device. To do so, you can
-
-   * **scan the QR code of the configuration file URL, then open it with Managed DAVx⁵** (not your browser); or
-   * link to the configuration file on some page in your Intranet, and use your browser to open it with Managed DAVx⁵.
-
-.. note:: Because of Android intent filter limitations, the config file must not be nested deeper than 4 directory levels (``/1/2/3/4/davdroid-config.json``).
-
-To use the QR code method, a QR code scanner app has to be installed first.
-
-You can see and reset the current configuration file URL in Managed DAVx⁵ / About/License / Managed configuration.
+#. Managed DAVx⁵ / Managed configuration / Scan the QR code of the configuration file URL or enter the URL.
 
 Configuration by unicast DNS
 ----------------------------
@@ -107,6 +90,12 @@ An example DNS configuration could look like this:
    davdroid-configs.local   IN TXT "path=/davdroid/davdroid-config.json"
 
 In this case, Managed DAVx⁵ would try to access the configuration file at ``https://internal.example.com:443/davdroid/davdroid-config.json``.
+
+.. warning::
+
+   Do not join unsafe WiFi networks when you use DNS configuration. Other networks might offer other
+   Managed DAVx⁵ configuration files, which could lead to confusion. To avoid this problem, only
+   join well-defined WiFi networks (or use Android Enterprise or fixed URL configuration).
 
 Configuration by Zeroconf (DNS-SD)
 ----------------------------------
@@ -131,21 +120,11 @@ You can use any DNS-SD server. If you use `avahi <https://avahi.org/>`_, the con
 
 In this case, Managed DAVx⁵ would try to download the configuration file from ``https://internal.example.com/public/davdroid-config.json``.
 
-
-Local configuration file
-========================
-
-Managed DAVx⁵ watches the device for a file named ``davdroid-config.json`` in the app-private directory (package identifier: ``com.davdroid.managed``) on the external storage,
-for instance ``/storage/emulated/0/Android/data/com.davdroid.managed/files/davdroid-config.json``.
-
-If no other configuration method is active, you can put a configuration file to this location (using a regular file manager app or ``adb``). Changes in this file will be applied immediately.
-
-This method is only recommended for debugging/testing purposes, for instance if you want to test the configuration file without the influence of potential networking problems.
-
 .. warning::
-   Other apps with the external storage permission may read/write the Managed DAVx⁵ configuration file. To avoid this
-   security risk, don't use the local configuration file method.
 
+   Do not join unsafe WiFi networks when you use DNS configuration. Other networks might offer other
+   Managed DAVx⁵ configuration files, which could lead to confusion. To avoid this problem, only
+   join well-defined WiFi networks (or use Android Enterprise or fixed URL configuration).
 
 Configuration variables
 =======================
