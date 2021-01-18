@@ -2,8 +2,9 @@ image: sphinxdoc/sphinx:latest
 #image: ddidier/sphinx-doc:latest
 #image: ubuntu:latest
 
-#before_script:
+before_script:
 #  - apt-get -qq update && apt-get -qq install python3-sphinx python3-sphinx-rtd-theme make
+  - pip3 install sphinx_rtd_theme
 
 test:
   script:
