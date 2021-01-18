@@ -1,4 +1,5 @@
-image: ddidier/sphinx-doc:latest
+image: sphinxdoc/sphinx:latest 
+#image: ddidier/sphinx-doc:latest
 #image: ubuntu:latest
 
 #before_script:
