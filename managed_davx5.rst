@@ -1,4 +1,3 @@
-
 =============
 Managed DAVx⁵
 =============
@@ -190,6 +189,10 @@ These variables can be used for Managed DAVx⁵ configuration:
    * - override_proxy_port
      - integer (port number)
      - HTTP proxy port number
+   * - default_sync_interval
+     - integer (number of seconds)
+     - | initial sync interval at account creation (contacts/calendars/tasks); default value: 14400 seconds (4 hours). Only these values are eligible: 900 (15 min), 1800 (30 min), 3600 (1 h), 7200 (2 h), 14400 (4 h), 86400 (1 day).
+       | Can always be overwritten by users. Changing this value will only affect newly created accounts.
    * - wifi_only
      - boolean
      - | *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization)
@@ -216,6 +219,9 @@ These variables can be used for Managed DAVx⁵ configuration:
      - integer (number of minutes)
      - | number of minutes a default reminder will be created before the start of every non-full-day event without reminder; no value (null) or value -1: no default reminders
        | Can always be overwritten by users. Changing this value will only affect newly downloaded events.
+   * - show_only_personal
+     - integer
+     - | -1 (default value): user can choose, 0: show all collections, 1: show only collections in the user's own home-sets
 
 \*... required
 
@@ -247,5 +253,6 @@ It contains configuration variables in JSON format, like this:
      "wifi_only_ssids": "wifi1,wifi2",
      "contact_group_method": "GROUP_VCARDS",
      "manage_calendar_colors": true,
+     "default_sync_interval": 3600,
      "event_colors": false
    }
