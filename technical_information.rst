@@ -1,4 +1,3 @@
-
 =====================
 Technical information
 =====================
@@ -490,7 +489,7 @@ Intent data (URI): login flow entry point (``<server>/index.php/login/flow``). I
 | extra name | type    | description                                                               |
 +============+=========+===========================================================================+
 | loginFlow  | Int     | set to 1 to indicate Login Flow                                           |
-+------------+--------+---------------------------------------------------------------------------+
++------------+--------+----------------------------------------------------------------------------+
 | davPath    | String* | CalDAV/CardDAV base URL; will be appended to server URL returned by Login |
 |            |         | Flow without further processing (e.g. ``/remote.php/dav``)                |
 +------------+---------+---------------------------------------------------------------------------+
