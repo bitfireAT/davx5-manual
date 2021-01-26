@@ -23,8 +23,8 @@ DAVx⁵ supports both `service location discovery by SRV/TXT records <https://to
 ``/.well-known/caldav`` → CalDAV service path (302 Found), like ``/remote.php/caldav/``
 ``/.well-known/carddav`` → CardDAV service path (302 Found), like ``/remote.php/carddav/``
 
-**If these redirects are configured correctly, you can use the root URL ``http(s)://your.server.example/``
-without any additional paths as the base URL in DAVx⁵.**
+If these redirects are configured correctly, you can use the root URL ``http(s)://your.server.example/``
+without any additional paths as the base URL in DAVx⁵.
 
 
 What is the Base URL?
