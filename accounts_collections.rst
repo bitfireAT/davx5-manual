@@ -9,7 +9,7 @@ What is a DAVx⁵ account?
 
 A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected from the same starting point). In this case, you need only one DAVx⁵ account. However, you can also create multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
 
-Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. DAVx⁵ will not synchronize or otherwise touch entries that belong to other accounts (like Google or device-local accounts).
+Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. **DAVx⁵ will not synchronize or otherwise touch entries that belong to other accounts (like Google or device-local accounts).**
 
 When you add a DAVx⁵ account, you need either an email address or a base URL as the starting point for service discovery. You can find the required base URL in your server manual or ask your IT department. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
@@ -23,9 +23,8 @@ DAVx⁵ supports both `service location discovery by SRV/TXT records <https://to
 ``/.well-known/caldav`` → CalDAV service path (302 Found), like ``/remote.php/caldav/``
 ``/.well-known/carddav`` → CardDAV service path (302 Found), like ``/remote.php/carddav/``
 
-.. note::
-   If these redirects are configured correctly, you can use the root URL ``http(s)://your.server.example/``
-   without any additional paths as the base URL in DAVx⁵.
+**If these redirects are configured correctly, you can use the root URL ``http(s)://your.server.example/``
+without any additional paths as the base URL in DAVx⁵.**
 
 
 What is the Base URL?
@@ -36,19 +35,19 @@ When logging in by URL, DAVx⁵ asks for the *Base URL*. This can be:
 * the root URL (/) of your server if well-known URLs are configured (recommended), or
 * a valid CalDAV URL, i.e.
 
-  - an URL that provides a CalDAV ``current-user-principal``, or
-  - an URL that provides ``calendar-home-set``, or
+  - a URL that provides a CalDAV ``current-user-principal``, or
+  - a URL that provides ``calendar-home-set``, or
   - a calendar URL (``resourcetype: calendar``), and/or
 
 * a valid CardDAV URL, i.e.
 
-  - an URL that provides a CardDAV ``current-user-principal``, or
-  - an URL that provides ``addressbook-home-set``, or
+  - a URL that provides a CardDAV ``current-user-principal``, or
+  - a URL that provides ``addressbook-home-set``, or
   - an addressbook URL (``resourcetype: addressbook``).
 
 So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever it finds. If CalDAV and CardDAV are separated on your server and well-known URLs are not configured, you'll have to create two DAVx⁵ accounts: one for CalDAV (use the CalDAV URL as base URL) and one for CardDAV (use the CardDAV URL as base URL).
 
-If the URL is entered without scheme, ``https://`` will be prepended. Use of CalDAV/CardDAV over plain HTTP is not recommended for security reasons.
+If the URL is entered without scheme, ``https://`` will be prepended. `Use of CalDAV/CardDAV over plain HTTP is not recommended for security reasons. <https://tools.ietf.org/html/rfc6352#section-13>`_
 
 
 Address book accounts
@@ -111,8 +110,8 @@ if contacts are currently being synchronized, there will be an animated progress
 the CardDAV tab. Pending synchronizations are indicated by a semi-transparent, non-animated progress
 bar.
 
-To enable synchronization of a collection (address book/calendar/task list), select the checkmark of
-the respective entry. Collection-specific actions (like viewing the collection properties or deleting the collection
+**To enable synchronization of a collection (address book/calendar/task list), select the checkmark of
+the respective entry.** Collection-specific actions (like viewing the collection properties or deleting the collection
 from the server) are accessible over the action overflow (⋮) next to the entry.
 
 Immediate synchronization of the whole account can be forced using the "Synchronization" floating
@@ -144,7 +143,7 @@ Read-only collections
 There are two ways to restrict synchronization to one direction (only server to Android):
 
 #. DAVx⁵ follows the WebDAV permissions from the server. If you don't have write permissions for a specific collection, it will be treated as read-only.
-#. If you have write permissions for a specific collection, you can force read-only mode ("one-way sync") for this collection using the action overflow (⋮). You have to synchronize a collection before forced read-only takes effect. **This is a convenience feature (for instance, for home usage) and doesn't provide security. Any other CalDAV/CardDAV client could still modify the resources. If you need real security, restrict access on the server side with WebDAV ACL.**
+#. If you have write permissions for a specific collection, you can force read-only mode ("one-way sync") for this collection using the action overflow (⋮). You have to synchronize a collection before forced read-only takes effect. This is a convenience feature (for instance, for home usage) and doesn't provide security. Any other CalDAV/CardDAV client could still modify the resources. If you need real security, restrict access on the server side with WebDAV ACL.
 
 Regardless of why a collection is read-only, it will be shown as read-only (⛔) in the DAVx⁵ collection list.
 
