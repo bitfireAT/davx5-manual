@@ -15,7 +15,6 @@ Managed DAVx⁵ allows you to manage DAVx⁵ clients centrally by using these co
 * network configuration: fixed URL (QR code)
 * network configuration: unicast DNS
 * network configuration: Zeroconf (DNS-SD)
-* local configuration file
 
 This configuration is used in the Managed DAVx⁵ UI and for new Managed DAVx⁵ accounts.
 
