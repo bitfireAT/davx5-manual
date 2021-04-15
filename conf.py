@@ -88,7 +88,8 @@ html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
   'canonical_url': 'https://www.davx5.com/manual/',
-  'display_version': True
+  'display_version': True,
+  'style_external_links': True
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -112,7 +113,7 @@ html_context = {
   'gitlab_repo': 'davx5-manual',
   'gitlab_version': 'master/'
 }
-
+html_last_updated_fmt = ''
 html_style = 'css/davx5.css'
 
 

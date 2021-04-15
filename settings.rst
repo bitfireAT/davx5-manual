@@ -35,7 +35,16 @@ Reset (un)trusted certificates
    Clears the app key stores where both previously trusted and rejected certificates are saved. If those certificates are encountered again, they will have to be verified again.
 
 App permissions
-   Opens the dialog where you can manage DAV⁵ permissions.
+   Opens the dialog where you can manage DAVx⁵ permissions.
+
+Notification settings
+   Allows you to change appearance and priority of various DAVx⁵ notifications.
+
+Reset hints
+   When DAVx⁵ is started the first time, there are some setup hints. Use this option to make all hints that have been previously dismissed re-appear (if applicable).
+
+Tasks app
+   Select your preferred tasks app. Tasks are only synchronized with the selected app.
 
 
 Account settings

@@ -41,6 +41,7 @@ Please `send merge requests <https://gitlab.com/bitfireAT/davx5-manual/blob/mast
    accounts_collections
    settings
    technical_information
+   integration
    managed_davx5
 
 
