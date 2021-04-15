@@ -73,5 +73,9 @@ URL
   * ``NAME`` = ``vnd.android.cursor.item/vnd.ical4android.url``
   * ``VALUE`` = the `iCalendar URL <https://tools.ietf.org/html/rfc5545#section-3.8.4.6>`_ (e.g. ``https://example.com``)
 
+Calendar apps that are known to support this property:
+
+  * aCalendar+ (since 2.5)
+
 See also `KDoc <https://bitfireat.gitlab.io/ical4android/dokka/ical4android/at.bitfire.ical4android/-android-event/-m-i-m-e-t-y-p-e_-u-r-l.html>`_.
 
