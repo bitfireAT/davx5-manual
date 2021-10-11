@@ -13,6 +13,8 @@ A WebDAV mount allows you to work with remote folders and files of a WebDAV serv
 * any app that supports remote files to access your files (like sending a document directly from your WebDAV server over email,
   or watch a video from your WebDAV server).
 
+.. youtube:: FwfwNXFtvYE
+
 
 Restrictions
 ============
