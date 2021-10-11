@@ -39,6 +39,7 @@ Please `send merge requests <https://gitlab.com/bitfireAT/davx5-manual/blob/mast
 
    introduction
    accounts_collections
+   webdav_mounts
    settings
    technical_information
    integration

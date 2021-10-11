@@ -456,6 +456,33 @@ See :ref:`unknown properties of events <event-unknown-properties>`.
 
 
 
+WebDAV mounts
+=============
+
+**Detection:** DAVx⁵ uses ``OPTIONS`` to detect whether a URL is WebDAV-capable. It expects at least compliance class 1 (``DAV: 1``).
+
+**Supported features**:
+
+* Directory listing (``PROPFIND``)
+  
+  * WebDAV quota (RFC 4331) of root directory is shown in *DAVx⁵ WebDAV mounts*
+
+* Streaming read (``GET``) for files opened with mode ``r``
+* Random-access read (``GET`` with ``Range`` headers) for files opened with mode ``r``
+
+  - that have a known file size,
+  - that have an ``ETag`` or ``Last-Modified``,
+  - on Android 8+ only.
+
+  This allows things like seeking in videos or extracting data from a file
+  withoug reading the whole file.
+
+  A page cache with a page size of 2 MB is used, so files will be requested in
+  pieces of 2 MB, regardless of the actual read operations.
+
+* Streaming write (``PUT``) for files opened with mode ``w``
+
+
 TLS stack (protocol versions, ciphers)
 ======================================
 
