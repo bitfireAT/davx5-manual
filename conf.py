@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'DAVx⁵'
-copyright = u'all contributors. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.'
+copyright = u'contributors. This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License'
 author = 'Ricki Hirner and contributors'
 
 # The short X.Y version
@@ -108,10 +108,10 @@ html_static_path = ['_static']
 # html_sidebars = {}
 
 html_context = {
-  'display_gitlab': True,
-  'gitlab_user': 'bitfireAT',
-  'gitlab_repo': 'davx5-manual',
-  'gitlab_version': 'master/'
+  'display_github': True,
+  'github_user': 'bitfireAT',
+  'github_repo': 'davx5-manual',
+  'github_version': 'main/',
 }
 html_last_updated_fmt = ''
 html_style = 'css/davx5.css'

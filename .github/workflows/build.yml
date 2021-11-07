@@ -1,0 +1,24 @@
+name: Build preview site
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Prepare configuration
+        run: |
+          echo version=\"DRAFT\" >>conf.py
+          echo release=\"DRAFT\" >>conf.py
+      - uses: ammaraskar/sphinx-action@master
+        with:
+          docs-folder: "."
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_build/html
