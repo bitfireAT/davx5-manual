@@ -4,6 +4,33 @@ Sync with jtx Board
 
 This section is about jtx Board, the sync for Tasks (VTODO) and especially for Journals and Tasks (VJOURNAL)
 
+Introduction
+============
+
+With DAVx⁵ besides calendar entries (VEVENT) and contacts (VCARD) you can sync tasks (VTODO) with compatible apps (Tasks.org, OpenTasks, jtx Board) and journals as well as notes (VJOURNAL) with jtx Board. This section provides more information about synchronizing tasks, notes and journals with jtx Board.
+
+Journals, Notes
+===============
+VJOURNALs are defined as an entity with a defined as entries that can have a start date but do not occupy space in a calendar. jtx Board uses the VJOURNAL component as defined in the iCal Format to store and provide journals and notes for synchronization. Journals are stored with a start date whereas notes have no date assigned. 
+
+In order to synchronize VJOURNALs the CalDAV-server that should be used for synchronization must support the VJOURNAL component of the iCal Format. Some servers support VJOURNALs without problems, whereas others cause issues. This might be due to the scarce usage of the VJOURNAL component. Please consider reaching out to your server-provider if you encounter any issues that could be due to an unsufficient support for the VJOURNAL component. Our compatibility list will be updated on a regular basis. 
+
+If your CalDAV-server supports VJOURNAL, make sure that you have either an existing collection with VJOURNAL support: 
+
+<Screenshot with a collection with VJOURNAL>
+
+or create a new collection for an account with VJOURNAL support enabled: 
+
+<Screenshot with creating a new collection with VJOURNAL>
+
+Once you have a collection with VJOURNAL support, just start the sync and the collection will appear in the jtx Board app. You can doublecheck if everything worked correctly in the jtx Board app by clicking on "Sync with DAVx⁵" in the main menu - the compatible collections will appear. Now you can make new Journals and Notes and store them in your collection in order to synchronize them with the server. 
+
+Tasks
+=====
+
+
+
+
 Work in progress
 
 
