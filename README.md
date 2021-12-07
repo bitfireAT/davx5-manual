@@ -18,3 +18,19 @@ Contributing
 ============
 
 Please send pull requests on Github to improve the manual!
+
+
+Working locally
+===============
+
+First, install the required packages (these are the Ubuntu packages):
+
+    apt install python3-sphinx python3-sphinx-rtd-theme
+
+Then clone the repository and do your changes. To compile:
+
+    sphinx-build . _build
+
+Then you can see your compiled version in the `_build` directory.
+
+When you have finished your changes and are satisifed with the preview, create a pull request with your changes.
