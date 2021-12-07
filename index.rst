@@ -42,6 +42,7 @@ Please send pull requests to make it better!
    technical_information
    integration
    managed_davx5
+   jtx_board
 
 
 .. raw:: html
