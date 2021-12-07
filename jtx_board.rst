@@ -11,7 +11,7 @@ With DAVx⁵ besides calendar entries (VEVENT) and contacts (VCARD) you can sync
 
 Journals, Notes
 ===============
-VJOURNALs are defined as an entity with a defined as entries that can have a start date but do not occupy space in a calendar. jtx Board uses the VJOURNAL component as defined in the iCal Format to store and provide journals and notes for synchronization. Journals are stored with a start date whereas notes have no date assigned. 
+VJOURNALs are entries that can have a start date but do not occupy space in a calendar. jtx Board uses the VJOURNAL component as defined in the iCal Format to store and provide journals and notes for synchronization. Journals are stored with a start date whereas notes have no date assigned. 
 
 In order to synchronize VJOURNALs the CalDAV-server that should be used for synchronization must support the VJOURNAL component of the iCal Format. Some servers support VJOURNALs without problems, whereas others cause issues. This might be due to the scarce usage of the VJOURNAL component. Please consider reaching out to your server-provider if you encounter any issues that could be due to an unsufficient support for the VJOURNAL component. Our compatibility list will be updated on a regular basis. 
 
