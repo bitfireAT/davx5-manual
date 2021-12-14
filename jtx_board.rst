@@ -11,9 +11,9 @@ With DAVx⁵ besides calendar entries (VEVENT) and contacts (VCARD) you can sync
 
 Journals, Notes
 ===============
-VJOURNALs are entries that can have a start date but do not occupy space in a calendar. jtx Board uses the VJOURNAL component as defined in the iCal Format to store and provide journals and notes for synchronization. Journals are stored with a start date whereas notes have no date assigned. 
+VJOURNALs are entries that can have a start date but do not occupy space in a calendar. jtx Board uses the VJOURNAL component as defined in the iCalendar format to store and provide journals and notes for synchronization. Journals are stored with a start date whereas notes have no date assigned. 
 
-In order to synchronize VJOURNALs the CalDAV-server that should be used for synchronization must support the VJOURNAL component of the iCal Format. Some servers support VJOURNALs without problems, whereas others cause issues. This might be due to the scarce usage of the VJOURNAL component. Please consider reaching out to your server-provider if you encounter any issues that could be due to an unsufficient support for the VJOURNAL component. Our compatibility list will be updated on a regular basis. 
+In order to synchronize VJOURNALs the CalDAV-server that should be used for synchronization must support the VJOURNAL component of the iCalendar format. Some servers support VJOURNALs without problems, whereas others cause issues. This might be due to the scarce usage of the VJOURNAL component. Please consider reaching out to your server-provider if you encounter any issues that could be due to an unsufficient support for the VJOURNAL component. Our compatibility list will be updated on a regular basis. 
 
 If your CalDAV-server supports VJOURNAL, make sure that you have either an existing collection with VJOURNAL support: 
 
@@ -35,7 +35,7 @@ Once you have a collection with VJOURNAL support, make sure that it is activated
 
 Tasks
 =====
-VTODOs are entities that can have a start, due and completed date as well as a progress assigned (amongst others). jtx Board uses the VTODO component as defined in the iCal Format to store and provide tasks for synchronization. as for VJOURNALs your server must support the VTODO component in order to use it for synchronization. The VTODO component is a well-established component in the iCal format and many servers support it. However, the same conditions as for VJOURNALs apply: Make sure that your server supports VTODOs and that you have at least one collection activated for synchronization that supports VTODOs or create a new collection for an account with VTODO support enabled:
+VTODOs are entities that can have a start, due and completed date as well as a progress assigned (amongst others). jtx Board uses the VTODO component as defined in the iCalandar format to store and provide tasks for synchronization. As for VJOURNALs your server must support the VTODO component in order to use it for synchronization. The VTODO component is a well-established component in the iCalendar format and many servers support it. However, the same conditions as for VJOURNALs apply: Make sure that your server supports VTODOs and that you have at least one collection activated for synchronization that supports VTODOs or create a new collection for an account with VTODO support enabled:
 
 
 
