@@ -35,7 +35,8 @@ Once you have a collection with VJOURNAL support, make sure that it is activated
 
 Tasks
 =====
-VTODOs are entities that can have a start, due and completed date as well as a progress assigned (amongst others). jtx Board uses the VTODO component as defined in the iCal Format to store and provide tasks for synchronization. as for VJOURNALs your server must support the VTODO component in order to use it for synchronization. The VTODO component is a well-established component in the iCal format and many servers support it. However, the same conditions as for VJOURNALs apply: Make sure that your server supports VTODOs and that you have at least one collection activated for synchronization that supports VTODOs.
+VTODOs are entities that can have a start, due and completed date as well as a progress assigned (amongst others). jtx Board uses the VTODO component as defined in the iCal Format to store and provide tasks for synchronization. as for VJOURNALs your server must support the VTODO component in order to use it for synchronization. The VTODO component is a well-established component in the iCal format and many servers support it. However, the same conditions as for VJOURNALs apply: Make sure that your server supports VTODOs and that you have at least one collection activated for synchronization that supports VTODOs or create a new collection for an account with VTODO support enabled:
+
 
 
 .. figure:: images/davx5_collections_journals_tasks.png
@@ -44,7 +45,9 @@ VTODOs are entities that can have a start, due and completed date as well as a p
    :width: 250
 
 
+Combining Journals, Notes & Tasks
+=================================
+If you would like to combine entries for example by using Notes as comments to Tasks or by adding Subtasks to Notes and Journals, make sure that you are working in a collection with VJOURNAL AND VTODO enabled. 
 
-Work in progress
 
 
