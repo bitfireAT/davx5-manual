@@ -17,7 +17,13 @@ Live version (updated manually): https://www.davx5.com/manual/
 Contributing
 ============
 
-Please send pull requests on Github to improve the manual!
+Thanks for your interest in contributing to this manual! To contribute:
+
+1. Fork the repository.
+1. Make the changes in the repo.
+1. Send a pull request.
+
+For your first contribution, our CLA bot will ask you to sign the Contributor License Agreement.
 
 
 Working locally
