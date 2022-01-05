@@ -33,6 +33,10 @@ First, install the required packages (these are the Ubuntu packages):
 
     apt install python3-sphinx python3-sphinx-rtd-theme
 
+Also install the Youtube extension for sphinx:
+
+    pip install sphinxcontrib-youtube
+
 Then clone the repository and do your changes. To compile:
 
     sphinx-build . _build

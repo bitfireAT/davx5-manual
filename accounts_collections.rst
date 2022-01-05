@@ -85,6 +85,9 @@ email address for scheduling (when events have attendees), so:
 During initial resource detection, DAVx⁵ queries the ``calendar-user-address-set`` of the CalDAV
 principal URL and suggests found email addresses as account name.
 
+Some devices have problems when there's an apostrophe (``'``) in the account name. We suggest to avoid
+apostrophes in account names.
+
 The account name must be unique, i.e. you can't have two DAVx⁵ accounts with the same account name.
 This is important if you need separate accounts for CalDAV and CardDAV. In this case, use
 your email address as account name for the CalDAV account and another account name
