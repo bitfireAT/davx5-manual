@@ -31,6 +31,8 @@ Also, not all apps support content from remote files (:abbr:`SAF (Storage Access
 1. the app doesn't support remote files at all,
 2. or the app opens the file in read/write mode (which is currently not supported by WebDAV/DAVx⁵).
 
+.. warning:: If you're transferring or accessing big files (like streaming a video), Android may kill DAVx⁵ because it uses the CPU in the background. In this case, enable the DAVx⁵ setting *Keep in foreground* to avoid DAVx⁵ to be killed.
+
 
 Managing WebDAV mounts
 ======================
