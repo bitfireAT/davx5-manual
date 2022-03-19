@@ -27,8 +27,8 @@ Please send pull requests to make it better!
 
    For more information about DAVx⁵, see the `DAVx⁵ Web site <https://www.davx5.com>`_. Especially have a look at the
    `tested services <https://www.davx5.com/tested-with>`_ and the respective subpages, the
-   `Frequently Asked Questions (FAQ) <https://www.davx5.com/faq>`_, and
-   `our forums <https://www.davx5.com/forums>`_.
+   `Frequently Asked Questions (FAQ) <https://www.davx5.com/faq>`_, and our
+   `community discussions <https://github.com/bitfireAT/davx5-ose/discussions>`_.
 
 
 .. toctree::
