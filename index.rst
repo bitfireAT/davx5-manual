@@ -37,12 +37,12 @@ Please send pull requests to make it better!
 
    introduction
    accounts_collections
+   tasks_notes
    webdav_mounts
    settings
    technical_information
    integration
    managed_davx5
-   jtx_board
 
 
 .. raw:: html
