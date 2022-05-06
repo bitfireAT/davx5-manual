@@ -116,13 +116,18 @@ html_context = {
 html_last_updated_fmt = ''
 html_style = 'css/davx5.css'
 
+rst_prolog = """
+.. |br| raw:: html
+
+   <br />
+"""
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'DAVx5doc'
 
 # -- Extension configuration -------------------------------------------------
-
 extlinks = {
   'faq': ('https://www.davx5.com/faq/%s', 'FAQ ')
 }

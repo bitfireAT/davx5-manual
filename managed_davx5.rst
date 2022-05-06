@@ -175,13 +175,20 @@ These variables can be used for Managed DAVx⁵ configuration:
    * - login_certificate_alias
      - text
      - if provided, client certificates will be used for authentication (instead of user name/password); value of this field will be pre-selected (if available)
+   * - sync_all_collections
+     - boolean
+     - *true* = detected collections are selected for synchronization by default |br|
+       *false* = detected collections are not selected for synchronization by default
    * - max_accounts
      - integer
      - maximum number of accounts – no new accounts can be created when this number of accounts is reached
-   * - override_proxy
-     - boolean*
-     - | *true* = system proxy settings are ignored and ``override_proxy_host`` and ``override_proxy_port`` are used instead
-       | *false* = system proxy settings are used
+   * - proxy_type
+     - integer
+     - Sets the proxy type for all HTTP(S) connections. Uses ``override_proxy_host`` and ``override_proxy_port``, if applicable. |br| |br|
+       -1 = system default |br|
+       0 = none |br|
+       1 = HTTP |br|
+       2 = SOCKS
    * - override_proxy_host
      - text (host name)
      - HTTP proxy host name
@@ -190,12 +197,12 @@ These variables can be used for Managed DAVx⁵ configuration:
      - HTTP proxy port number
    * - default_sync_interval
      - integer (number of seconds)
-     - | initial sync interval at account creation (contacts/calendars/tasks); default value: 14400 seconds (4 hours). Only these values are eligible: 900 (15 min), 1800 (30 min), 3600 (1 h), 7200 (2 h), 14400 (4 h), 86400 (1 day).
-       | Can always be overwritten by users. Changing this value will only affect newly created accounts.
+     - initial sync interval at account creation (contacts/calendars/tasks); default value: 14400 seconds (4 hours). Only these values are eligible: 900 (15 min), 1800 (30 min), 3600 (1 h), 7200 (2 h), 14400 (4 h), 86400 (1 day). |br|
+       Can always be overwritten by users. Changing this value will only affect newly created accounts.
    * - wifi_only
      - boolean
-     - | *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization)
-       | *false* = DAVx⁵ will sync regardless of the connection type
+     - *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization) |br|
+       *false* = DAVx⁵ will sync regardless of the connection type
    * - wifi_only_ssids
      - text (comma-separated list)
      - when set, DAVx⁵ will only sync when device is connected to one of these WiFis;
@@ -203,24 +210,26 @@ These variables can be used for Managed DAVx⁵ configuration:
        example: ``wifi1,wifi2,wifi3``
    * - contact_group_method
      - text: ``CATEGORIES`` or ``GROUP_VCARDS``
-     - | ``CATEGORIES`` = contact groups are stored as per-contact category tags
-       | ``GROUP_VCARDS`` = contact groups are separate VCards
+     - ``CATEGORIES`` = contact groups are stored as per-contact category tags |br|
+       ``GROUP_VCARDS`` = contact groups are separate VCards
    * - manage_calendar_colors
      - boolean
-     - | *true* = DAVx⁵ will overwrite local calendar colors with the server colors at every sync
-       | *false* = DAVx⁵ won't change local calendar colors at every sync
+     - *true* = DAVx⁵ will overwrite local calendar colors with the server colors at every sync |br|
+       *false* = DAVx⁵ won't change local calendar colors at every sync
    * - event_colors
      - boolean
-     - | *true* = DAVx⁵ will synchronize event colors
-       | *false* = DAVx⁵ won't synchronize event colors
-       | Setting to *true* causes some default calendar apps to crash → make sure that your preferred calendar app is working with this setting
+     - *true* = DAVx⁵ will synchronize event colors |br|
+       *false* = DAVx⁵ won't synchronize event colors |br| |br|
+       Setting to *true* causes some default calendar apps to crash → make sure that your preferred calendar app is working with this setting
    * - default_alarm
      - integer (number of minutes)
-     - | number of minutes a default reminder will be created before the start of every non-full-day event without reminder; no value (null) or value -1: no default reminders
-       | Can always be overwritten by users. Changing this value will only affect newly downloaded events.
+     - number of minutes a default reminder will be created before the start of every non-full-day event without reminder; no value (null) or value -1: no default reminders |br|
+       Can always be overwritten by users. Changing this value will only affect newly downloaded events.
    * - show_only_personal
      - integer
-     - | -1 (default value): user can choose, 0: show all collections, 1: show only collections in the user's own home-sets
+     - -1 (default value) = user can choose |br|
+       0 = show all collections |br|
+       1 = show only collections in the user's own home-sets
 
 \*... required
 
