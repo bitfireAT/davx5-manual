@@ -8,44 +8,81 @@ This section is about other apps can interact with DAVx⁵.
 Launching the DAVx⁵ login screen
 ================================
 
-You can use an explicit Intent to launch the DAVx⁵ login screen with pre-filled credentials::
+You can use either
 
-    val intent = Intent()
-    intent.setClassName("at.bitfire.davdroid", "at.bitfire.davdroid.ui.setup.LoginActivity")
+1. an explicit Intent (= directed directly to DAVx⁵) or
+2. an implicit Intent (= directed to all apps which support these URLs, especially DAVx⁵)
 
-.. warning:: Always use an explicit intent with hardcoded package name for security reasons. Keep
-   in mind that an attacker could trick users into installing a malicious app with the same package
-   name (when third-party app sources are allowed).
+to launch the DAVx⁵ login screen with pre-filled URL and credentials.
 
-You can set URL, username and password as extras. All of those are optional.
+Explicit Intent
+---------------
 
-+------------+--------+---------------------------------------------+
-| extra name | type   | description                                 |
-+============+========+=============================================+
-| url        | String | CalDAV/CardDAV base URL                     |
-+------------+--------+---------------------------------------------+
-| username   | String | pre-filled username                         |
-+------------+--------+---------------------------------------------+
-| password   | String | pre-filled password (usage not recommended) |
-+------------+--------+---------------------------------------------+
+If you want to explicitly open DAVx⁵ (and no other app)::
+
+    val intent = Intent().apply {
+        setClassName("at.bitfire.davdroid", "at.bitfire.davdroid.ui.setup.LoginActivity")
+        putExtra("url", "https://example.com/path/")
+        putExtra("username", user.name)
+        putExtra("password", user.app_password)
+    }
+
+You can set URL, username and password as extras. All of those are optional*.
+
++------------+---------+-----------------------------------------------------------------+
+| extra name | type    | description                                                     |
++============+=========+=================================================================+
+| url        | String* | CalDAV/CardDAV base URL                                         |
++------------+---------+-----------------------------------------------------------------+
+| username   | String* | pre-filled username                                             |
++------------+---------+-----------------------------------------------------------------+
+| password   | String* | pre-filled password                                             |
+|            |         | (generate an app-specific password for DAVx⁵)                   |
++------------+---------+-----------------------------------------------------------------+
 
 .. versionadded:: 2.6
-   Alternatively, you can use the `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ method:
+   Instead of providing URL, username and password as an extra, you can also use the
+   `Nextcloud Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_
+   method:
 
-Intent data (URI): login flow entry point (``<server>/index.php/login/flow``). Intent extras (\*… optional):
++------------------+---------+---------------------------------------------------------------------------+
+| Intent           | type    | description                                                               |
++==================+=========+===========================================================================+
+| data             | URI     | login flow entry point (``<server>/index.php/login/flow``).               |
++------------------+---------+---------------------------------------------------------------------------+
+| extra: loginFlow | Int     | set to 1 to indicate Login Flow                                           |
++------------------+---------+---------------------------------------------------------------------------+
+| extra: davPath   | String* | CalDAV/CardDAV base URL; will be appended to server URL returned by Login |
+|                  |         | Flow without further processing (e.g. ``/remote.php/dav``)                |
++------------------+---------+---------------------------------------------------------------------------+
 
-+------------+---------+---------------------------------------------------------------------------+
-| extra name | type    | description                                                               |
-+============+=========+===========================================================================+
-| loginFlow  | Int     | set to 1 to indicate Login Flow                                           |
-+------------+---------+---------------------------------------------------------------------------+
-| davPath    | String* | CalDAV/CardDAV base URL; will be appended to server URL returned by Login |
-|            |         | Flow without further processing (e.g. ``/remote.php/dav``)                |
-+------------+---------+---------------------------------------------------------------------------+
 
-For compatibility with old DAVx⁵ versions, you can use both methods at the same time. Old DAVx⁵ versions will
-use the ``url``, ``username``, ``password`` extras, while new versions will see the ``loginFlow``
-extra and switch to the Login Flow method.
+
+Implicit Intent
+---------------
+
+If you want to open *any CalDAV/CardDAV app that supports CalDAV/CardDAV URLs, including DAVx⁵*,
+you can launch a ``caldav(s)://`` or ``carddav(s)://`` Intent::
+
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("caldavs://server.example.com/path/"))
+    # caldav://server.example.com/path/   will be rewritten to http://server.example.com/path/
+    # caldavs://server.example.com/path/  will be rewritten to https://server.example.com/path/
+    # carddav://server.example.com/path/  will be rewritten to http://server.example.com/path/
+    # carddavs://server.example.com/path/ will be rewritten to https://server.example.com/path/
+    # davx5://server.example.com/path/    will be rewritten to https://server.example.com/path/
+
+You can specify username and password either as extras (see explicit Intent above) or encoded it
+directly in the URL (example: ``davx5://user:password@server.example.com/path/``). This is
+primarily intended for links from Web pages (for instance, an Intranet page that links to a
+``davx5://`` setup URL) or QR codes that can then be scanned and opened with a compatible QR code
+scanner app (like `Binary Eye <https://github.com/markusfisch/BinaryEye>`_).
+
+For instance, you can generate a QR code of the URL ``davx5://user@server.example.com/path/``
+and print it. Then scan it with a compatible QR code scanner app on the Android device to open
+DAVx⁵ with the URL ``https://server.example.com/path/`` and username ``user`` (without password).
+
+.. warning:: Username and password should not be encoded in the URL programatically. Use the
+   ``username`` and ``password`` extras instead.
 
 
 .. _extended_event_properties:

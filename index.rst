@@ -32,6 +32,7 @@ Please send pull requests to make it better!
 
 
 .. toctree::
+   :numbered:
    :maxdepth: 2
    :caption: Contents:
 
