@@ -14,7 +14,7 @@ Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ ca
 When you add a DAVx⁵ account, you need either an email address or a base URL as the starting point for service discovery. You can find the required base URL in your server manual or ask your IT department. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
 .. note:: 
-   Because `restricted profiles currently cannot add accounts <https://developer.android.com/guide/topics/manifest/application-element#requiredAccountType>`_, it is not possible to use DAVx⁵ in a restricted profile.
+   Because `restricted user profiles cannot add accounts <https://developer.android.com/guide/topics/manifest/application-element#requiredAccountType>`_, it is not possible to use DAVx⁵ in a restricted user profile (child profile).
 
 
 How does service discovery work?
