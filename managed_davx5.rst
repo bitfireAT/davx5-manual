@@ -177,7 +177,7 @@ These variables can be used for Managed DAVx⁵ configuration:
      - if provided, client certificates will be used for authentication (instead of user name/password); value of this field will be pre-selected (if available)
    * - sync_all_collections
      - boolean
-     - *true* = detected collections are selected for synchronization by default |br|
+     - *true* = all detected collections (calendars and address books) are automatically pre-selected for synchronization by default |br|
        *false* = detected collections are not selected for synchronization by default
    * - max_accounts
      - integer
