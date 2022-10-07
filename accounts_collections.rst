@@ -155,7 +155,7 @@ Regardless of why a collection is read-only, it will be shown as read-only (⛔)
 
 .. note:: Android doesn't have native support for read-only address books. To emulate this feature, DAVx⁵ reverts local changes at every synchronization. You can still edit a contact in the Contacts app, but the changes will be reverted when this contact is synchronized from the server (at the latest when it's changed on the server).
 
-Read-only calendars will be marked as read-only in the Android calendar provider, so that calendar apps won't be able to create/modify/delete events in such calendars anymore. Currently, there's no read-only support for task lists.
+Read-only calendars will be marked as read-only in the Android calendar provider, so that calendar apps won't be able to create/modify/delete events in such calendars anymore. Read-only support for task lists is currently only available in jtx Board, and not in tasks.org and OpenTasks.
 
 
 Creating/deleting collections on/from the server
