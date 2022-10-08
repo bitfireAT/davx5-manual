@@ -1,0 +1,21 @@
+name: Build preview
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches-ignore: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ammaraskar/sphinx-action@master
+        with:
+          docs-folder: "."
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./_build/html
+      - run: |
+          echo "::notice You can preview the new manual in the artifact of this workflow! (Download and locally view in browser.)"
