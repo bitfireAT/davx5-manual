@@ -1,20 +1,9 @@
 
-.. ifconfig:: releaselevel == 'live'
+DAVx⁵ Manual
+============
 
-   DAVx⁵ Manual
-   ============
-
-   .. image:: images/davx5-logo.svg
-      :width: 25%
-
-.. ifconfig:: releaselevel == 'draft'
-
-   DAVx⁵ Manual – *DRAFT*
-   ======================
-
-   .. warning::
-
-      This is a working draft (`source <https://github.com/bitfireAT/davx5-manual/>`_). See the `live manual <https://www.davx5.com/manual>`_.
+.. image:: images/davx5-logo.svg
+   :width: 25%
 
 
 This is the manual for `DAVx⁵ <https://www.davx5.com>`_, an CalDAV/CardDAV client and sync app for Android.

@@ -135,7 +135,3 @@ linkcheck_ignore = [ r'^_images/' ]
 
 todo_include_todos = True
 
-
-def setup(app):
-  app.add_config_value('releaselevel', 'draft', 'env')
-
