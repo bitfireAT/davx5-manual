@@ -179,6 +179,10 @@ These variables can be used for Managed DAVx⁵ configuration:
      - boolean
      - *true* = all detected collections (calendars and address books) are automatically pre-selected for synchronization by default |br|
        *false* = detected collections are not selected for synchronization by default
+   *  - force_read_only_addressbooks
+      - boolean
+      - *true* = DAVx⁵ will set all address books to read-only. This will only prevent *client side* editing of contacts from DAVx⁵. If any changes are made they will be reverted to the version present on the server. Keep in mind that this is not preventing changes to the address book in general. For instance other apps can still change the address book on the server. |br|
+        *false* = (default) DAVx⁵ won't change standard read-only setting.
    * - max_accounts
      - integer
      - maximum number of accounts – no new accounts can be created when this number of accounts is reached
@@ -230,10 +234,7 @@ These variables can be used for Managed DAVx⁵ configuration:
      - -1 (default value) = user can choose |br|
        0 = show all collections |br|
        1 = show only collections in the user's own home-sets
-   *  - force_read_only_addressbooks
-      - boolean
-      - *true* = DAVx⁵ will set all address books to read-only. This will only prevent *client side* editing of contacts from DAVx⁵. If any changes are made they will be reverted to the version present on the server. Keep in mind that this is not preventing changes to the address book in general. For instance other apps can still change the address book on the server. |br|
-        *false* = (default) DAVx⁵ won't change standard read-only setting.
+
       
 
 \*... required
