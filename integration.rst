@@ -85,6 +85,28 @@ DAVx⁵ with the URL ``https://server.example.com/path/`` and username ``user`` 
    ``username`` and ``password`` extras instead.
 
 
+
+Open DAVx⁵ for a specific account
+=================================
+
+You can use an explicit Intent (= directed directly to DAVx⁵) to launch the DAVx⁵ account screen for a specific account::
+
+    val intent = Intent(Intent.ACTION_MAIN)
+    intent.setClassName(DAVX5_PACKAGE_NAME,"${DAVX5_PACKAGE_NAME}.ui.account.AccountActivity")
+    intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
+    intent.putExtra("account", Account("accountname", "bitfire.at.davdroid"))
+    
+
+You have to set the Account as an extra.
+
++------------+-------------+-----------------------------------------------------------------+
+| extra name | type        | description                                                     |
++============+=============+=================================================================+
+| account    | Parcelable  | CalDAV/CardDAV base URL                                         |
++------------+-------------+-----------------------------------------------------------------+
+
+
+
 .. _extended_event_properties:
 
 Extended event properties
