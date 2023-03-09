@@ -136,5 +136,5 @@ Calendar apps that are known to support this property:
 
   * aCalendar+ (since 2.5)
 
-See also `KDoc <https://bitfireat.gitlab.io/ical4android/dokka/ical4android/at.bitfire.ical4android/-android-event/-m-i-m-e-t-y-p-e_-u-r-l.html>`_.
+See also `KDoc <https://bitfireat.github.io/ical4android/ical4android/at.bitfire.ical4android/-android-event/-companion/-m-i-m-e-t-y-p-e_-u-r-l.html>`_.
 
