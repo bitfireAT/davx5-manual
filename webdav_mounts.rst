@@ -91,12 +91,16 @@ If you can't install a file manager or if you only want to share files from your
    can be opened there's a small *open* symbol (a bit like this: ✢). Hit this symbol to view the file directly.
 3. If you select a file, it can be shared with apps directly.
 
+
 How to create backups with Seedvault
 ====================================
 
-Seedvault supports DAVx⁵ out of the box. The configuration process is really simple.
-1. Add an external mount, (see "Managing DAVx⁵ mounts")
+You can use `Seedvault <https://github.com/seedvault-app/seedvault>`_ to create system backups with
+WebDAV storage over DAVx⁵:
+
+1. Add a WebDAV mount in DAVx⁵.
 2. Launch Seedvault, and press the "Choose where to store backups" option.
-3. Your WebDAV mount from DAVx⁵ will be shown automatically, select it.
+3. Your WebDAV mount from DAVx⁵ will be shown automatically. Select it.
 4. Wait until the configuration process completed.
-4. Now you can configure your backup, which will be created at the root of your WebDAV mount.
+5. Now you can configure your backup, which will be created at the root of your WebDAV mount.
+
