@@ -143,6 +143,14 @@ For example, if a calendar's name and color have been changed on the server:
 * As soon as synchronization is started, the changed properties (name, color) are commited to the Android calendar provider. Calendar apps will now show the new name and color.
 
 
+Personal collections
+=====================
+Collections are considered personal if listed in the homeset of ``current-user-principal``. To filter out non-personal collections, select "Show only personal" in the action menu (⋮). Deselect it to show all collections again.
+
+.. note:: 
+   The ``DAV:owner`` property has no relevance for whether a collection is considered personal. A collection with ``DAV:owner`` set to the ``current-user-principal`` need not be considered personal. Likewise a personal collection may be "owned" by a principal different from the ``current-user-principal``. 
+
+
 Read-only collections
 =====================
 
