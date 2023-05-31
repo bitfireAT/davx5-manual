@@ -181,6 +181,10 @@ These variables can be used for Managed DAVx⁵ configuration:
        0 = none (don't preselect) |br|
        1 = all (preselect if not blacklisted) |br|
        2 = personal only (preselect if personal and not blacklisted)
+   * - preselect_collections_blacklist
+     - text (Regexp)
+     - regular expression whose matches with collection URLs will be excluded from preselection;
+       example: ``z-app-generated--contactsinteraction--recent`` (Nextcloud's "Recently Contacted" addressbook)
    *  - force_read_only_addressbooks
       - boolean
       - *true* = DAVx⁵ will set all address books to read-only. This will only prevent *client side* editing of contacts from DAVx⁵. If any changes are made they will be reverted to the version present on the server. Keep in mind that this is not preventing changes to the address book in general. For instance other apps can still change the address book on the server. |br|
