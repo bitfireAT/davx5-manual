@@ -177,14 +177,14 @@ These variables can be used for Managed DAVx⁵ configuration:
      - if provided, client certificates will be used for authentication (instead of user name/password); value of this field will be pre-selected (if available)
    * - preselect_collections
      - integer
-     - whether collections are automatically selected for synchronization after their initial detection. |br| |br|
+     - whether collections are automatically selected for synchronization after their initial detection |br| |br|
        0 = none (don't preselect) |br|
-       1 = all (preselect if not blacklisted) |br|
-       2 = personal only (preselect if personal and not blacklisted)
-   * - preselect_collections_blacklist
-     - text (Regexp)
+       1 = all (preselect if not excluded) |br|
+       2 = personal (preselect if personal and not excluded)
+   * - preselect_collections_excluded
+     - text (regular expression)
      - regular expression whose matches with collection URLs will be excluded from preselection;
-       example: ``z-app-generated--contactsinteraction--recent`` (Nextcloud's "Recently Contacted" addressbook)
+       example: ``/z-app-generated--contactsinteraction--recent/`` (Nextcloud's "Recently Contacted" addressbook; the slashes are URL path separators and not regex syntax elements)
    *  - force_read_only_addressbooks
       - boolean
       - *true* = DAVx⁵ will set all address books to read-only. This will only prevent *client side* editing of contacts from DAVx⁵. If any changes are made they will be reverted to the version present on the server. Keep in mind that this is not preventing changes to the address book in general. For instance other apps can still change the address book on the server. |br|
