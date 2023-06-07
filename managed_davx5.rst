@@ -180,7 +180,7 @@ These variables can be used for Managed DAVx⁵ configuration:
      - whether collections are automatically selected for synchronization after their initial detection |br| |br|
        0 = none (don't preselect) |br|
        1 = all (preselect if not excluded) |br|
-       2 = personal (preselect if personal and not excluded)
+       2 = :ref:`personal<Personal collections>`. (preselect if personal and not excluded)
    * - preselect_collections_excluded
      - text (regular expression)
      - regular expression whose matches with collection URLs will be excluded from preselection;

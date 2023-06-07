@@ -40,6 +40,7 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.extlinks',
+    'sphinx.ext.autosectionlabel',
     'sphinx.ext.ifconfig',
     'sphinx.ext.todo',
     'sphinxcontrib.youtube'
