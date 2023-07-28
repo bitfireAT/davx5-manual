@@ -52,6 +52,8 @@ Tasks app
 Account settings
 ================
 
+.. _account-settings-sync:
+
 Synchronization
 ---------------
 

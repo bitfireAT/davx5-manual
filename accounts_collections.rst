@@ -120,11 +120,21 @@ bar.
 the respective entry.** Collection-specific actions (like viewing the collection properties or deleting the collection
 from the server) are accessible over the action overflow (⋮) next to the entry.
 
-Immediate synchronization of the whole account can be forced using the "Synchronization" floating
-action button (🗘).
-
 Actions which affect the whole account or more than one collection (like locally deleting the account
 from the device or refreshing the collection list) are accessible over the action menu of the whole account view.
+
+
+Synchronization
+===============
+
+Automatic synchronization of the selected collections runs according to the intervals set in :ref:`account-settings-sync`.
+
+Immediate synchronization of the whole account can be triggered using the "Synchronization" floating
+action button (🔄).
+
+There's also a "Sync all" button that syncs all selected collections in the Accounts overview. You can also use the
+`app shortcut <https://developer.android.com/develop/ui/views/launch/shortcuts>`_: if you long-tap the DAVx⁵ icon
+in the launcher and drag it to your desktop, you can start synchronization of all accounts with one tap.
 
 
 .. _refresh-collections:
