@@ -171,7 +171,7 @@ There are two ways to restrict synchronization to one direction (only server to 
 
 Regardless of why a collection is read-only, it will be shown as read-only (⛔) in the DAVx⁵ collection list.
 
-.. note:: Android doesn't have native support for read-only address books. To emulate this feature, DAVx⁵ reverts local changes at every synchronization. You can still edit a contact in the Contacts app, but the changes will be reverted when this contact is synchronized from the server (at the latest when it's changed on the server).
+.. note:: Android doesn't have native support for read-only address books. To emulate this feature, DAVx⁵ reverts local changes at every synchronization. Additionally, it sets the `RAW_CONTACT_IS_READ_ONLY flag <https://developer.android.com/reference/android/provider/ContactsContract.RawContactsColumns#RAW_CONTACT_IS_READ_ONLY>`_ to tell Contacts apps that these contacts shouldn't be writable for users. However many contacts apps just ignore this flag.
 
 Read-only calendars will be marked as read-only in the Android calendar provider, so that calendar apps won't be able to create/modify/delete events in such calendars anymore. Read-only support for task lists is currently only available in jtx Board, and not in tasks.org and OpenTasks.
 
