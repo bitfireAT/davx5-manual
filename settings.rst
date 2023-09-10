@@ -71,6 +71,16 @@ Sync over WiFi only
 
    Use **WiFi SSID restriction** to restrict synchronization to one or more specific WiFi networks (requires location permission, including background location). List all allowed SSIDs as a comma-separated list, for instance SSID1,ssid2. Hidden networks and SSIDs with commas are not supported.
 
+VPN connectivity
+   This setting controls when DAVx⁵ assumes to have a network connection that is suitable to run synchronization. **It does not control which connection is used for actual data transfer** (it will use the default connection that is selected by Android).
+
+   *Non-VPN connection required (recommended)*: DAVx⁵ will not synchronize if there's a VPN connection, but no underlying validated Internet connection. Useful for "always-on" VPNs like Ad blockers etc. which permanently pretend to provide a validated Internet connection, whether it's true or not.
+
+   *VPN counts as Internet connection*: DAVx⁵ is content with a VPN connection that identifies itself as validated Internet connection. Useful if you use a real VPN whose connection status correctly indicates whether the connection can be used for synchronization.
+
+   In this context, the definition of a "validated Internet" connection `is given by Android <https://developer.android.com/reference/android/net/NetworkCapabilities>`_ (``NET_CAPABILITY_INTERNET`` and ``NET_CAPABILITY_VALIDATED``).
+
+
 Authentication
 --------------
 
