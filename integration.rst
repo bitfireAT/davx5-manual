@@ -135,6 +135,7 @@ URL
 Calendar apps that are known to support this property:
 
   * aCalendar+ (since 2.5)
+  * Etar (since 1.0.35)
 
 See also `KDoc <https://bitfireat.github.io/ical4android/ical4android/at.bitfire.ical4android/-android-event/-companion/-m-i-m-e-t-y-p-e_-u-r-l.html>`_.
 
