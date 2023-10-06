@@ -319,6 +319,8 @@ Exceptions of recurring events are identified by ``RECURRENCE-ID``. DAVx⁵ inse
    DAVx⁵ is not responsible for calculating the instances of a recurring event.
    It only provides ``RRULE``, ``RDATE``, ``EXRULE``, ``EXDATE`` and a list of exceptions to the Android calendar provider.
 
+   However, if a calendar app leaves dirty events *with zero instances* to be synced, DAVx⁵ will silently delete these events and ask the server to do the same. 
+
 
 Group-scheduled events
 ^^^^^^^^^^^^^^^^^^^^^^
