@@ -52,7 +52,6 @@ So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever
 
 If the URL is entered without scheme, ``https://`` will be prepended. `Use of CalDAV/CardDAV over plain HTTP is not recommended for security reasons. <https://tools.ietf.org/html/rfc6352#section-13>`_
 
-
 Address book accounts
 =====================
 
@@ -155,7 +154,7 @@ For example, if a calendar's name and color have been changed on the server:
 
 Personal collections
 =====================
-Collections are considered personal if listed in the homeset of ``current-user-principal``. To filter out non-personal collections, select "Show only personal" in the action menu (⋮). Deselect it to show all collections again.
+Collections are considered personal if listed in the home set of ``current-user-principal``. In case the Base URL (:ref:`What is the Base URL?`) points to a principal, DAVx⁵ assumes this principal to be the ``current-user-principal``. To filter out non-personal collections, select "Show only personal" in the action menu (⋮). Deselect it to show all collections again.
 
 .. note:: 
    The ``DAV:owner`` property has no relevance for whether a collection is considered personal. A collection with ``DAV:owner`` set to the ``current-user-principal`` need not be considered personal. Likewise a personal collection may be "owned" by a principal different from the ``current-user-principal``. 
