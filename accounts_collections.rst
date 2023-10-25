@@ -128,12 +128,15 @@ Synchronization
 
 Automatic synchronization of the selected collections runs according to the intervals set in :ref:`account-settings-sync`.
 
-Immediate synchronization of the whole account can be triggered using the "Synchronization" floating
-action button (🔄).
+Immediate synchronization can be started through calendar apps (or other apps), which will initiate a sync over the sync 
+framework, noticed by DAVx⁵. 
 
-There's also a "Sync all" button that syncs all selected collections in the Accounts overview. You can also use the
-`app shortcut <https://developer.android.com/develop/ui/views/launch/shortcuts>`_: if you long-tap the DAVx⁵ icon
-in the launcher and drag it to your desktop, you can start synchronization of all accounts with one tap.
+Alternatively trigger synchronization inside DAVx⁵ by using either the "Synchronization" floating action button (🔄) 
+to synchronize selected collections in a specific account, or the "Sync all" button which syncs all selected collections 
+across all accounts in the Accounts overview. 
+
+You can also use the `app shortcut <https://developer.android.com/develop/ui/views/launch/shortcuts>`_: if you long-tap the DAVx⁵ icon in the 
+launcher and drag it to your desktop, you can start synchronization of all accounts with one tap.
 
 
 .. _refresh-collections:
