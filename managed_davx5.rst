@@ -175,6 +175,9 @@ These variables can be used for Managed DAVx⁵ configuration:
    * - login_certificate_alias
      - text
      - if provided, client certificates will be used for authentication (instead of user name/password); value of this field will be pre-selected (if available)
+   * - login_certificate_and_password
+     - boolean
+     - whether login should use both certificate AND username + password
    * - preselect_collections
      - integer
      - whether collections are automatically selected for synchronization after their initial detection |br| |br|
