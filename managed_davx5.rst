@@ -13,8 +13,9 @@ Managed DAVx⁵ allows you to manage DAVx⁵ clients centrally by using these co
 
 * Android Enterprise (recommended)
 * network configuration: fixed URL (QR code)
-* network configuration: unicast DNS
-* network configuration: Zeroconf (DNS-SD)
+
+.. deprecated:: 4.3.10
+   Network configuration over unicast DNS and Zeroconf (DNS-SD) are considered deprecated and will be removed in the future.
 
 This configuration is used in the Managed DAVx⁵ UI and for new Managed DAVx⁵ accounts.
 
@@ -38,13 +39,16 @@ Android Enterprise is the recommended method to configure Managed DAVx⁵. With 
 Network configuration
 =====================
 
-If Android Enterprise is not an option for you, you can choose between three network configuration methods:
-
-* fixed URL (entered directly or via QR code)
-* unicast DNS
-* Zeroconf (DNS-SD)
-
 Network configuration requires your Android devices to be connected to the network where the configuration file can be found.
+
+Configuration by fixed URL
+--------------------------
+
+The simplest method to configure Managed DAVx⁵ over the network is to use a fixed configuration file URL, which can for example be provided as a QR code. This method can be used if you don't want to use automatic discovery of the Managed DAVx⁵ configuration file:
+
+#. **Upload the Managed DAVx⁵ configuration file to a HTTPS server** in the network (file name: ``davdroid-config.json``)
+#. Managed DAVx⁵ / Managed configuration / Scan the QR code of the configuration file URL or enter the URL.
+
 
 Certificates
 ------------
@@ -67,16 +71,8 @@ HTTP cache:
 
 It's advisable to set an expiration time for the configuration file on the Web server (for instance, one hour) explicitly to avoid unnecessary network traffic every time Managed DAVx⁵ is started on a device.
 
-Configuration by fixed URL
---------------------------
-
-The simplest method to configure Managed DAVx⁵ over the network is to use a fixed configuration file URL, which can for example be provided as a QR code. This method can be used if you don't want to use automatic discovery of the Managed DAVx⁵ configuration file:
-
-#. **Upload the Managed DAVx⁵ configuration file to a HTTPS server** in the network (file name: ``davdroid-config.json``)
-#. Managed DAVx⁵ / Managed configuration / Scan the QR code of the configuration file URL or enter the URL.
-
-Configuration by unicast DNS
-----------------------------
+Configuration by unicast DNS (deprecated)
+-----------------------------------------
 
 Managed DAVx⁵ tries to resolve the ``SRV`` and ``TXT`` path records of ``davdroid-configs.local`` in the local network. In case of success, the resulting URL (``https`` scheme, domain and host taken from ``SRV``, path taken from ``TXT path``, or ``/`` else) is used to fetch Managed DAVx⁵ configuration.
 
@@ -95,8 +91,8 @@ In this case, Managed DAVx⁵ would try to access the configuration file at ``ht
    Managed DAVx⁵ configuration files, which could lead to confusion. To avoid this problem, only
    join well-defined WiFi networks (or use Android Enterprise or fixed URL configuration).
 
-Configuration by Zeroconf (DNS-SD)
-----------------------------------
+Configuration by Zeroconf (DNS-SD) (deprecated)
+-----------------------------------------------
 
 Managed DAVx⁵ can discover a service called ``davdroid-configs._tcp`` using `DNS-SD <http://www.dns-sd.org/>`_. The network configuration file URL (``https`` scheme) will be built from the host and path parts of ``TXT`` records (the ``SRV`` record is not used because the discovery service is not the same as the referenced configuration). If no host is specified, the host name of the host running the avahi service is used. If no path is specified, ``/`` will be used.
 
