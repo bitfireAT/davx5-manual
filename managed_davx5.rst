@@ -14,9 +14,6 @@ Managed DAVx⁵ allows you to manage DAVx⁵ clients centrally by using these co
 * Android Enterprise (recommended)
 * network configuration: fixed URL (QR code)
 
-.. deprecated:: 4.3.10
-   Network configuration over unicast DNS and Zeroconf (DNS-SD) are considered deprecated and will be removed in the future.
-
 This configuration is used in the Managed DAVx⁵ UI and for new Managed DAVx⁵ accounts.
 
 .. note:: Existing Managed DAVx⁵ accounts on your devices won't be modified when the managed configuration is changed.
@@ -71,54 +68,6 @@ HTTP cache:
 
 It's advisable to set an expiration time for the configuration file on the Web server (for instance, one hour) explicitly to avoid unnecessary network traffic every time Managed DAVx⁵ is started on a device.
 
-Configuration by unicast DNS (deprecated)
------------------------------------------
-
-Managed DAVx⁵ tries to resolve the ``SRV`` and ``TXT`` path records of ``davdroid-configs.local`` in the local network. In case of success, the resulting URL (``https`` scheme, domain and host taken from ``SRV``, path taken from ``TXT path``, or ``/`` else) is used to fetch Managed DAVx⁵ configuration.
-
-An example DNS configuration could look like this:
-
-.. code-block:: none
-
-   davdroid-configs.local   IN SRV 1 0 443 internal.example.com
-   davdroid-configs.local   IN TXT "path=/davdroid/davdroid-config.json"
-
-In this case, Managed DAVx⁵ would try to access the configuration file at ``https://internal.example.com:443/davdroid/davdroid-config.json``.
-
-.. warning::
-
-   Do not join unsafe WiFi networks when you use DNS configuration. Other networks might offer other
-   Managed DAVx⁵ configuration files, which could lead to confusion. To avoid this problem, only
-   join well-defined WiFi networks (or use Android Enterprise or fixed URL configuration).
-
-Configuration by Zeroconf (DNS-SD) (deprecated)
------------------------------------------------
-
-Managed DAVx⁵ can discover a service called ``davdroid-configs._tcp`` using `DNS-SD <http://www.dns-sd.org/>`_. The network configuration file URL (``https`` scheme) will be built from the host and path parts of ``TXT`` records (the ``SRV`` record is not used because the discovery service is not the same as the referenced configuration). If no host is specified, the host name of the host running the avahi service is used. If no path is specified, ``/`` will be used.
-
-You can use any DNS-SD server. If you use `avahi <https://avahi.org/>`_, the configuration file could be put into ``/etc/avahi/services`` and look like this:
-
-.. code-block:: none
-
-   <?xml version="1.0" standalone='no'?>
-   <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-   <service-group>
-     <name>Managed DAVx⁵ configuration</name>
-     <service protocol="ipv4">
-       <type>_davdroid-configs._tcp</type>
-       <port>443</port>
-       <txt-record>host=internal.example.com</txt-record>
-       <txt-record>path=/public/davdroid-config.json</txt-record>
-     </service>
-   </service-group>
-
-In this case, Managed DAVx⁵ would try to download the configuration file from ``https://internal.example.com/public/davdroid-config.json``.
-
-.. warning::
-
-   Do not join unsafe WiFi networks when you use DNS configuration. Other networks might offer other
-   Managed DAVx⁵ configuration files, which could lead to confusion. To avoid this problem, only
-   join well-defined WiFi networks (or use Android Enterprise or fixed URL configuration).
 
 Configuration variables
 =======================
@@ -159,6 +108,10 @@ These variables can be used for Managed DAVx⁵ configuration:
      - text (URL)*
      - base URL for CalDAV/CardDAV service discovery when an account is added;
        example: ``https://server.example.com/dav/``
+   * - login_type
+     - text: ``DEFAULT`` (default) or ``NEXTCLOUD_LOGIN_FLOW`` 
+     - ``DEFAULT`` = login with username/password/certificate |br|
+       ``NEXTCLOUD_LOGIN_FLOW`` = Nextcloud login flow
    * - login_user_name
      - text
      - pre-filled user name when an account is added
@@ -218,7 +171,7 @@ These variables can be used for Managed DAVx⁵ configuration:
        only used when wifi_only is true;
        example: ``wifi1,wifi2,wifi3``
    * - contact_group_method
-     - text: ``CATEGORIES`` or ``GROUP_VCARDS``
+     - text: ``CATEGORIES`` or ``GROUP_VCARDS`` (default)
      - ``CATEGORIES`` = contact groups are stored as per-contact category tags |br|
        ``GROUP_VCARDS`` = contact groups are separate VCards
    * - manage_calendar_colors
