@@ -1,17 +1,14 @@
 
-[![Check](https://github.com/bitfireAT/davx5-manual/actions/workflows/check.yml/badge.svg)](https://github.com/bitfireAT/davx5-manual/actions/workflows/check.yml)
+[![Check](https://github.com/bitfireAT/davx5-manual/actions/workflows/live.yml/badge.svg)](https://github.com/bitfireAT/davx5-manual/actions/workflows/live.yml)
 
 
 DAVx⁵ Manual
 ============
 
-This is the manual for [DAVx⁵](https://www.davx5.com).
+[This repository](https://github.com/bitfireAT/davx5-manual) contains the
+manual for [DAVx⁵](https://www.davx5.com) ([Github](https://github.com/bitfireAT/davx5-ose)).
 
-Repository: https://github.com/bitfireAT/davx5-manual
-
-Preview (automatically compiled from repository): https://bitfireat.github.io/davx5-manual/
-
-Live version (updated manually): https://www.davx5.com/manual/
+Published version (updated automatically from main branch): https://www.davx5.com/manual/
 
 
 Contributing
