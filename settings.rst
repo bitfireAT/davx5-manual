@@ -24,9 +24,6 @@ Show debug info
 Verbose logging
    If this option is enabled, DAVx⁵ will create a verbose log file which contain various status messages and the whole HTTP traffic. A permanent notification will appear which you can use to send this log to any app, including email, `Share via HTTP <https://github.com/marcosdiez/shareviahttp>`_, or `Amaze <https://github.com/TeamAmaze/AmazeFileManager>`_'s "Save to file". Use this log file to narrow down sync problems systematically. (You may have to expand the notification to see the "Send" action.) As soon as you turn off verbose logging, the log will be deleted and the notification cancelled.
 
-Keep in foreground
-   If this option is enabled, DAVx⁵ will display a permanent notification. This notification keeps DAVx⁵ always in foreground, so that vendor specific background-app-killing (so-called battery saving "features" which may prevent background sync processes) hopefully won't apply to DAVx⁵ anymore. This is a low-priority status message notification, which is only displayed if you pull down the notifications. It can be silented (=still running but not displayed) in the notifcation channels, too. Using this option will not increase battery consumption of DAVx⁵.
-
 Override proxy settings
    Allows to override the system proxy settings (see above). If this option is enabled, you have to specify a HTTP(S) proxy which is used instead of the system proxy. Can be used to route all DAVx⁵ traffic through a certain proxy, for instance a Tor proxy.
 
