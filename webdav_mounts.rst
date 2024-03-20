@@ -25,6 +25,8 @@ At the moment, these file managers are known to work well:
 
 * AOSP File Manager (default in many custom ROMs like LineageOS)
 * `Material Files <https://github.com/zhanghai/MaterialFiles>`_
+* Total Commander (choose "Add Custom  Location" → open side drawer → Choose the DAVx5 mount). Hint: you need to reload / swipe down and refresh the folder if it appears to be empty.
+* fx File Exporer (top right menu: "Connect to Storage" → open side drawer → Choose the DAVx5 mount)
 
 Also, not all apps support content from remote files (:abbr:`SAF (Storage Access Framework)`). If you can't open a WebDAV file with a specific app, chances are high that
 
