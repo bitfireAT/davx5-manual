@@ -16,6 +16,18 @@ A WebDAV mount allows you to work with remote folders and files of a WebDAV serv
 .. youtube:: FwfwNXFtvYE
 
 
+Server requirements
+===================
+
+WebDAV mounts should work with any compliant WebDAV server.
+
+When using HTTP/1.1, DAVx⁵ uses chunked transfer encoding for PUT requests because it doesn't know the
+file size in advance. This requires some servers to be configured for request buffering. Otherwise resulting
+files may always have 0 bytes or a 411 Length Required error is returned. Using HTTP/2 may avoid this.
+`sabre/dav recommends <https://sabre.io/dav/0bytes/>`_ to use Apache with mod_php (not FastCGI) or a
+recent version of nginx and to avoid Lighttpd.
+
+
 Restrictions
 ============
 
@@ -35,7 +47,6 @@ Also, not all apps support content from remote files (:abbr:`SAF (Storage Access
 
 .. warning:: If you're transferring or accessing big files (like streaming a video), Android may kill DAVx⁵ because it uses the CPU in the background. In this case, enable the DAVx⁵ setting *Keep in foreground* to avoid DAVx⁵ to be killed.
 
-.. warning:: DAVx⁵ uses chunked transfer encoding (HTTP/1.1) for PUT requests for its input streams. This requires the server to do request buffering. Otherwise resulting files always have 0 bytes or a 411 Length Required error is returned. `Sabre DAV recommends <https://sabre.io/dav/0bytes/>`_ to use Apache with mod_php (not fastcgi) or a recent version of nginx and to avoid Lighttpd. Nextcloud uses Sabre DAV.
 
 Managing WebDAV mounts
 ======================
