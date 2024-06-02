@@ -34,12 +34,12 @@ How to start using DAVx⁵ on your Android device:
 #. `Download <https://www.davx5.com/download>`_ and install DAVx⁵.
 #. Open DAVx⁵.
 #. Follow the instructions of the start screen (permissions, battery saving etc.).
-#. Tap on ⊕ to create a new account.
+#. Tap on "⊕ Create account" to create a new account.
 #. Enter your base URL / email address and login credentials.
    You can get the base URL from your service provider and/or our `list of tested services <https://www.davx5.com/tested-with/>`_.
 #. Finish the steps to create the account.
-#. Select the address books and calendars/task lists you want to have synchronized so that they are shown with checkmark (☑).
-#. Force sync (🗘) if you want the data to be available immediately.
+#. Select the address books and calendars/task lists you want to synchronize so that the respective switches are enabled.
+#. Force sync ("🗘 Synchronize") if you want the data to be available immediately.
 #. Access your address books, events and tasks using your favorite apps (Contacts, Calendar, OpenTasks, …).
 
 When you create a contact/event, select the desired DAVx⁵ account as storage location.
