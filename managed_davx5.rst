@@ -143,7 +143,7 @@ These variables can be used for Managed DAVx⁵ configuration:
         *false* = (default) DAVx⁵ won't change standard read-only setting.
    * - max_accounts
      - integer
-     - maximum number of accounts – no new accounts can be created when this number of accounts is reached
+     - maximum number of accounts – no new accounts can be added when this number of accounts is reached
    * - proxy_type
      - integer
      - Sets the proxy type for all HTTP(S) connections. Uses ``override_proxy_host`` and ``override_proxy_port``, if applicable. |br| |br|
@@ -160,7 +160,7 @@ These variables can be used for Managed DAVx⁵ configuration:
    * - default_sync_interval
      - integer (number of seconds)
      - initial sync interval at account creation (contacts/calendars/tasks); default value: 14400 seconds (4 hours). Only these values are eligible: 900 (15 min), 1800 (30 min), 3600 (1 h), 7200 (2 h), 14400 (4 h), 86400 (1 day). |br|
-       Can always be overwritten by users. Changing this value will only affect newly created accounts.
+       Can always be overwritten by users. Changing this value will only affect newly added accounts.
    * - wifi_only
      - boolean
      - *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization) |br|
