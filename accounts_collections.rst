@@ -7,7 +7,7 @@ Accounts and Collections
 What is a DAVx⁵ account?
 ========================
 
-A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected from the same starting point). In this case, you need only one DAVx⁵ account. However, you can also create multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
+A DAVx⁵ account represents a connection to a CalDAV/CardDAV service, which can contain address books, calendars and task lists. Most services provide both CalDAV and CardDAV together (technically, this is when both CalDAV and CardDAV can be detected from the same starting point). In this case, you need only one DAVx⁵ account. However, you can also add multiple DAVx⁵ accounts for separate CalDAV/CardDAV services.
 
 Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ can synchronize them. **DAVx⁵ will not synchronize or otherwise touch entries that belong to other accounts (like Google or device-local accounts).**
 
@@ -48,7 +48,7 @@ When logging in by URL, DAVx⁵ asks for the *Base URL*. This can be:
   - a URL that provides ``addressbook-home-set``, or
   - an addressbook URL (``resourcetype: addressbook``).
 
-So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever it finds. If CalDAV and CardDAV are separated on your server and well-known URLs are not configured, you'll have to create two DAVx⁵ accounts: one for CalDAV (use the CalDAV URL as base URL) and one for CardDAV (use the CardDAV URL as base URL).
+So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever it finds. If CalDAV and CardDAV are separated on your server and well-known URLs are not configured, you'll have to add two DAVx⁵ accounts: one for CalDAV (use the CalDAV URL as base URL) and one for CardDAV (use the CardDAV URL as base URL).
 
 If the URL is entered without scheme, ``https://`` will be prepended. `Use of CalDAV/CardDAV over plain HTTP is not recommended for security reasons. <https://tools.ietf.org/html/rfc6352#section-13>`_
 
