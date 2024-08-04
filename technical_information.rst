@@ -52,7 +52,7 @@ Sync algorithm: PROPFIND/REPORT
 #. Unset *present remotely* flag for all resources.
 #. List and process remote resources (only names and ``ETag``) using ``PROPFIND`` or ``REPORT`` (see above).
 
-   * Download resources which have been added/modififed remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
+   * Download resources which have been added/modified remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
    * Set *present remotely* flag for all received resources.
 
 #. Locally delete all resources which are not flagged as *present remotely*.
@@ -67,7 +67,7 @@ Sync algorithm: Collection Synchronization
 #. Do we have a previous ``sync-token``? → If no, set *initial sync*.
 #. List and process changes since last ``sync-token`` (or all records if no previous ``sync-token`` is known) using ``REPORT sync-collection``.
 
-   * Download resources which have been added/modififed remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
+   * Download resources which have been added/modified remotely in bunches using ``REPORT addressbook-multiget/calendar-multiget`` into the local storage.
    * Set *present remotely* flag for all received resources.
 
 #. If the requested ``sync-token`` was invalid:
