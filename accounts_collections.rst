@@ -203,3 +203,16 @@ the URL to an installed Webcal-capable app like `ICSx⁵ <https://icsx5.bitfire.
 
 If you're using ICSx⁵, DAVx⁵ can determine whether a Webcal collection is currently subscribed and can also remove the subscription again.
 
+
+Android integration as a sync adapter
+=====================================
+
+DAVx⁵ is integrated with Android as a `sync adapter <https://developer.android.com/training/sync-adapters/creating-sync-adapter>` for contacts,
+events and tasks. The integration covers two cases:
+
+1. DAVx⁵ gets notified by the system when a contact, event or task is locally modified and runs synchronization then.
+2. DAVx⁵ gets notified by the system when a contact, event or task app requests synchronization (usually over "Refresh") and runs synchronization then.
+
+You can see the status of the sync adapter integration in Android settings / Accounts / DAVx⁵. Note there may be a lot of wrong-looking entries without title. These are a mistake of the Settings view when it tries to associated the supported sync types of the various tasks apps and can be ignored.
+
+Unlike in early DAVx⁵ versions, the regular synchronization with the user-specified interval is *not* using the sync adapter anymore, but the more reliable WorkManager. **This means that the regular synchronization will not show up in Android settings / Accounts / DAVx⁵, so the sync times there are not correct.** You can view the latest sync times in DAVx5 instead (tap on the respective collection to view details).
