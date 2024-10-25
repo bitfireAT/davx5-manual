@@ -13,8 +13,9 @@ Contacts, events and tasks must be saved to a DAVx⁵ account so that DAVx⁵ ca
 
 When you add a DAVx⁵ account, you need either an email address or a base URL as the starting point for service discovery. You can find the required base URL in your server manual or ask your IT department. See our `tested services <https://www.davx5.com/tested-with/>`_ for a list of servers/services and how they're used with DAVx⁵.
 
-.. note:: 
-   Because `restricted user profiles cannot add accounts <https://developer.android.com/guide/topics/manifest/application-element#requiredAccountType>`_, it is not possible to use DAVx⁵ in a restricted user profile (child profile).
+.. warning:: Always use DAVx⁵ to manage DAVx⁵ accounts. Do not create, delete or otherwise modify DAVx5 accounts manually.
+
+Because `restricted user profiles cannot add accounts <https://developer.android.com/guide/topics/manifest/application-element#requiredAccountType>`_, it is not possible to use DAVx⁵ in a restricted user profile (child profile).
 
 
 How does service discovery work?
@@ -52,6 +53,7 @@ So, DAVx⁵ will query the base URL for both CalDAV and CardDAV and use whatever
 
 If the URL is entered without scheme, ``https://`` will be prepended. `Use of CalDAV/CardDAV over plain HTTP is not recommended for security reasons. <https://tools.ietf.org/html/rfc6352#section-13>`_
 
+
 Address book accounts
 =====================
 
@@ -68,11 +70,15 @@ So, DAVx⁵ defines a new account type "DAVx⁵ address book" beside the regular
 
 For every synchronized CardDAV address book, a DAVx⁵ address book account is created automatically. When synchronizing "address books" of the main DAVx⁵ account, DAVx⁵ starts synchronizing contacts for every DAVx⁵ address book account.
 
-.. warning::
-   Do not create, modify or delete DAVx⁵ address book accounts directly. Use the DAVx⁵ app to configure synchronized address books instead.
+.. warning:: Do not create, modify or delete DAVx⁵ address book accounts directly. Use DAVx⁵ to configure synchronized address books instead.
 
-DAVx⁵ address books accounts are named after the CardDAV address book which they are connected to, plus a hash of the URL, for instance: *My addresses (UA)*
-(in this case, the hash is *UA*). The hash is necessary when there are two address books with the same name.
+DAVx⁵ address books accounts are named after their assocated CardDAV address book plus the account name plus an ID to make the account name unique.
+
+Safe mode
+---------
+
+When the device is booted into *Safe mode*, Android removes all local DAVx⁵ contacts. This is because user apps like DAVx⁵ are not loaded in safe mode,
+so the system considers the contacts as "associated app is gone, should be deleted". They will however be dowloaded again at the next synchronization.
 
 
 Account names
