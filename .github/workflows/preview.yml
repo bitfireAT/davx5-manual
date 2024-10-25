@@ -1,7 +1,7 @@
 name: Build preview
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes not targeting the default branch
   push:
     branches-ignore: [main]
 
