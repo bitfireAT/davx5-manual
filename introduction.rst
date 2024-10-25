@@ -9,7 +9,8 @@ What is DAVx⁵?
 DAVx⁵ is a :term:`CalDAV`/:term:`CardDAV` client (management and sync app) for Android. It allows you to
 
 * manage CalDAV/CardDAV collections (address books, calendars, task lists) on your server and
-* synchronize them with your Android device (to be specifically, with the storage backends of the device, see illustration below).
+* synchronize them with your Android device (to be specifically, with the storage backends of the device, see illustration below),
+* access your WebDAV files.
 
 DAVx⁵ is not:
 
