@@ -136,16 +136,19 @@ These variables can be used for Managed DAVx⁵ configuration:
 :Type: text
 :Required: no
 :Description: pre-filled password when an account is added; see security note below
-
 .. warning::
    Using ``login_password`` is only recommended with app-specific per-user passwords. Keep in mind that the user
-   may be able to retrieve the password even if ``login_lock_credentials`` is set.
+   may be able to retrieve the password even if ``login_credentials_lock`` is set.
 ..
-:Name: login_lock_credentials
-:Type: boolean
+:Name: login_credentials_lock
+:Type: integer
 :Required: no
-:Default: false
-:Description: whether user name and password are locked (= can't be edited by the user) in case they are provided by managed configuration
+:Default: 0
+:Description: whether credentials can be changed by user. |br|
+ 0 = don't lock (user can change credentials) |br|
+ 1 = lock at login (user can still change credentials in account settings) |br|
+ 2 = lock at login and in account settings (user can't change credentials)
+.. Note:: ``login_credentials_lock`` replaces ``login_lock_credentials``. See :ref:`Deprecated Variables<Deprecated variables>`.
 ..
 :Name: login_certificate_alias
 :Type: text
@@ -261,6 +264,18 @@ These variables can be used for Managed DAVx⁵ configuration:
 :Description: -1 = user can choose |br|
  0 = show all collections |br|
  1 = show only collections in the user's own home-sets
+
+Deprecated variables
+====================
+Please stop using the following variables and use the new ones instead.
+
+:Name: login_lock_credentials (**Deprecated**. Use ``login_credentials_lock`` instead.)
+:Type: boolean
+:Required: no
+:Default: false
+:Description: whether user name and password are locked (= can't be edited by the user) in case they are provided by managed configuration.
+
+
 
 
 Configuration file syntax
