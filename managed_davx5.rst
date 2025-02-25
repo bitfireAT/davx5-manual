@@ -267,7 +267,7 @@ These variables can be used for Managed DAVx⁵ configuration:
 
 Deprecated variables
 ====================
-Please stop using the following variables and use the new ones instead.
+Please stop using the following variables and use the new ones as indicated instead.
 
 :Name: login_lock_credentials (**Deprecated since v4.4.8-mgd**. Use ``login_credentials_lock`` instead.)
 :Type: boolean
