@@ -148,7 +148,7 @@ These variables can be used for Managed DAVx⁵ configuration:
  0 = don't lock (user can change credentials) |br|
  1 = lock at login (user can still change credentials in account settings) |br|
  2 = lock at login and in account settings (user can't change credentials)
-.. Note:: ``login_credentials_lock`` replaces ``login_lock_credentials``. See :ref:`Deprecated Variables<Deprecated variables>`.
+.. Note:: Since version 4.4.8-mgd ``login_credentials_lock`` replaces ``login_lock_credentials``. See :ref:`Deprecated Variables<Deprecated variables>`.
 ..
 :Name: login_certificate_alias
 :Type: text
@@ -269,7 +269,7 @@ Deprecated variables
 ====================
 Please stop using the following variables and use the new ones instead.
 
-:Name: login_lock_credentials (**Deprecated**. Use ``login_credentials_lock`` instead.)
+:Name: login_lock_credentials (**Deprecated since v4.4.8-mgd**. Use ``login_credentials_lock`` instead.)
 :Type: boolean
 :Required: no
 :Default: false
