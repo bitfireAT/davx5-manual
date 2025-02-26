@@ -76,74 +76,72 @@ These variables can be used for Managed DAVx⁵ configuration.
 
 If they are specific to a certain version, this is mentioned before the variable. Deprecated variables shouldn't be used anymore and will be removed in the future. Use their replacements instead.
 
-:Name: license
+:Name: ``license``
 :Type: text
 :Required: yes
 :Description: license data (JSON without surrounding curly brackets)
 ..
-:Name: license_signature
+:Name: ``license_signature``
 :Type: text
 :Required: yes
 :Description: license signature (Base64)
 ..
-:Name: organization
+:Name: ``organization``
 :Type: text
 :Required: no
 :Description: organization display name; shown in app drawer and login activity
 ..
-:Name: logo_url
+:Name: ``logo_url``
 :Type: text (URL)
 :Required: no
 :Description: organization logo; shown in login activity; must be publicly accessible without authentication
 ..
-:Name: support_homepage_url
+:Name: ``support_homepage_url``
 :Type: text (URL)
 :Required: no
 :Description: URL of intranet page with details on how to use Managed DAVx⁵ in this organization and how to get internal support; shown in app drawer
 ..
-:Name: support_email_address
+:Name: ``support_email_address``
 :Type: text (email address)
 :Required: no
 :Description: internal support email address – shown in app drawer and some notifications
 ..
-:Name: support_phone_number
+:Name: ``support_phone_number``
 :Type: text (phone number)
 :Required: no
 :Description: internal support phone number – shown in app drawer and some notifications
 ..
-:Name: login_introduction
+:Name: ``login_introduction``
 :Type: text (simple HTML)
 :Required: no
 :Description: message that will be shown when the user adds an account; may contain simple HTML like paragrahps, bold text and links
 ..
-:Name: login_base_url
+:Name: ``login_base_url``
 :Type: text (URL)
 :Required: yes
 :Description: base URL for CalDAV/CardDAV service discovery when an account is added; example: ``https://server.example.com/dav/``
 ..
-:Name: login_type
+:Name: ``login_type``
 :Type: text
 :Required: no
-:Default: DEFAULT
+:Default: ``DEFAULT``
 :Description:
  ``DEFAULT`` = login with username/password/certificate |br|
  ``NEXTCLOUD_LOGIN_FLOW`` = Nextcloud login flow
 ..
-:Name: login_user_name
+:Name: ``login_user_name``
 :Type: text
 :Required: no
 :Description: pre-filled user name when an account is added
 ..
-:Name: login_password
+:Name: ``login_password``
 :Type: text
 :Required: no
-:Description: pre-filled password when an account is added; see security note below
-.. warning::
-   Using ``login_password`` is only recommended with app-specific per-user passwords. Keep in mind that the user
-   may be able to retrieve the password even if ``login_credentials_lock`` is set.
+:Description: pre-filled password when an account is added |br|
+ Using ``login_password`` is only recommended with app-specific per-user passwords. Keep in mind that the user may be able to retrieve the password even if ``login_credentials_lock`` is set.
 ..
 .. versionadded:: 4.4.8 replaces ``login_lock_credentials``
-:Name: login_credentials_lock
+:Name: ``login_credentials_lock``
 :Type: integer
 :Required: no
 :Default: 0
@@ -153,23 +151,23 @@ If they are specific to a certain version, this is mentioned before the variable
  2 = lock at login and in account settings (user can't change credentials)
 ..
 .. deprecated:: 4.4.8 replaced by ``login_credentials_lock``
-:Name: login_lock_credentials
+:Name: ``login_lock_credentials``
 :Type: boolean
 :Required: no
 :Default: false
 :Description: whether user name and password are locked (= can't be edited by the user) in case they are provided by managed configuration.
 ..
-:Name: login_certificate_alias
+:Name: ``login_certificate_alias``
 :Type: text
 :Required: no
 :Description: if provided, client certificates will be used for authentication (instead of user name/password); value of this field will be pre-selected (if available)
 ..
-:Name: login_certificate_and_password
+:Name: ``login_certificate_and_password``
 :Type: boolean
 :Required: no
 :Description: whether login should use both certificate AND username + password
 ..
-:Name: preselect_collections
+:Name: ``preselect_collections``
 :Type: integer
 :Required: no
 :Default: 0
@@ -178,13 +176,13 @@ If they are specific to a certain version, this is mentioned before the variable
  1 = all (preselect if not excluded) |br|
  2 = :ref:`personal<Personal collections>`. (preselect if personal and not excluded)
 ..
-:Name: preselect_collections_excluded
+:Name: ``preselect_collections_excluded``
 :Type: text (regular expression)
 :Required: no
 :Description: regular expression whose matches with collection URLs will be excluded from preselection; |br|
  example: ``/z-app-generated--contactsinteraction--recent/`` (Nextcloud's "Recently Contacted" addressbook; the slashes are URL path separators and not regex syntax elements)
 ..
-:Name: force_read_only_addressbooks
+:Name: ``force_read_only_addressbooks``
 :Type:  boolean
 :Required: no
 :Default: false
@@ -192,12 +190,12 @@ If they are specific to a certain version, this is mentioned before the variable
  *true* = DAVx⁵ will set all address books to read-only. This will only prevent *client side* editing of contacts from DAVx⁵. If any changes are made they will be reverted to the version present on the server. Keep in mind that this is not preventing changes to the address book in general. For instance other apps can still change the address book on the server. |br|
  *false* = DAVx⁵ won't change standard read-only setting.
 ..
-:Name: max_accounts
+:Name: ``max_accounts``
 :Type: integer
 :Required: no
 :Description: maximum number of accounts – no new accounts can be added when this number of accounts is reached
 ..
-:Name: proxy_type
+:Name: ``proxy_type``
 :Type: integer
 :Required: no
 :Default: -1
@@ -207,51 +205,51 @@ If they are specific to a certain version, this is mentioned before the variable
  1 = HTTP |br|
  2 = SOCKS
 ..
-:Name: override_proxy_host
+:Name: ``override_proxy_host``
 :Type: text (host name)
 :Required: no
 :Description: HTTP proxy host name
 ..
-:Name: override_proxy_port
+:Name: ``override_proxy_port``
 :Type: integer (port number)
 :Required: no
 :Description: HTTP proxy port number
 ..
-:Name: default_sync_interval
+:Name: ``default_sync_interval``
 :Type: integer (number of seconds)
 :Required: no
 :Default: 14400 seconds (4 hours)
 :Description: initial sync interval at account creation (contacts/calendars/tasks); default value: 14400 seconds (4 hours). Only these values are eligible: 900 (15 min), 1800 (30 min), 3600 (1 h), 7200 (2 h), 14400 (4 h), 86400 (1 day). |br|
  Can always be overwritten by users. Changing this value will only affect newly added accounts.
 ..
-:Name: wifi_only
+:Name: ``wifi_only``
 :Type: boolean
 :Required: no
 :Default: *false*
 :Description: *true* = DAVx⁵ will only sync when a WiFi connection is active (doesn't apply to manually forced synchronization) |br|
  *false* = DAVx⁵ will sync regardless of the connection type
 ..
-:Name: wifi_only_ssids
+:Name: ``wifi_only_ssids``
 :Type: text (comma-separated list)
 :Required: no
 :Description: when set, DAVx⁵ will only sync when device is connected to one of these WiFis; only used when wifi_only is true;  |br|
  example: ``wifi1,wifi2,wifi3``
 ..
-:Name: contact_group_method
+:Name: ``contact_group_method``
 :Type: text
 :Required: no
 :Default: ``GROUP_VCARDS``
 :Description: ``CATEGORIES`` = contact groups are stored as per-contact category tags |br|
  ``GROUP_VCARDS`` = contact groups are separate VCards
 ..
-:Name: manage_calendar_colors
+:Name: ``manage_calendar_colors``
 :Type: boolean
 :Required: no
 :Default: *false*
 :Description: *true* = DAVx⁵ will overwrite local calendar colors with the server colors at every sync |br|
  *false* = DAVx⁵ won't change local calendar colors at every sync
 ..
-:Name: event_colors
+:Name: ``event_colors``
 :Type: boolean
 :Required: no
 :Default: *false*
@@ -259,14 +257,14 @@ If they are specific to a certain version, this is mentioned before the variable
  *false* = DAVx⁵ won't synchronize event colors |br|
  Setting to *true* causes some default calendar apps to crash → make sure that your preferred calendar app is working with this setting
 ..
-:Name: default_alarm
+:Name: ``default_alarm``
 :Type: integer (number of minutes)
 :Required: no
 :Default: -1
 :Description: number of minutes a default reminder will be created before the start of every non-full-day event without reminder; no value (null) or value -1: no default reminders |br|
  Can always be overwritten by users. Changing this value will only affect newly downloaded events.
 ..
-:Name: show_only_personal
+:Name: ``show_only_personal``
 :Type: integer
 :Required: no
 :Default: -1
