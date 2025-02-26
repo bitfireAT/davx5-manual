@@ -6,4 +6,12 @@
 
 .rst-content a, .rst-content a:visited {
   color: #0288d1;
+
+}
+
+dl {
+  
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 15px;
+  
 }
