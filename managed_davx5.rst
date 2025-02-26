@@ -72,7 +72,9 @@ It's advisable to set an expiration time for the configuration file on the Web s
 Configuration variables
 =======================
 
-These variables can be used for Managed DAVx⁵ configuration:
+These variables can be used for Managed DAVx⁵ configuration.
+
+If they are specific to a certain version, this is mentioned before the variable. Deprecated variables shouldn't be used anymore and will be removed in the future. Use their replacements instead.
 
 :Name: license
 :Type: text
@@ -136,16 +138,26 @@ These variables can be used for Managed DAVx⁵ configuration:
 :Type: text
 :Required: no
 :Description: pre-filled password when an account is added; see security note below
-
 .. warning::
    Using ``login_password`` is only recommended with app-specific per-user passwords. Keep in mind that the user
-   may be able to retrieve the password even if ``login_lock_credentials`` is set.
+   may be able to retrieve the password even if ``login_credentials_lock`` is set.
 ..
+.. versionadded:: 4.4.8 replaces ``login_lock_credentials``
+:Name: login_credentials_lock
+:Type: integer
+:Required: no
+:Default: 0
+:Description: whether credentials can be changed by user. |br|
+ 0 = don't lock (user can change credentials) |br|
+ 1 = lock at login (user can still change credentials in account settings) |br|
+ 2 = lock at login and in account settings (user can't change credentials)
+..
+.. deprecated:: 4.4.8 replaced by ``login_credentials_lock``
 :Name: login_lock_credentials
 :Type: boolean
 :Required: no
 :Default: false
-:Description: whether user name and password are locked (= can't be edited by the user) in case they are provided by managed configuration
+:Description: whether user name and password are locked (= can't be edited by the user) in case they are provided by managed configuration.
 ..
 :Name: login_certificate_alias
 :Type: text
@@ -261,6 +273,7 @@ These variables can be used for Managed DAVx⁵ configuration:
 :Description: -1 = user can choose |br|
  0 = show all collections |br|
  1 = show only collections in the user's own home-sets
+
 
 
 Configuration file syntax
