@@ -214,3 +214,19 @@ events and tasks. The integration covers two cases:
 2. DAVx⁵ gets notified by the system when a contact, event or task app requests synchronization (usually over "Refresh") and runs synchronization then.
 
 Do not use Android Settings / Accounts to manage DAVx⁵ accounts or settings – always directly use DAVx⁵.
+
+Receive push notifications from server
+======================================
+
+By default, DAVx⁵ fetches the server every a set amount of minutes, to see whether there is new data to be loaded. This is inconvenient, as it can take a while before new data is available on the device.
+
+To solve this, DAVx⁵ uses WebDAV push to receive a notification from the server when new data is available.
+
+By default, Google Firebase Cloud Messaging is built-into the app, but you can choose any `UnifiedPush distributor <https://unifiedpush.org/users/distributors/>`_ you like.
+
+Choosing the preferred distributor
+----------------------------------
+
+You can choose the distributor you'd like to use from DAVx⁵ settings. Scroll to the bottom, and choose your UnifiedPush distributor.
+
+Push messages are `always encrypted <https://unifiedpush.org/users/faq/#q-is-unifiedpush-secure>`_.

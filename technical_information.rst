@@ -491,3 +491,13 @@ TLS stack (protocol versions, ciphers)
   DAVx⁵ uses `Conscrypt <https://github.com/google/conscrypt/blob/master/CAPABILITIES.md>`_ to support modern TLS protocol versions and ciphers
   even on older devices. Both your client (DAVx⁵) and the CalDAV/CardDAV server must share at least one cipher, otherwise a ``SSLProtocolException`` will occur.
 
+
+Push Notifications
+==================
+
+.. versionadded:: 4.3.16
+  DAVx⁵ has support for push notifications via `WebDAV push <https://bitfireat.github.io/webdav-push/draft-bitfire-webdav-push-00.html>`_.
+  With this protocol, the server can notify DAVx⁵ about changes on the server side, which then the client can fetch.
+
+  See a server-side implementation example `for Nextcloud <https://github.com/bitfireAT/nc_ext_dav_push>`_.
+
