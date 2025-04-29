@@ -229,4 +229,14 @@ Choosing the preferred distributor
 
 You can choose the distributor you'd like to use from DAVx⁵ settings. Scroll to the bottom, and choose your UnifiedPush distributor.
 
+.. figure:: images/unifiedpush_distributor.png
+   :alt: Option in configuration to choose the UnifiedPush distributor
+
+   Option in configuration to choose the UnifiedPush distributor
+
+.. figure:: images/unifiedpush_dialog.png
+   :alt: Dialog that appears when choosing a UnifiedPush distributor
+
+   Dialog that appears when choosing a UnifiedPush distributor
+
 Push messages are `always encrypted <https://unifiedpush.org/users/faq/#q-is-unifiedpush-secure>`_.
