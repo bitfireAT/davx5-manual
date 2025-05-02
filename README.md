@@ -26,17 +26,15 @@ For your first contribution, our CLA bot will ask you to sign the Contributor Li
 Working locally
 ===============
 
-First, install the required packages (these are the Ubuntu packages):
+First, install the required packages (needs Python3 with venv support):
 
-    apt install python3-sphinx python3-sphinx-rtd-theme
-
-Also install the Youtube extension for sphinx:
-
-    pip install sphinxcontrib-youtube
+    python3 -mvenv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
 
 Then clone the repository and do your changes. To compile:
 
-    sphinx-build . _build
+    make html
 
 Then you can see your compiled version in the `_build` directory.
 
