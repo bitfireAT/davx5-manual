@@ -30,6 +30,7 @@ Please send pull requests to make it better!
    tasks_notes
    webdav_mounts
    settings
+   webdav_push
    technical_information
    integration
    managed_davx5

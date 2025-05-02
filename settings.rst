@@ -45,6 +45,10 @@ Reset hints
 Tasks app
    Select your preferred tasks app. Tasks are only synchronized with the selected app.
 
+UnifiedPush (experimental)
+   Select the preferred UnifiedPush `distributor <https://unifiedpush.org/users/distributors/>`_. You can also select
+   *FCM (over Google)* (recommended for most users; requires Google Play services).
+
 
 Account settings
 ================

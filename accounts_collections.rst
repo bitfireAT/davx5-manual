@@ -214,3 +214,4 @@ events and tasks. The integration covers two cases:
 2. DAVx⁵ gets notified by the system when a contact, event or task app requests synchronization (usually over "Refresh") and runs synchronization then.
 
 Do not use Android Settings / Accounts to manage DAVx⁵ accounts or settings – always directly use DAVx⁵.
+
