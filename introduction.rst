@@ -36,12 +36,19 @@ How to start using DAVx⁵ on your Android device:
 #. Open DAVx⁵.
 #. Follow the instructions of the start screen (permissions, battery saving etc.).
 #. Tap on "⊕ Add account" to add a new account.
-#. Enter your base URL / email address and login credentials.
+#. Login using provider-specific login (preferred if supported) or base URL / email address and login credentials.
    You can get the base URL from your service provider and/or our `list of tested services <https://www.davx5.com/tested-with/>`_.
 #. Finish the steps to add the account.
 #. Select the address books and calendars/task lists you want to synchronize so that the respective switches are enabled.
 #. Force sync ("🗘 Synchronize") if you want the data to be available immediately.
 #. Access your address books, events and tasks using your favorite apps (Contacts, Calendar, OpenTasks, …).
+
+If there's no provider-specific login for your provider, we recommend using an :abbr:`app password
+(server-generated random password that is only intended for a specific client and that can be used as a password substitute)`
+for DAVx⁵ (if supported by the server). To do so, open the Web interface of your service, go to authentication settings and
+look for something like *Create app password*. You can then use the app password instead of your account password in DAVx⁵.
+**Using a dedicated app password for each app — like DAVx⁵ — keeps your account password private and allows you to
+revoke access at any time.**
 
 When you create a contact/event, select the desired DAVx⁵ account as storage location.
 Local contacts/events will stay on your phone and not be synchronized. If you're using DAVx⁵ the first time, you may
