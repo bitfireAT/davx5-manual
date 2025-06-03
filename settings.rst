@@ -86,6 +86,8 @@ Authentication
 User name / password / client certificate
   You can change the credentials used for synchronization at any time here (for instance, when your password has been changed on the server).
 
+  This option is not available when the account uses OAuth for authentication (provider-specific login).
+
 CalDAV
 ------
 
