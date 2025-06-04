@@ -76,7 +76,8 @@ User name / password
 When this authentication method is used, your user name (usually your email address) and password will
 be sent to the server with every request.
 
-If possible, it's recommended to use an **app password** instead of your account password.
+If possible, it's recommended to use an **app password** instead of your account password. Services
+often require/allow app passwords as a fallback when two-factor authentication (2FA) is activated.
 
 An app password is a server-generated random password that is only intended for a specific client and that can be used
 as a password substitute. By using a separate app password for each app — like DAVx⁵ — you can keep
