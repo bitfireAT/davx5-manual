@@ -51,6 +51,8 @@ On some devices (like Huawei and Xiaomi), :faq:`additional steps are required to
 automatically <synchronization-is-not-run-as-expected>`.
 
 
+.. _authentication_methods:
+
 Authentication
 ==============
 
@@ -59,7 +61,7 @@ Provider-specific login
 
 When you choose *provider-specific login*, DAVx⁵ uses
 
-- OAuth for Fastmail and Google, and
+- `OAuth <https://oauth.net/>`_ for Fastmail and Google, and
 - `Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ for Nextcloud.
 
 These authentication methods don't transfer the username and password for every request, but use a token

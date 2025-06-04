@@ -88,6 +88,8 @@ User name / password / client certificate
 
   This option is not available when the account uses OAuth for authentication (provider-specific login).
 
+  See :ref:`authentication_methods` for more information about supported authentication methods.
+
 CalDAV
 ------
 
