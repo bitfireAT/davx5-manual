@@ -43,19 +43,58 @@ How to start using DAVx⁵ on your Android device:
 #. Force sync ("🗘 Synchronize") if you want the data to be available immediately.
 #. Access your address books, events and tasks using your favorite apps (Contacts, Calendar, OpenTasks, …).
 
-If there's no provider-specific login for your provider, we recommend using an :abbr:`app password
-(server-generated random password that is only intended for a specific client and that can be used as a password substitute)`
-for DAVx⁵ (if supported by the server). To do so, open the Web interface of your service, go to authentication settings and
-look for something like *Create app password*. You can then use the app password instead of your account password in DAVx⁵.
-**Using a dedicated app password for each app — like DAVx⁵ — keeps your account password private and allows you to
-revoke access at any time.**
-
 When you create a contact/event, select the desired DAVx⁵ account as storage location.
 Local contacts/events will stay on your phone and not be synchronized. If you're using DAVx⁵ the first time, you may
 want to :faq:`transfer your local contacts to the CardDAV server <existing-contacts-are-not-synced>`.
 
 On some devices (like Huawei and Xiaomi), :faq:`additional steps are required to allow DAVx⁵ to run
 automatically <synchronization-is-not-run-as-expected>`.
+
+
+Authentication
+==============
+
+Provider-specific login
+-----------------------
+
+When you choose *provider-specific login*, DAVx⁵ uses
+
+- OAuth for Fastmail and Google, and
+- `Login Flow <https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html>`_ for Nextcloud.
+
+These authentication methods don't transfer the username and password for every request, but use a token
+and/or app password instead.
+
+.. hint:: If there's a **provider-specific login** option for your provider, you should prefer it
+   for maximum security, automatic compatibility with 2FA and automatic presets (like contact group type).
+
+User name / password
+--------------------
+
+When this authentication method is used, your user name (usually your email address) and password will
+be sent to the server with every request.
+
+If possible, it's recommended to use an **app password** instead of your account password.
+
+An app password is a server-generated random password that is only intended for a specific client and that can be used
+as a password substitute. By using a separate app password for each app — like DAVx⁵ — you can keep
+your account password private and revoke access per app at any time.
+
+To use an app password, this needs to be supported by the service. Usually you can visit the Web interface
+of your service and look for something like *Authentication settings / Create app password*. Then create an
+app password for DAVx⁵ and enter that app password instead of your account password in DAVx⁵.
+
+Client certificates
+-------------------
+
+You can provide a TLS client certificate for authentication, either alone or together with username/password.
+To use a client certificate, first install it to your device, and then choose it in *Advanced login*.
+
+Anonymous
+---------
+
+DAVx⁵ supports anonymous CalDAV/CardDAV access (usually for read-only servers) if you
+choose *Advanced login* and then don't enter any credentials.
 
 
 Permissions and battery optimization
