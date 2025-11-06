@@ -55,18 +55,9 @@ When accessing the configuration file, PKI is used to verify the TLS certificate
 Caching
 -------
 
-Two types of caching are used to cache Managed DAVx⁵ configuration when it's taken from the network:
+Managed DAVx⁵ caches its configuration file. The retrieved configuration will be considered fresh for 7 days. After that period, Managed DAVx⁵ will reload the configuration from the configured URL again.
 
-#. configuration cache and
-#. HTTP cache.
-
-Configuration cache:
-   Managed DAVx⁵ caches the configuration file which is fetched from the network so that Managed DAVx⁵ configuration is available when there is no network access (and for the time when Managed DAVx⁵ has been started, but the new network configuration is not ready yet). The cache will be overwritten when a new configuration file is downloaded. To reset the cache without a new configuration file, use: Managed DAVx⁵ / About/License / Managed configuration / Reload configuration.
-
-HTTP cache:
-   The configuration file is cached when it has been downloaded from the network according to the rules of the HTTP protocol. For instance, if the Web server which hosts the configuration file returns a freshness period of one hour, Managed DAVx⁵ will always use the cached version for one hour. However, the configuration file will be downloaded at least once a day (``max-age: 1 day``) to avoid problems caused by obsolete configuration files. If there is no ``Expires``, the cache will use ``If-Match`` and ``If-Unmodified-Since``.
-
-It's advisable to set an expiration time for the configuration file on the Web server (for instance, one hour) explicitly to avoid unnecessary network traffic every time Managed DAVx⁵ is started on a device.
+To force a reload, use: Managed DAVx⁵ / About/License / Managed configuration / Reload configuration.
 
 
 Configuration variables
