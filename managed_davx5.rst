@@ -55,7 +55,9 @@ When accessing the configuration file, PKI is used to verify the TLS certificate
 Caching
 -------
 
-Managed DAVx⁵ caches its configuration file. The retrieved configuration will be considered fresh for 7 days. After that period, Managed DAVx⁵ will reload the configuration from the configured URL again. To force reloading, use: Managed DAVx⁵ / About/License / Managed configuration / Reload configuration.
+Managed DAVx⁵ caches its configuration file. The retrieved configuration will be considered fresh for 7 days. After that period, Managed DAVx⁵ will reload the configuration from the configured URL again.
+
+To force a reload, use: Managed DAVx⁵ / About/License / Managed configuration / Reload configuration.
 
 
 Configuration variables
