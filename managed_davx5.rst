@@ -46,12 +46,6 @@ The simplest method to configure Managed DAVx⁵ over the network is to use a fi
 #. **Upload the Managed DAVx⁵ configuration file to a HTTPS server** in the network (file name: ``davdroid-config.json``)
 #. Managed DAVx⁵ / Managed configuration / Scan the QR code of the configuration file URL or enter the URL.
 
-
-Certificates
-------------
-
-When accessing the configuration file, PKI is used to verify the TLS certificate, so a self-signed certificate won't work without adding it to the Android device first. We recommend to put the configuration file to a location which is accessible over a trusted certificate. You can then define custom trusted certificates in the configuration file.
-
 Caching
 -------
 
