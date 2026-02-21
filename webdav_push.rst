@@ -52,6 +52,8 @@ How to use
    fetch latest version from Github if Push doesn't work).
 #. Select a distributor in DAVx⁵ settings.
 #. Refresh the collection list in the respective DAVx⁵ account (to fetch the respective WebDAV properties).
+   To do so, open the account in DAVx⁵, select a tab (for instance, CalDAV or CardDAV) and then
+   use the respective action menu (⋮) entry to choose "Refresh collection list".
 #. Tap on a collection to view its details. It should say *Server offers Push support* when the
    collection is not selected for synchronization, or *Push support: subscribed* (at a date/time that is always
    more recent than about a day) when the collection is selected for synchronization.
