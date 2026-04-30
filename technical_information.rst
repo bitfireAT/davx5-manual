@@ -348,7 +348,7 @@ Stored events use Android/system time zones:
 * floating ``DATE-TIME``: stored in the current system default time zone.
 * all-day events (``VALUE=DATE``): stored as UTC dates, as required by the Android calendar provider.
 
-If a TZID is not available in Android, DAVx⁵ tries to match it to a system time zone by name. If that is not possible,
+If a TZID is not available in Android, DAVx⁵ tries to match it to a system time zone by name heuristics. If that is not possible,
 DAVx⁵ keeps the same point in time and stores the event in the system default time zone instead. Custom ``VTIMEZONE``
 definitions are therefore used to interpret incoming date and time values, but custom TZIDs are not preserved unless they can be
 mapped to a system timezone. If an incoming ``VTIMEZONE`` contains outdated or conflicting rules for a TZID that Android
@@ -361,12 +361,13 @@ the iCalendar.
 * UTC events: exported as UTC ``DATE-TIME`` values
 * other timed events: exported as ``DATE-TIME`` values with ``TZID=...``
 
-For every referenced non-UTC TZID, DAVx⁵ also generates an outgoing ``VTIMEZONE`` from ical4j's time zone registry and
+For every referenced non-UTC TZID, DAVx⁵ also generates an outgoing ``VTIMEZONE`` from the bundled ical4j time zone registry and
 minifies it to the relevant observances.
 
 Stored events therefore use Android/system time zone definitions, while generated ``VTIMEZONE`` components come from
-ical4j. If those databases differ, known TZIDs are still usually interpreted by clients via their own TZ database, but
-edge cases can remain, especially for recurring events with unknown/custom time zones.
+the ical4j library and its bundled time zone definitions shipped with DAVx⁵. If those databases differ, known TZIDs are
+still usually interpreted by clients via their own TZ database, but edge cases can remain, especially for recurring events
+with unknown/custom time zones.
 
 .. warning::
 
