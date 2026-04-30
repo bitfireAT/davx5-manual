@@ -338,14 +338,14 @@ DAVx⁵ doesn't send invitation emails on its own.
 Time zones
 ^^^^^^^^^^
 
-**When processing a downloaded event**, DAVx⁵ normalizes event date/time values before storing them in the Android calendar
-provider. Outlook/Windows TZIDs are normalized to Android-friendly TZIDs.
+**When processing a downloaded event**, DAVx⁵ normalizes event date/time values to Android-compatible formats before storing them in the Android calendar
+provider. Outlook/Windows TZIDs (e.g., ``W. Europe Standard Time``) are mapped to IANA/Android TZIDs (e.g., ``Europe/Berlin``).
 
 Stored events use Android/system time zones:
 
 * ``DATE-TIME`` with ``TZID=...``: if the TZID is known to Android, DAVx⁵ keeps the same local date and time, but stores it with Android's/system's timezone definition for that TZID.
 * UTC ``DATE-TIME`` (``...Z``): stored as UTC.
-* floating ``DATE-TIME``: stored in the current system default time zone.
+* floating ``DATE-TIME`` (no TZID): stored in the current system default time zone.
 * all-day events (``VALUE=DATE``): stored as UTC dates, as required by the Android calendar provider.
 
 If a TZID is not available in Android, DAVx⁵ tries to match it to a system time zone by name heuristics. If that is not possible,
@@ -362,7 +362,7 @@ the iCalendar.
 * other timed events: exported as ``DATE-TIME`` values with ``TZID=...``
 
 For every referenced non-UTC TZID, DAVx⁵ also generates an outgoing ``VTIMEZONE`` from the bundled ical4j time zone registry and
-minifies it to the relevant observances.
+minifies it, retaining only the relevant daylight saving observances.
 
 Stored events therefore use Android/system time zone definitions, while generated ``VTIMEZONE`` components come from
 the ical4j library and its bundled time zone definitions shipped with DAVx⁵. If those databases differ, known TZIDs are
