@@ -338,21 +338,39 @@ DAVx⁵ doesn't send invitation emails on its own.
 Time zones
 ^^^^^^^^^^
 
-Thanks to `ical4j <https://github.com/ical4j/ical4j>`_, DAVx⁵ is able to really process time zone definitions of events
-(``VTIMEZONE``). If a certain time zone is referenced by identifier but ``VTIMEZONE`` component is provided,
-DAVx⁵ uses the `default time zone definitions from ical4j (Olson DB) <https://github.com/ical4j/ical4j/wiki/Timezones>`_.
+**When processing a downloaded event**, DAVx⁵ normalizes event date/time values before storing them in the Android calendar
+provider. Outlook/Windows TZIDs are normalized to Android-friendly TZIDs.
 
-When an iCalendar references a time zone which is not available in Android, DAVx⁵ tries to find an available time zone
-with (partially) matching name. If no such time zone is found, the system default time zone is used. The original value will
-be shifted to the available time zone.
+Stored events use Android/system time zones:
 
-For instance, if an event has a start time of *10:00 Custom Time Zone*, DAVx⁵ will
-use the *Custom Time Zone* ``VTIMEZONE`` to calculate the corresponding time in the system default time zone,
-let's say 12:00 *Europe/Vienna*, and then save the event as 12:00 *Europe/Vienna*.
+* ``DATE-TIME`` with ``TZID=...``: if the TZID is known to Android, DAVx⁵ keeps the same local date and time, but stores it with Android's/system's timezone definition for that TZID.
+* UTC ``DATE-TIME`` (``...Z``): stored as UTC.
+* floating ``DATE-TIME``: stored in the current system default time zone.
+* all-day events (``VALUE=DATE``): stored as UTC dates, as required by the Android calendar provider.
+
+If a TZID is not available in Android, DAVx⁵ tries to match it to a system time zone by name. If that is not possible,
+DAVx⁵ keeps the same point in time and stores the event in the system default time zone instead. Custom ``VTIMEZONE``
+definitions are therefore used to interpret incoming date and time values, but custom TZIDs are not preserved unless they can be
+mapped to a system timezone. If an incoming ``VTIMEZONE`` contains outdated or conflicting rules for a TZID that Android
+already knows, the stored event still uses Android's system time zone definition for that TZID, not the definition from
+the iCalendar.
+
+**When generating an event to upload**, DAVx⁵ recreates event date/time values from the Android event record:
+
+* all-day events: exported as ``DATE`` values
+* UTC events: exported as UTC ``DATE-TIME`` values
+* other timed events: exported as ``DATE-TIME`` values with ``TZID=...``
+
+For every referenced non-UTC TZID, DAVx⁵ also generates an outgoing ``VTIMEZONE`` from ical4j's time zone registry and
+minifies it to the relevant observances.
+
+Stored events therefore use Android/system time zone definitions, while generated ``VTIMEZONE`` components come from
+ical4j. If those databases differ, known TZIDs are still usually interpreted by clients via their own TZ database, but
+edge cases can remain, especially for recurring events with unknown/custom time zones.
 
 .. warning::
 
-   Because the Android calendar provider can only process events with time zones which are available in Android, recurring events in time zones which are not available in Android and their exceptions may not be expanded correctly.
+    Because the Android calendar provider can only process events with time zones which are available in Android, recurring events in time zones which are not available in Android and their exceptions may not be expanded correctly.
 
 .. _access-level:
 
@@ -490,4 +508,3 @@ TLS stack (protocol versions, ciphers)
 .. versionadded:: 2.5
   DAVx⁵ uses `Conscrypt <https://github.com/google/conscrypt/blob/master/CAPABILITIES.md>`_ to support modern TLS protocol versions and ciphers
   even on older devices. Both your client (DAVx⁵) and the CalDAV/CardDAV server must share at least one cipher, otherwise a ``SSLProtocolException`` will occur.
-
