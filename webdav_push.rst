@@ -8,9 +8,6 @@ By default, DAVx⁵ has to query the server in fixed intervals to see whether th
 .. versionadded:: 4.4.10
    To solve this, we have developed `WebDAV-Push <https://github.com/bitfireAT/webdav-push/>`_ so that DAVx⁵ can receive a notification from the server when new data is available.
 
-.. note::
-   WebDAV-Push support is still experimental and subject of continuous improvement.
-
 Push messages are `always end-to-end encrypted <https://unifiedpush.org/users/faq/#q-is-unifiedpush-secure>`_
 so that push transports can't read their content.
 
@@ -20,15 +17,14 @@ Server-side requirements
 
 The server needs to support and be configured for WebDAV-Push.
 
-Currently, there's only an experimental implementation of WebDAV-Push for Nextcloud:
+Currently, there's only an implementation of WebDAV-Push for Nextcloud:
 `nc_ext_dav_push <https://github.com/bitfireAT/nc_ext_dav_push/>`_. If you know of any
 other CalDAV/CardDAV server that supports WebDAV-Push or if you're interested
 in implementing it for some server, please `let us know <https://www.davx5.com/support>`_.
 
 You just need to install the `dav_push extension <https://apps.nextcloud.com/apps/dav_push>`_
-on the Nextcloud server. However, due to the experimental nature of the app, it's possible
-that the version in the app store is outdated or not working. In that case, you can
-fetch the latest source code directly from Github into the respective app directory.
+on the Nextcloud server. You can, however, also fetch the latest source code directly from 
+Github into the respective app directory.
 
 Currently, the dav_push app doesn't need any configuration. It automatically creates a
 VAPID server key.
