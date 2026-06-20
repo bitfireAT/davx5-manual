@@ -15,6 +15,10 @@ You can use either
 
 to launch the DAVx⁵ login screen with pre-filled URL and credentials.
 
+Do not rely on the ``Activity`` result because when OAuth is used, the flow is complex and
+involves the browser redirecting back to DAVx⁵. So it's best to just launch the ``Intent``
+and, if desired, register an ``OnAccountsUpdateListener`` to get informed about new accounts.
+
 Explicit Intent
 ---------------
 
