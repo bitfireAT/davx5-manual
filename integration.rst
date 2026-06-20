@@ -15,6 +15,11 @@ You can use either
 
 to launch the DAVx⁵ login screen with pre-filled URL and credentials.
 
+Do not rely on the ``Activity`` result because when OAuth is used, the flow is complex and
+involves the browser redirecting back to DAVx⁵. So it's best to just launch the ``Intent``
+(with ``FLAG_ACTIVITY_NEW_TASK``) and, if desired, register an ``OnAccountsUpdateListener``
+to get informed about new accounts.
+
 Explicit Intent
 ---------------
 
@@ -25,6 +30,7 @@ If you want to explicitly open DAVx⁵ (and no other app)::
         putExtra("url", "https://example.com/path/")
         putExtra("username", user.name)
         putExtra("password", user.app_password)
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     }
 
 You can set URL, username and password as extras. All of those are optional*.
