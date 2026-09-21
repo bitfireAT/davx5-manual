@@ -5,7 +5,7 @@ Permissions
 Local Network Access
 ====================
 
-Since Android 17, the system requires a new permission for accessing device's in the local network.
+Since Android 17, the system requires a new permission for accessing devices in the local network.
 
 Depending on the device manufacturer this may be shown as "find nearby devices", the same dialog as for other "Nearby Devices" permissions.
 
@@ -15,7 +15,7 @@ Depending on the device manufacturer this may be shown as "find nearby devices",
    :width: 250
 
 If you access your server through a local IP address (example: `192.168.1.20`), you may want to grant this permission.
-VPN access does not apply.
+This does not apply when using a VPN.
 
 More information:
     `Android Developers: Local network definition <https://developer.android.com/privacy-and-security/local-network-definition>`_
