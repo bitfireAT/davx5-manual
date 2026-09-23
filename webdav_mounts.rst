@@ -33,13 +33,6 @@ Restrictions
 
 .. note:: You can only use DAVx⁵ WebDAV mounts with file managers that support Android's Storage Access Framework (SAF).
 
-At the moment, these file managers are known to work well:
-
-* AOSP File Manager (default in many custom ROMs like LineageOS)
-* `Material Files <https://github.com/zhanghai/MaterialFiles>`_
-* Total Commander (choose "Add Custom  Location" → open side drawer → Choose the DAVx5 mount). Hint: you need to reload / swipe down and refresh the folder if it appears to be empty.
-* fx File Exporer (top right menu: "Connect to Storage" → open side drawer → Choose the DAVx5 mount)
-
 Also, not all apps support content from remote files (:abbr:`SAF (Storage Access Framework)`). If you can't open a WebDAV file with a specific app, chances are high that
 
 1. the app doesn't support remote files at all,
@@ -86,7 +79,10 @@ Manually installed file managers
 --------------------------------
 
 Manually installed file managers (like Material Files) don't have the permission
-to access :abbr:`SAF (Storage Access Framework)` mounts automatically. So you have to
+to access :abbr:`SAF (Storage Access Framework)` mounts automatically. For a list of
+file managers that are known to work, see the :faq:`FAQ entry on how to access files
+using WebDAV <general/how-can-i-access-my-files-using-webdav>`. To add a mount in such
+a file manager, you have to
 
 1. add an external mount,
 2. then select the respective DAVx⁵ mount in the directory chooser (usually in the navigation drawer), and
