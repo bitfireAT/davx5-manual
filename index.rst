@@ -29,6 +29,7 @@ Please send pull requests to make it better!
    accounts_collections
    tasks_notes
    webdav_mounts
+   permissions
    settings
    webdav_push
    technical_information
