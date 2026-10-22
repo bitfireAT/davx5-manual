@@ -81,7 +81,7 @@ Manually installed file managers
 Manually installed file managers (like Material Files) don't have the permission
 to access :abbr:`SAF (Storage Access Framework)` mounts automatically. For a list of
 file managers that are known to work, see the :faq:`FAQ entry on how to access files
-using WebDAV <general/how-can-i-access-my-files-using-webdav>`. To add a mount in such
+using WebDAV <files/how-can-i-access-my-files-using-webdav>`. To add a mount in such
 a file manager, you have to
 
 1. add an external mount,
