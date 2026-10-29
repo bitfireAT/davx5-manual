@@ -12,6 +12,7 @@ You can use either
 
 1. an explicit Intent (= directed directly to DAVx⁵) or
 2. an implicit Intent (= directed to all apps which support these URLs, especially DAVx⁵)
+3. an implicit Intent together with a configuration file
 
 to launch the DAVx⁵ login screen with pre-filled URL and credentials.
 
@@ -89,6 +90,81 @@ DAVx⁵ with the URL ``https://server.example.com/path/`` and username ``user`` 
 
 .. warning:: Username and password should not be encoded in the URL programatically. Use the
    ``username`` and ``password`` extras instead.
+
+
+
+Using a configuration file together with an implicit Intent (QR code scan)
+---------------
+
+Preconfigured Settings Format
+---------------
+
+DAVx⁵ can be pre-configured by pointing it at a JSON file hosted on a
+server. The URL (for example ``https://example.com/config.json``) of that file can be:
+
+- entered manually in the login screen,
+- encoded in a QR code as ``davx5://setup?config=<url>`` and scanned with the
+  in-app scanner, or
+- passed from another app via an Android intent with the URI
+  ``davx5://setup?config=<url>``.
+
+JSON format
+-----------
+
+.. code-block:: json
+
+   {
+     "baseRoot": "https://dav.example.com",
+     "basicAuth": {
+       "username": "ash@example.com",
+       "password": "generated-app-pw"
+     }
+   }
+
+.. note::
+
+   Unknown fields are ignored for compatibility with future versions.
+
+Field reference
+---------------
+
+``baseRoot`` (string, URI — **required**)
+   Base root URI of the CalDAV/CardDAV server.
+
+``basicAuth`` (object — **required**)
+   HTTP Basic Authentication credentials.
+
+   ``username`` (string — **required**)
+      Username.
+
+   ``password`` (string — **required**)
+      Generated app password for this login attempt. Secer should generate these on-the-fly and hould be revoked by the
+      server when not used for a brief period time. Once used it must remain valid to login.
+
+Example of the final URL
+---------------
+
+- create a QR code from an URI like this ``davx5://setup?config=https://example.com/config.json`` and scan it with a capable QR scan app or directly from within DAVx⁵ (scan capability can be limited if you use the -ose version of DAVx⁵)
+- manually enter the URL of the config file (for example ``https://example.com/config.json``) directly in the approprate field in DAVx⁵'s dedicated QR/connection profile setup option.
+
+Currently *not* yet implemented
+---------------
+
+These additional field will be handled in future versions of DAVx⁵
+
+.. code-block:: json
+
+   "customization": {
+     "productName": "Example Mail",
+     "description": "Sync your contacts, calendars and tasks - brought to you by DAVx⁵",
+     "logoImage": "data:image/gif;base64,R0lGODd[...]IQA7",
+     "headerImage": "data:image/png;base64,R0lGODd[...]IQA7"
+   },
+   "supportInfos": {
+     "linkDestination": "https://example.com/support",
+     "linkTitle": "Open a ticket / get support",
+     "description": "In case of any problem with DAVx5 or the calendar / contacts synchronization please reach out to us directly via our online helpdesk"
+   }
 
 
 
