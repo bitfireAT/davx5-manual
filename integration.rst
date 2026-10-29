@@ -94,7 +94,7 @@ DAVx⁵ with the URL ``https://server.example.com/path/`` and username ``user`` 
 
 
 Using a configuration file together with an implicit Intent (QR code scan)
----------------
+--------------------------------------------------------------------------
 
 Preconfigured Settings Format
 ---------------
@@ -138,8 +138,8 @@ Field reference
       Username.
 
    ``password`` (string — **required**)
-      Generated app password for this login attempt. Secer should generate these on-the-fly and hould be revoked by the
-      server when not used for a brief period time. Once used it must remain valid to login.
+      Generated app password for this login attempt. The server should generate this password on the fly and revoke it
+      if it is not used within a brief period of time. Once used, it must remain valid for subsequent logins.
 
 Example of the final URL
 ---------------
