@@ -12,7 +12,7 @@ You can use either
 
 1. an explicit Intent (= directed directly to DAVx⁵) or
 2. an implicit Intent (= directed to all apps which support these URLs, especially DAVx⁵)
-3. an implicit Intent together with a configuration file
+3. a json config file / connection profile loaded via implicit Intent
 
 to launch the DAVx⁵ login screen with pre-filled URL and credentials.
 
@@ -93,23 +93,21 @@ DAVx⁵ with the URL ``https://server.example.com/path/`` and username ``user`` 
 
 
 
-Using a configuration file together with an implicit Intent (QR code scan)
+Use a Connection profile (.json file) with implicit Intent
 --------------------------------------------------------------------------
 
-Preconfigured Settings Format
----------------
+**Preconfigured Settings Format**
 
-DAVx⁵ can be pre-configured by pointing it at a JSON file hosted on a
+DAVx⁵ (version 4.5.22 or newer) can be pre-configured by pointing it at a JSON file hosted on a
 server. The URL (for example ``https://example.com/config.json``) of that file can be:
 
 - entered manually in the login screen,
 - encoded in a QR code as ``davx5://setup?config=<url>`` and scanned with the
   in-app scanner, or
-- passed from another app via an Android intent with the URI
+- passed from another app via an Android Intent with the URI
   ``davx5://setup?config=<url>``.
 
-JSON format
------------
+**JSON format**
 
 .. code-block:: json
 
@@ -125,8 +123,7 @@ JSON format
 
    Unknown fields are ignored for compatibility with future versions.
 
-Field reference
----------------
+**Field reference**
 
 ``baseRoot`` (string, URI — **required**)
    Base root URI of the CalDAV/CardDAV server.
@@ -141,16 +138,14 @@ Field reference
       Generated app password for this login attempt. The server should generate this password on the fly and revoke it
       if it is not used within a brief period of time. Once used, it must remain valid for subsequent logins.
 
-Example of the final URL
----------------
+**Usage example**
 
-- create a QR code from an URI like this ``davx5://setup?config=https://example.com/config.json`` and scan it with a capable QR scan app or directly from within DAVx⁵ (scan capability can be limited if you use the -ose version of DAVx⁵)
+- create a QR code from an URI like this ``davx5://setup?config=https://example.com/config.json`` and scan it with a capable QR scan app (like `Binary Eye <https://github.com/markusfisch/BinaryEye>`_) or directly from within DAVx⁵ (scan capability may be limited if you use the -ose version of DAVx⁵)
 - manually enter the URL of the config file (for example ``https://example.com/config.json``) directly in the approprate field in DAVx⁵'s dedicated QR/connection profile setup option.
 
-Currently *not* yet implemented
----------------
+**Please note: Some variables are not yet processed**
 
-These additional field will be handled in future versions of DAVx⁵
+These additional fields will be handled in future versions of DAVx⁵:
 
 .. code-block:: json
 
